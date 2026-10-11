@@ -43,3 +43,10 @@ body.show #map,body.show #cap,body.show #ctl{visibility:visible}
 .leaflet-tooltip.lbl{background:rgba(6,31,51,.8);color:#fff;border:0;box-shadow:none}
 button:focus-visible,input:focus-visible,#tmap:focus-visible{outline:3px solid #f0c674;outline-offset:2px}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+.badges{margin:4px 0}.badge{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);text-transform:capitalize}.badge.recorded{background:#065f46;color:#fff;border-color:#065f46}.badge.tradition{background:#7c2d12;color:#fff;border-color:#7c2d12}
+.howto{margin:8px 0;font-size:14px}.howto ul{margin:6px 0;padding-left:18px}.sw{display:inline-block;width:16px;height:12px;margin-right:6px;vertical-align:middle;border:2px solid #8a5a00}.sw.att{background:rgba(212,166,74,.5)}.sw.int{border-style:dashed;background:rgba(212,166,74,.25)}.sw.clm{border-style:dotted;background:repeating-linear-gradient(45deg,#b07d1a 0 3px,transparent 3px 7px)}
+.stops{padding-left:20px}.stops h3{font-size:16px;margin:10px 0 2px}
+@media (max-width:420px){.tsctl{flex-wrap:wrap}.ticks button{font-size:11px}#tmap{height:60vh}}
+[data-theme="dark"]{--muted:#9db4c0}
+.srcp{display:block;margin-top:6px;padding:6px 10px;border-left:3px solid var(--accent);background:rgba(127,127,127,.08);font-size:13px;border-radius:6px}.srcp b{font-weight:600}
+.entry{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0}.entry a{display:block;padding:16px;border-radius:14px;border:1px solid var(--line);background:var(--panel);text-decoration:none;color:var(--ink);font:500 18px var(--serif)}.entry a span{display:block;font:14px var(--sans);color:var(--ink2)}
