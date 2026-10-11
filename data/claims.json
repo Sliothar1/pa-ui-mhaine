@@ -3,9 +3,9 @@
  "status_values": {
   "pinned": "annal entry number or page cited",
   "partly pinned": "some parts pinned, others not",
-  "year only": "annal and year cited, entry number not pinned",
   "needs source": "no page or annal pinned",
-  "tradition": "told as tradition; not verifiable"
+  "tradition": "told as tradition; not verifiable",
+  "annal identified, entry not pinned": "annal and year identified; entry number not pinned"
  },
  "claims": [
   {
@@ -60,7 +60,7 @@
   },
   {
    "id": "UM-C03",
-   "date": "960",
+   "date": "960 (AFM) / 962 (AI)",
    "title": "Murchad, king of Uí Maine",
    "ga": "Bás Mhurchadha",
    "claim": "The annals record the death of Murchad son of Áed, king of Uí Maine. In this era the ruling line came to be known as Uí Chellaig, after an earlier king named Cellach.",
@@ -143,7 +143,7 @@
    "evidence": "contemporary record",
    "reference": "Annals of the Four Masters M1167 (church at Clonmacnoise by Conchobar Ua Ceallaigh)",
    "pinned": null,
-   "status": "year only",
+   "status": "annal identified, entry not pinned",
    "centre": [
     53.326,
     -7.986
@@ -168,7 +168,7 @@
    "evidence": "contemporary record",
    "reference": "Annals of the Four Masters M1316; Annals of Connacht 1316",
    "pinned": null,
-   "status": "year only",
+   "status": "annal identified, entry not pinned",
    "centre": [
     53.3,
     -8.6
@@ -190,8 +190,8 @@
    "ga": "Nollaig na nÉigeas",
    "claim": "Uilliam Buide Ó Ceallaigh welcomes the poets, judges, historians and musicians of Ireland for Christmas. The feast is held at An Dún, Doon Fort, a hall of stone and timber raised for the occasion above Loch na nÉigeas, in the court landscape around the pailís at Lios Mór, Pallas. Gofraidh Fionn Ó Dálaigh praises it in verse.",
    "kind": "recorded",
-   "evidence": "contemporary record",
-   "reference": "FitzPatrick, Landscapes of the Learned, pp. 147–149 (feast site identified as Doon Fort, Doon Upper; pailís at Lios Mór, Pallas); poem: Knott, Ériu 5 (1911) 50–69, esp. 60–61; Bardic Poetry Database poem 932",
+   "evidence": "contemporary record (poem); scholarly interpretation (location)",
+   "reference": "FitzPatrick, Landscapes of the Learned (2023), pp. 147–149 (feast site identified as Doon Fort, Doon Upper, in her 2016 field survey; pailís at Lios Mór, Pallas); poem: Knott, Ériu 5 (1911) 50–69, esp. 60–61; Bardic Poetry Database poem 932",
    "pinned": "FitzPatrick pp. 147–149; Knott, Ériu 5, pp. 50–69 (60–61)",
    "status": "pinned",
    "centre": [
@@ -224,11 +224,11 @@
      "status": "pinned (secondary)"
     }
    ],
-   "confidence": "scholarly identification (FitzPatrick 2016 survey)",
+   "confidence": "scholarly identification (FitzPatrick 2016 field survey, published 2023)",
    "alternatives": [
     "Galey and Castle Blakeney proposed; FitzPatrick favours Doon"
    ],
-   "basis": "FitzPatrick, Landscapes of the Learned, pp. 147–149"
+   "basis": "FitzPatrick, Landscapes of the Learned (2023), pp. 147–149"
   },
   {
    "id": "UM-C09",
@@ -263,7 +263,7 @@
    "claim": "Around 1380 to 1420 the lordship is at its broadest, from Athlone and Roscommon to Abbeyknockmoy and Tiaquin, with Ballinasloe and Tycooly (Ticooly) inside it. The solid core is well attested; the hatched outer band is the claimed reach.",
    "kind": "recorded",
    "evidence": "later source",
-   "reference": "Curley, PhD thesis (widest extent c. 1380–1420; c. 1,706 km²)",
+   "reference": "Curley 2022, PhD thesis (widest extent c. 1380–1420; c. 1,706 km²)",
    "pinned": null,
    "status": "needs source",
    "centre": [
@@ -318,7 +318,7 @@
    "claim": "The lordship of Uí Mhaine ended with the Tudor changes of the late 1500s and the land settlements of the early 1600s. Its names, townlands, poems and stones remain, and that is what this site celebrates.",
    "kind": "recorded",
    "evidence": "later source",
-   "reference": "Curley, PhD thesis (closing period)",
+   "reference": "Curley 2022, PhD thesis (closing period)",
    "pinned": null,
    "status": "needs source",
    "centre": [
@@ -334,6 +334,48 @@
      "src": "Core townlands and sites that remain"
     }
    ]
+  }
+ ],
+ "places": [
+  {
+   "id": "UM-P01",
+   "name": "An Lios Mór, Pallas",
+   "reference": "FitzPatrick, Landscapes of the Learned (2023), pp. 147–149",
+   "date": "14th c.",
+   "evidence": "scholarly identification",
+   "status": "pinned · private land, no public access; view from the public road"
+  },
+  {
+   "id": "UM-P02",
+   "name": "An Dún, Doon Fort (Doon Upper)",
+   "reference": "FitzPatrick, Landscapes of the Learned (2023), pp. 147–149",
+   "date": "1351 (feast); castle 1574",
+   "evidence": "scholarly identification",
+   "status": "pinned: 1351 feast site · private land, no public access; view from the public road"
+  },
+  {
+   "id": "UM-P03",
+   "name": "Baile Uí Dhúgáin, Ballydoogan",
+   "reference": "FitzPatrick, Landscapes of the Learned (2023), pp. 147–149",
+   "date": "townland names",
+   "evidence": "later source (scholarly study)",
+   "status": "pinned"
+  },
+  {
+   "id": "UM-P04",
+   "name": "Baile na Banaba, Ballynabanaba",
+   "reference": "Book of Lecan, via FitzPatrick",
+   "date": "c. 1400 (Lecan)",
+   "evidence": "contemporary record (as cited)",
+   "status": "Irish form checked: Baile na Banaba; coordinates approximate · private land, no public access; view from the public road"
+  },
+  {
+   "id": "UM-P05",
+   "name": "Loch na nÉigeas (Boggaun Lough)",
+   "reference": "FitzPatrick, Landscapes of the Learned (2023), pp. 147–149; Knott, Ériu 5, 60–61",
+   "date": "—",
+   "evidence": "later source (scholarly study)",
+   "status": "identified (south-west of Doon Fort); map position approximate"
   }
  ]
 }

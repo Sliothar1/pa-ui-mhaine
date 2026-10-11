@@ -7,7 +7,7 @@ from playwright.sync_api import sync_playwright
 BASE=os.environ.get('BASE','http://localhost:8799/');AXE=open(os.environ.get('AXE','node_modules/axe-core/axe.min.js')).read()
 ROOT=os.path.dirname(os.path.abspath(__file__))+'/..'
 PAGES=sorted([p for p in glob.glob('*.html',root_dir=ROOT)])+sorted('scenes/'+os.path.basename(p) for p in glob.glob(ROOT+'/scenes/*.html'))
-CLAIMS=json.load(open(ROOT+'/data/claims.json'))['claims']
+_D=json.load(open(ROOT+'/data/claims.json',encoding='utf-8'));CLAIMS=_D['claims'];PLACES=_D.get('places',[])
 R=[]
 def rec(id,name,ok,detail=''):R.append({'id':id,'test':name,'result':'PASS' if ok else 'FAIL','detail':detail});print(('PASS ' if ok else 'FAIL ')+id+' '+name+(' :: '+str(detail)[:300] if detail else ''))
 TILE='tile.openstreetmap.org'
@@ -68,7 +68,14 @@ with sync_playwright() as p:
   c=b.new_context(java_script_enabled=False);pg=c.new_page();pg.goto(BASE+'timeslider.html')
   stat=pg.eval_on_selector_all('#stoplist .status','e=>e.map(x=>x.textContent)');c.close()
   if stat!=[cl['status'] for cl in CLAIMS]:mism.append(('static list',stat))
-  rec('T08','UM-046 card status/reference agree with data/claims.json (JS cards and static list)',not mism,mism)
+  c=b.new_context(java_script_enabled=False);pg=c.new_page();pg.goto(BASE+'cuirt-fothnach.html')
+  court=pg.eval_on_selector_all('.srcp[data-claim]','e=>e.map(x=>[x.dataset.claim,x.querySelector(".status")?x.querySelector(".status").textContent:"",x.textContent])');c.close()
+  PD={p['id']:p for p in PLACES}
+  if len(court)!=len(PLACES):mism.append(('court panel count',len(court)))
+  for pid,st,tx in court:
+    p=PD.get(pid)
+    if not p or st!=p['status'] or p['reference'] not in tx:mism.append(('court',pid,st))
+  rec('T08','UM-046 card and court-page panels agree with data/claims.json (JS cards, static list, court panels)',not mism,mism)
   # T9 shortcuts scoped
   c=b.new_context(reduced_motion='reduce');pg=c.new_page();pg.goto(BASE+'timeslider.html',wait_until='networkidle');pg.wait_for_timeout(500)
   v0=pg.input_value('#slider');pg.evaluate('document.activeElement.blur()');pg.keyboard.press('.');pg.keyboard.press('End');v1=pg.input_value('#slider')
@@ -99,6 +106,31 @@ with sync_playwright() as p:
   v=json.loads(pg.evaluate("axe.run(document).then(r=>JSON.stringify(r.violations.map(v=>[v.id,v.nodes.length])))"));c.close()
   if v:ax['court after theme click']=v
   rec('T14','axe-core: 0 violations on all pages, light and dark, and the court page after a theme click',not ax,ax)
+  # T15 in-page anchors resolve
+  miss=[]
+  for pg_ in PAGES:
+    c=b.new_context(java_script_enabled=False);pg=c.new_page();pg.goto(BASE+pg_)
+    for h in pg.eval_on_selector_all('a[href*="#"]','as=>as.map(a=>a.href)'):
+      if not h.startswith(BASE):continue
+      url,frag=h.split('#',1)
+      if not frag:continue
+      q=b.new_context(java_script_enabled=False);qq=q.new_page();qq.goto(url)
+      if qq.locator('[id="'+frag+'"]').count()==0:miss.append((pg_,h))
+      q.close()
+    c.close()
+  rec('T15','all in-page anchors (#feedback etc.) exist',not miss,sorted(set(miss))[:5])
+  # T16 focus-visible contrast >=3:1 in both themes (main content, nav)
+  def lum(c):
+    v=[int(x)/255 for x in re.findall(r'\d+',c)[:3]];v=[x/12.92 if x<=.03928 else ((x+.055)/1.055)**2.4 for x in v];return .2126*v[0]+.7152*v[1]+.0722*v[2]
+  def cr(a,b_):la,lb=sorted([lum(a),lum(b_)],reverse=True);return (la+.05)/(lb+.05)
+  fc={}
+  for theme in('light','dark'):
+    c=b.new_context();c.add_init_script(f"localStorage.setItem('pa-theme','{theme}')");pg=c.new_page();pg.goto(BASE+'cuirt-fothnach.html',wait_until='networkidle')
+    pg.focus('main a');o=pg.evaluate("getComputedStyle(document.activeElement).outlineColor");bg=pg.evaluate("getComputedStyle(document.body).backgroundColor")
+    pg.focus('.sitenav a');o2=pg.evaluate("getComputedStyle(document.activeElement).outlineColor");nb=pg.evaluate("getComputedStyle(document.querySelector('.sitenav')).backgroundColor")
+    nb=nb if 'rgba(0, 0, 0, 0)' not in nb else 'rgb(6, 31, 51)'
+    fc[theme]=(round(cr(o,bg),2),round(cr(o2,nb),2));c.close()
+  rec('T16','focus outline contrast >=3:1 in light and dark (content and nav)',all(min(v)>=3 for v in fc.values()),fc)
   b.close()
 json.dump(R,open(ROOT+'/tests/results.json','w'),ensure_ascii=False,indent=1)
 print(sum(r['result']=='PASS' for r in R),'/',len(R),'passed');sys.exit(0 if all(r['result']=='PASS' for r in R) else 1)
