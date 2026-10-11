@@ -37,10 +37,10 @@ const routes=L.layerGroup([
  L.polyline([[53.65,-8.00],[53.50,-7.97],[53.423,-7.94],[53.326,-7.99],[53.20,-8.02]],{color:'#5aa9e6',weight:4}).bindTooltip('River Shannon (approximate)')]);
 const assembly=L.layerGroup([L.circleMarker([53.40,-8.38],{radius:7,color:'#f0c674'}).bindTooltip('Tullyneeny assembly / fair site (location approximate, verify)')]);
 const learned=L.layerGroup([
- L.circleMarker([53.4067,-8.4063],{radius:7,color:'#e58fb6'}).bindTooltip('Lios Mór, Pallas: court of Ó Ceallaigh (FitzPatrick)'),
+ L.circleMarker([53.4067,-8.4063],{radius:7,color:'#e58fb6'}).bindTooltip('Lios Mór, Pallas: court of Ó Ceallaigh and site of the 1351 feast (FitzPatrick)'),
  L.circleMarker([53.3746,-8.4009],{radius:6,color:'#e58fb6'}).bindTooltip('Doon fort'),
- L.circleMarker([53.42,-8.39],{radius:6,color:'#e58fb6'}).bindTooltip('Ballynabanaba: Ó Longargain the harper (approximate position)'),
- L.circleMarker([53.578,-8.066],{radius:6,color:'#e58fb6'}).bindTooltip('Galey (Gailey), Lough Ree: the other candidate site for 1351')]);
+ L.circleMarker([53.42,-8.39],{radius:6,color:'#e58fb6'}).bindTooltip('Ballynabanaba: Ó Longargain the harper (approximate position)')]);
+routes.addLayer(L.polyline([[53.328,-8.229],[53.333,-8.400],[53.3746,-8.4009],[53.4341,-8.4761],[53.4067,-8.4063]],{color:'#e0b35a',weight:4,dashArray:'4 8'}).bindTooltip('Poets\' route to Pallas: route as told locally'));
 const truth=L.geoJSON(null,{style:{color:'#ff5c5c',weight:3}});
 fetch('data/true-boundary.geojson').then(r=>r.json()).then(g=>{truth.addData(g);document.getElementById('truthnote').textContent=g.features.length?'Corrected boundary loaded.':'Placeholder: Garry\'s corrected boundary arrives 12 Oct 2026.';}).catch(()=>{});
 L.control.layers(null,{"O'Donovan 1843 claim (faint)":odonovan,'Routes and rivers':routes,'Assembly sites':assembly,'Learned families and court':learned,'True boundary (from 12 Oct)':truth},{collapsed:false}).addTo(map);
