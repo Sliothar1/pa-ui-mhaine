@@ -52,7 +52,7 @@ function draw(s){terrG.clearLayers();s.polys.forEach(p=>{L.polygon(p.r,STY[p.con
 function go(i,announce){i=(i+S.length)%S.length;if(i===cur)return;cur=i;const s=S[i];sl.value=i;sl.setAttribute('aria-valuetext',s.y+': '+s.t);
  draw(s);RM?map.setView(s.c,s.z,{animate:false}):map.flyTo(s.c,s.z,{duration:2});
  const conf=s.polys.map(p=>CL[p.conf]).join(' + ');
- card.innerHTML='<p class="kicker">Stop '+(i+1)+' of '+S.length+' · '+s.y+'</p><h3><span lang="ga">'+s.ga+'</span> · '+s.t+'</h3><p class="badges"><span class="badge '+s.k+'">'+s.k+'</span> <span class="badge">'+conf+'</span></p><p>'+s.d+'</p>'+(s.link?'<p><a href="'+s.link+'">Visit the court at Fohenagh →</a></p>':'')+'<p class="srcp"><b>Reference:</b> '+s.an+' · <b>Date:</b> '+s.y+' · <b>Evidence:</b> '+s.ev+' · <b>Status:</b> '+s.st+'</p>';
+ card.innerHTML='<p class="kicker">Stop '+(i+1)+' of '+S.length+' · '+s.y+'</p><h2 class="cardh"><span lang="ga">'+s.ga+'</span> · '+s.t+'</h2><p class="badges"><span class="badge '+s.k+'">'+s.k+'</span> <span class="badge">'+conf+'</span></p><p>'+s.d+'</p>'+(s.link?'<p><a href="'+s.link+'">Visit the court at Fohenagh →</a></p>':'')+'<p class="srcp"><b>Reference:</b> '+s.an+' · <b>Date:</b> '+s.y+' · <b>Evidence:</b> '+s.ev+' · <b>Status:</b> '+s.st+'</p>';
  if(announce)live.textContent='Stop '+(i+1)+': '+s.y+', '+s.t+'. '+s.k+'.';
  document.querySelectorAll('.ticks button').forEach((b,j)=>b.setAttribute('aria-current',j===i?'step':'false'))}
 const tk=document.getElementById('ticks');S.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.textContent=s.y;b.setAttribute('aria-label',s.y+': '+s.t);b.onclick=()=>{stop();go(i,true)};tk.appendChild(b)});

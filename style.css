@@ -50,3 +50,4 @@ button:focus-visible,input:focus-visible,#tmap:focus-visible{outline:3px solid #
 [data-theme="dark"]{--muted:#9db4c0}
 .srcp{display:block;margin-top:6px;padding:6px 10px;border-left:3px solid var(--accent);background:rgba(127,127,127,.08);font-size:13px;border-radius:6px}.srcp b{font-weight:600}
 .entry{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0}.entry a{display:block;padding:16px;border-radius:14px;border:1px solid var(--line);background:var(--panel);text-decoration:none;color:var(--ink);font:500 18px var(--serif)}.entry a span{display:block;font:14px var(--sans);color:var(--ink2)}
+.cardh{font-size:20px;margin:4px 0}
