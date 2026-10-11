@@ -1,7 +1,7 @@
 name: site-checks
 on:
   push:
-    branches: [main, v2-timeslider, pa-core, croi-ui-mhaine]
+    branches: [main, v2-timeslider, pa-core]
   pull_request:
 permissions:
   contents: read
