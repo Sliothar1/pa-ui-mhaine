@@ -63,7 +63,7 @@ with sync_playwright() as p:
     pg.click(f'#ticks button:nth-child({i+1})');pg.wait_for_timeout(100)
     st=pg.inner_text('#card .status');refx=pg.inner_text('#card .srcp')
     if st!=cl['status'] or cl['reference'] not in refx:mism.append((cl['id'],st,cl['status']))
-    if cl['status']=='pinned' and not cl['pinned']:mism.append((cl['id'],'pinned without pin'))
+    if cl['status']=='pinned' and ((not cl['pinned']) or str(cl['pinned']).strip().upper() in ('','NEEDS SOURCE')):mism.append((cl['id'],'pinned without pin'))
   c.close()
   c=b.new_context(java_script_enabled=False);pg=c.new_page();pg.goto(BASE+'timeslider.html')
   stat=pg.eval_on_selector_all('#stoplist .status','e=>e.map(x=>x.textContent)');c.close()
@@ -126,11 +126,22 @@ with sync_playwright() as p:
   fc={}
   for theme in('light','dark'):
     c=b.new_context();c.add_init_script(f"localStorage.setItem('pa-theme','{theme}')");pg=c.new_page();pg.goto(BASE+'cuirt-fothnach.html',wait_until='networkidle')
-    pg.focus('main a');o=pg.evaluate("getComputedStyle(document.activeElement).outlineColor");bg=pg.evaluate("getComputedStyle(document.body).backgroundColor")
-    pg.focus('.sitenav a');o2=pg.evaluate("getComputedStyle(document.activeElement).outlineColor");nb=pg.evaluate("getComputedStyle(document.querySelector('.sitenav')).backgroundColor")
-    nb=nb if 'rgba(0, 0, 0, 0)' not in nb else 'rgb(6, 31, 51)'
-    fc[theme]=(round(cr(o,bg),2),round(cr(o2,nb),2));c.close()
-  rec('T16','focus outline contrast >=3:1 in light and dark (content and nav)',all(min(v)>=3 for v in fc.values()),fc)
+    res={}
+    for name,sel,bgsel in [('content','main a','body'),('nav','.sitenav .navlinks a','.sitenav'),('banner','.draft a','.draft'),('hero','.hero a','.hero')]:
+      if pg.locator(sel).count()==0:res[name]='no link on page';continue
+      pg.keyboard.press('Escape');pg.focus(sel)
+      o=pg.evaluate("getComputedStyle(document.activeElement).outlineColor");bg=pg.evaluate(f"getComputedStyle(document.querySelector('{bgsel}')).backgroundColor")
+      if 'rgba(0, 0, 0, 0)' in bg:bg=pg.evaluate("getComputedStyle(document.body).backgroundColor") if bgsel=='body' else 'rgb(6, 31, 51)'
+      res[name]=round(cr(o,bg),2)
+    fc[theme]=res;c.close()
+  rec('T16','focus outline contrast >=3:1 in light and dark (content, nav link, banner link, hero link if any)',all(v>=3 for t in fc.values() for v in t.values() if isinstance(v,float)),fc)
+  # T17 draft indexing: noindex on every page and no canonical while LIVE=False
+  live='LIVE=True' in open(ROOT+'/tools/build.py',encoding='utf-8').read()
+  badidx=[]
+  for pg_ in PAGES:
+    h=open(ROOT+'/'+pg_,encoding='utf-8').read()
+    if not live and ('noindex' not in h or 'rel="canonical"' in h or 'og:url' in h):badidx.append(pg_)
+  rec('T17','draft mode: noindex on every page, no canonical/og:url (LIVE=False)',not badidx,badidx)
   b.close()
 json.dump(R,open(ROOT+'/tests/results.json','w'),ensure_ascii=False,indent=1)
 print(sum(r['result']=='PASS' for r in R),'/',len(R),'passed');sys.exit(0 if all(r['result']=='PASS' for r in R) else 1)

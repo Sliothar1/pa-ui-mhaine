@@ -3,8 +3,6 @@
 'use strict';
 const RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const CL={attested:'Core sites attested · outline sketched',interpretation:'Interpretation',claimed:'Claimed'};
-const PL={Athlone:[53.423,-7.940],Roscommon:[53.634,-8.182],Ballinasloe:[53.328,-8.229],Tiaquin:[53.37,-8.62],Abbeyknockmoy:[53.437,-8.745],
- Kilconnell:[53.333,-8.400],Aughrim:[53.299,-8.316],Ahascragh:[53.398,-8.336],Fohenagh:[53.391,-8.421],'Tycooly (Ticooly)':[53.4654,-8.3982],Clonmacnoise:[53.326,-7.986],Knockdoe:[53.354,-8.887]};
 const SVGNS='http://www.w3.org/2000/svg';
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 document.getElementById('jsui').hidden=false;
@@ -21,7 +19,6 @@ function ensureHatch(){const svg=map.getPanes().overlayPane.querySelector('svg')
 function applyHatch(){ensureHatch();terrG.eachLayer(l=>{if(l.options.hatched&&l.getElement())l.getElement().setAttribute('fill','url(#hatch)');});}
 map.on('zoomend moveend viewreset',applyHatch);
 const STY={attested:{color:'#8a5a00',weight:3,fillColor:'#d4a64a',fillOpacity:.35},interpretation:{color:'#b07d1a',weight:2,dashArray:'6 6',fillColor:'#d4a64a',fillOpacity:.2},claimed:{color:'#b07d1a',weight:2,dashArray:'2 6',fillOpacity:.5,hatched:true}};
-for(const [n,ll] of Object.entries(PL))L.circleMarker(ll,{radius:5,color:'#fff',weight:1,fillColor:'#0f7c80',fillOpacity:.95}).bindTooltip(n,{permanent:['Athlone','Roscommon','Ballinasloe','Fohenagh','Abbeyknockmoy','Tiaquin'].includes(n),direction:'right',className:'lbl'}).addTo(map);
 const odonovan=L.polygon([[53.75,-8.45],[53.75,-7.95],[53.40,-7.88],[53.05,-8.05],[52.98,-8.40],[53.20,-8.85],[53.50,-8.85]],{color:'#789',weight:1,dashArray:'2 6',fillOpacity:.04}).bindTooltip("O'Donovan 1843: a claim, not a fact · sketch, not traced");
 const RT=[
  {p:[[53.328,-8.229],[53.330,-8.285],[53.331,-8.340]],n:'1. Ballinasloe west along the Eiscir Riada (exact line provisional). The Turoe Stone lies away to the south-west, on the left.'},
@@ -31,17 +28,16 @@ const routes=L.layerGroup([
  L.polyline([[53.27,-8.80],[53.30,-8.55],[53.33,-8.40],[53.33,-8.23],[53.38,-8.05],[53.423,-7.94]],{color:'#0f7c80',weight:3,dashArray:'10 6'}).bindTooltip('Slighe Mhór (Eiscir Riada): indicative line only'),
  L.polyline([[53.66,-8.22],[53.55,-8.27],[53.45,-8.25],[53.33,-8.22],[53.23,-8.10],[53.18,-8.03]],{color:'#2563eb',weight:3}).bindTooltip('River Suck (approximate)'),
  L.polyline([[53.65,-8.00],[53.50,-7.97],[53.423,-7.94],[53.326,-7.99],[53.20,-8.02]],{color:'#2563eb',weight:4}).bindTooltip('River Shannon (approximate)'),
- L.circleMarker([53.2606,-8.5547],{radius:7,color:'#7c3aed',fillOpacity:.8}).bindTooltip('Turoe Stone, Bullaun: Iron Age decorated stone (landmark)'),
  ...RT.map(s=>L.polyline(s.p,{color:'#c2410c',weight:4,dashArray:'8 6'}).bindTooltip('Poets\' route: Reconstructed from local telling; not a contemporary itinerary. Stops are approximate.<br>'+s.n,{sticky:true}))]);
-const assembly=L.layerGroup([L.circleMarker([53.40,-8.38],{radius:7,color:'#a16207'}).bindTooltip('Tullyneeny assembly / fair site (location approximate, verify)')]);
-const learned=L.layerGroup([
- L.circle([53.4067,-8.4063],{radius:250,color:'#be185d',weight:2,fillOpacity:.15}).bindTooltip('An Lios Mór (Irish form provisional), Pallas: the Ó Ceallaigh pailís (FitzPatrick 2023, pp. 147–149). Approximate area; private land, no public access; view from the public road'),
- L.circle([53.3746,-8.4009],{radius:250,color:'#be185d',weight:2,fillOpacity:.15}).bindTooltip('An Dún (Irish form provisional) · Doon Fort, Doon Upper: site of the 1351 feast (FitzPatrick 2023, pp. 147–149). Approximate area; private land, no public access; view from the public road'),
- L.circleMarker([53.3712,-8.4060],{radius:6,color:'#2563eb',fillOpacity:.6}).bindTooltip('Loch na nÉigeas (Boggaun Lough): seasonal lake south-west of Doon Fort (FitzPatrick; position approximate)'),
- L.circleMarker([53.3875,-8.4006],{radius:6,color:'#be185d'}).bindTooltip('Baile Uí Dhubhagáin · Ballydoogan: lands of the Ó Dubhagáin learned family (FitzPatrick, pp. 147–149)'),
- L.circle([53.395,-8.388],{radius:250,color:'#be185d',weight:2,fillOpacity:.15}).bindTooltip('Baile na Banaba · Ballynabanaba: Ó Longargáin the harper. Approximate area; private land, no public access; view from the public road'),
- L.circleMarker([53.4341,-8.4761],{radius:6,color:'#be185d'}).bindTooltip('Gallagh (Castle Blakeney): a nearby court site, not on the poets\' route'),
- L.circleMarker([53.434,-8.43],{radius:6,color:'#be185d'}).bindTooltip('Caltra: nearby court country (approximate)')]);
+const assembly=L.layerGroup();
+const learned=L.layerGroup();
+const COLOR={landmark:'#7c3aed',assembly:'#a16207',court:'#be185d',lake:'#2563eb'};
+function addPlaces(list){list.forEach(p=>{
+ if(p.kind==='label'){L.circleMarker(p.ll,{radius:5,color:'#fff',weight:1,fillColor:'#0f7c80',fillOpacity:.95}).bindTooltip(esc(p.name),{permanent:!!p.permanent,direction:'right',className:'lbl'}).addTo(map);return;}
+ const tgt=p.kind==='assembly'?assembly:p.kind==='landmark'?routes:learned;
+ // private land: an approximate dashed area that stays visible at every zoom (pixel radius), never a precise pin
+ const m=p.private?L.circleMarker(p.ll,{radius:16,color:COLOR[p.kind],weight:2,dashArray:'4 4',fillOpacity:.12}):L.circleMarker(p.ll,{radius:p.kind==='lake'?6:6,color:COLOR[p.kind],fillOpacity:p.kind==='lake'?.6:.2});
+ m.bindTooltip(esc(p.tip||p.name)).addTo(tgt);});}
 const boundary=L.geoJSON(null,{style:{color:'#dc2626',weight:3,fillOpacity:0}});
 L.control.layers(null,{"O'Donovan 1843 claim (sketch, not traced)":odonovan,"Routes, rivers and the poets' route":routes,'Assembly sites':assembly,'Learned families and court':learned},{collapsed:window.innerWidth<600}).addTo(map);
 fetch('data/true-boundary.geojson').then(r=>r.ok?r.json():null).then(g=>{const note=document.getElementById('boundarynote');
@@ -61,11 +57,11 @@ function stop(){clearInterval(timer);timer=null;if(RM)return;pb.textContent='▶
 region.addEventListener('keydown',e=>{if(e.target===sl&&['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;let n=null;
  if(e.key==='.'||e.key==='ArrowRight')n=cur+1;else if(e.key===','||e.key==='ArrowLeft')n=cur-1;else if(e.key==='Home')n=0;else if(e.key==='End')n=S.length-1;
  if(n!==null){e.preventDefault();stop();go(n,true);}});
-Promise.all([fetch('data/claims.json').then(r=>r.json()),fetch('data/eras.json').then(r=>r.json())]).then(([c,g])=>{S=c.claims;G=g;
+Promise.all([fetch('data/claims.json').then(r=>r.json()),fetch('data/eras.json').then(r=>r.json()),fetch('data/places.json').then(r=>r.json())]).then(([c,g,pl])=>{S=c.claims;G=g;addPlaces(pl.places);
  const tk=document.getElementById('ticks');S.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.textContent=s.date;b.setAttribute('aria-label',s.date+': '+s.title);b.onclick=()=>{stop();go(i,true);};tk.appendChild(b);});
  sl.max=S.length-1;sl.addEventListener('input',()=>{stop();go(+sl.value,true);});
  if(RM){pb.disabled=true;pb.textContent='Autoplay off (reduced motion)';}
  else pb.onclick=()=>{if(timer)return stop();pb.textContent='❚❚ Pause';pb.setAttribute('aria-pressed','true');timer=setInterval(()=>go(cur+1,true),7000);};
- document.getElementById('stoplist').hidden=true;go(S.findIndex(s=>s.date==='c. 1400'),false);})
+ document.getElementById('stoplist').hidden=true;const i0=S.findIndex(s=>s.date==='c. 1400');go(i0<0?0:i0,false);})
  .catch(()=>{card.innerHTML='<p class="honesty" role="alert">The stop data could not be loaded. The full list of stops is below.</p>';pb.disabled=true;});
 })();

@@ -22,7 +22,7 @@ jobs:
         run: |
           pip install playwright==1.63.0
           python -m playwright install --with-deps chromium
-          npm install --no-save axe-core@4.10.2 html-validate@9
+          npm install --no-save axe-core@4.10.2 html-validate@9.7.1
       - name: Rebuild generated files; fail if anything changed
         run: |
           python3 tools/build.py

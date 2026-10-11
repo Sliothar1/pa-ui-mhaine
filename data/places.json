@@ -1,0 +1,215 @@
+{
+ "_note": "Map places for the time map. Coordinates must be unique (checked by tools/build.py). kind: label | landmark | assembly | court | lake. private: true -> drawn as an approximate dashed area, no precise pin.",
+ "places": [
+  {
+   "id": "athlone",
+   "name": "Athlone",
+   "ll": [
+    53.423,
+    -7.94
+   ],
+   "kind": "label",
+   "permanent": true
+  },
+  {
+   "id": "roscommon",
+   "name": "Roscommon",
+   "ll": [
+    53.634,
+    -8.182
+   ],
+   "kind": "label",
+   "permanent": true
+  },
+  {
+   "id": "ballinasloe",
+   "name": "Ballinasloe",
+   "ll": [
+    53.328,
+    -8.229
+   ],
+   "kind": "label",
+   "permanent": true
+  },
+  {
+   "id": "tiaquin",
+   "name": "Tiaquin",
+   "ll": [
+    53.37,
+    -8.62
+   ],
+   "kind": "label",
+   "permanent": true,
+   "note": "approximate"
+  },
+  {
+   "id": "abbeyknockmoy",
+   "name": "Abbeyknockmoy",
+   "ll": [
+    53.437,
+    -8.745
+   ],
+   "kind": "label",
+   "permanent": true
+  },
+  {
+   "id": "kilconnell",
+   "name": "Kilconnell",
+   "ll": [
+    53.333,
+    -8.4
+   ],
+   "kind": "label"
+  },
+  {
+   "id": "aughrim",
+   "name": "Aughrim",
+   "ll": [
+    53.299,
+    -8.316
+   ],
+   "kind": "label"
+  },
+  {
+   "id": "ahascragh",
+   "name": "Ahascragh",
+   "ll": [
+    53.398,
+    -8.336
+   ],
+   "kind": "label"
+  },
+  {
+   "id": "fohenagh",
+   "name": "Fohenagh",
+   "ll": [
+    53.391,
+    -8.421
+   ],
+   "kind": "label",
+   "permanent": true
+  },
+  {
+   "id": "tycooly",
+   "name": "Tycooly (Ticooly)",
+   "ll": [
+    53.4654,
+    -8.3982
+   ],
+   "kind": "label",
+   "source": "OS grid M736462 (Ticooly O'Kelly, Killosolan parish, Tiaquin barony), Landed Estates Database, University of Galway, property 825; converted from Irish Grid"
+  },
+  {
+   "id": "clonmacnoise",
+   "name": "Clonmacnoise",
+   "ll": [
+    53.326,
+    -7.986
+   ],
+   "kind": "label"
+  },
+  {
+   "id": "knockdoe",
+   "name": "Knockdoe",
+   "ll": [
+    53.354,
+    -8.887
+   ],
+   "kind": "label",
+   "note": "approximate"
+  },
+  {
+   "id": "turoe",
+   "name": "Turoe Stone",
+   "ll": [
+    53.2606,
+    -8.5547
+   ],
+   "kind": "landmark",
+   "tip": "Turoe Stone, Bullaun: Iron Age decorated stone (landmark)"
+  },
+  {
+   "id": "tullyneeny",
+   "name": "Tullyneeny",
+   "ll": [
+    53.4,
+    -8.38
+   ],
+   "kind": "assembly",
+   "tip": "Tullyneeny assembly / fair site (location approximate, verify)"
+  },
+  {
+   "id": "liosmor",
+   "name": "An Lios Mór, Pallas",
+   "ll": [
+    53.4067,
+    -8.4063
+   ],
+   "kind": "court",
+   "private": true,
+   "tip": "An Lios Mór (Irish form provisional), Pallas: the Ó Ceallaigh pailís (FitzPatrick 2023, pp. 147–149). Approximate area; private land, no public access; view from the public road"
+  },
+  {
+   "id": "doon",
+   "name": "An Dún, Doon Fort",
+   "ll": [
+    53.3746,
+    -8.4009
+   ],
+   "kind": "court",
+   "private": true,
+   "tip": "An Dún (Irish form provisional) · Doon Fort, Doon Upper: site of the 1351 feast (FitzPatrick 2023, pp. 147–149). Approximate area; private land, no public access; view from the public road"
+  },
+  {
+   "id": "lochnaneigeas",
+   "name": "Loch na nÉigeas (Boggaun Lough)",
+   "ll": [
+    53.3712,
+    -8.406
+   ],
+   "kind": "lake",
+   "tip": "Loch na nÉigeas (Boggaun Lough): seasonal lake south-west of Doon Fort (FitzPatrick; position approximate)"
+  },
+  {
+   "id": "ballydoogan",
+   "name": "Ballydoogan",
+   "ll": [
+    53.3875,
+    -8.4006
+   ],
+   "kind": "court",
+   "tip": "Baile Uí Dhubhagáin · Ballydoogan: lands of the Ó Dubhagáin learned family (FitzPatrick, pp. 147–149)"
+  },
+  {
+   "id": "ballynabanaba",
+   "name": "Ballynabanaba",
+   "ll": [
+    53.395,
+    -8.388
+   ],
+   "kind": "court",
+   "private": true,
+   "tip": "Baile na Banaba · Ballynabanaba: Ó Longargáin the harper. Approximate area; private land, no public access; view from the public road"
+  },
+  {
+   "id": "gallagh",
+   "name": "Gallagh (Castle Blakeney)",
+   "ll": [
+    53.4341,
+    -8.4761
+   ],
+   "kind": "court",
+   "tip": "Gallagh (Castle Blakeney): a nearby court site, not on the poets' route"
+  },
+  {
+   "id": "caltra",
+   "name": "Caltra",
+   "ll": [
+    53.434,
+    -8.43
+   ],
+   "kind": "court",
+   "tip": "Caltra: nearby court country (approximate)"
+  }
+ ]
+}
