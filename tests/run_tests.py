@@ -136,11 +136,20 @@ with sync_playwright() as p:
     fc[theme]=res;c.close()
   rec('T16','focus outline contrast >=3:1 in light and dark (content, nav link, banner link, hero link if any)',all(v>=3 for t in fc.values() for v in t.values() if isinstance(v,float)),fc)
   # T17 draft indexing: noindex on every page and no canonical while LIVE=False
-  live='LIVE=True' in open(ROOT+'/tools/build.py',encoding='utf-8').read()
+  live=os.environ.get('PA_LIVE')=='1'
   badidx=[]
   for pg_ in PAGES:
     h=open(ROOT+'/'+pg_,encoding='utf-8').read()
     if not live and ('noindex' not in h or 'rel="canonical"' in h or 'og:url' in h):badidx.append(pg_)
+  import tempfile,shutil,subprocess
+  tmp=tempfile.mkdtemp();shutil.copytree(ROOT,tmp+'/r',ignore=shutil.ignore_patterns('.git','node_modules'))
+  subprocess.run([sys.executable,'tools/build.py'],cwd=tmp+'/r',env={**os.environ,'PA_LIVE':'1'},check=True,capture_output=True)
+  badlive=[]
+  for pg_ in PAGES:
+    h=open(tmp+'/r/'+pg_,encoding='utf-8').read()
+    if 'noindex' in h or 'rel="canonical"' not in h or 'og:url' not in h:badlive.append(pg_)
+  shutil.rmtree(tmp)
+  rec('T18','LIVE build (PA_LIVE=1, temp copy): no noindex, canonical + og:url on every page',not badlive,badlive)
   rec('T17','draft mode: noindex on every page, no canonical/og:url (LIVE=False)',not badidx,badidx)
   b.close()
 json.dump(R,open(ROOT+'/tests/results.json','w'),ensure_ascii=False,indent=1)

@@ -4,7 +4,7 @@
 const RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const CL={attested:'Core sites attested · outline sketched',interpretation:'Interpretation',claimed:'Claimed'};
 const SVGNS='http://www.w3.org/2000/svg';
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 document.getElementById('jsui').hidden=false;
 const map=L.map('tmap',{zoomControl:true,keyboard:true,zoomAnimation:!RM,fadeAnimation:!RM,markerZoomAnimation:!RM}).setView([53.43,-8.30],9); // = first stop shown (c. 1400)
 let tileErrors=0;
@@ -31,13 +31,14 @@ const routes=L.layerGroup([
  ...RT.map(s=>L.polyline(s.p,{color:'#c2410c',weight:4,dashArray:'8 6'}).bindTooltip('Poets\' route: Reconstructed from local telling; not a contemporary itinerary. Stops are approximate.<br>'+s.n,{sticky:true}))]);
 const assembly=L.layerGroup();
 const learned=L.layerGroup();
-const COLOR={landmark:'#7c3aed',assembly:'#a16207',court:'#be185d',lake:'#2563eb'};
+const COLOR={landmark:'#7c3aed',assembly:'#a16207',court:'#be185d',lake:'#2563eb',learned_land:'#0f766e'};
+const PRIV='Private land: view from the public road; approximate 250 m area.';
 function addPlaces(list){list.forEach(p=>{
  if(p.kind==='label'){L.circleMarker(p.ll,{radius:5,color:'#fff',weight:1,fillColor:'#0f7c80',fillOpacity:.95}).bindTooltip(esc(p.name),{permanent:!!p.permanent,direction:'right',className:'lbl'}).addTo(map);return;}
  const tgt=p.kind==='assembly'?assembly:p.kind==='landmark'?routes:learned;
  // private land: an approximate dashed area that stays visible at every zoom (pixel radius), never a precise pin
  const m=p.private?L.circleMarker(p.ll,{radius:16,color:COLOR[p.kind],weight:2,dashArray:'4 4',fillOpacity:.12}):L.circleMarker(p.ll,{radius:p.kind==='lake'?6:6,color:COLOR[p.kind],fillOpacity:p.kind==='lake'?.6:.2});
- m.bindTooltip(esc(p.tip||p.name)).addTo(tgt);});}
+ m.bindTooltip(esc(p.tip||p.name));if(p.private)m.bindPopup('<b>'+esc(p.name)+'</b><br>'+esc(PRIV));m.addTo(tgt);});}
 const boundary=L.geoJSON(null,{style:{color:'#dc2626',weight:3,fillOpacity:0}});
 L.control.layers(null,{"O'Donovan 1843 claim (sketch, not traced)":odonovan,"Routes, rivers and the poets' route":routes,'Assembly sites':assembly,'Learned families and court':learned},{collapsed:window.innerWidth<600}).addTo(map);
 fetch('data/true-boundary.geojson').then(r=>r.ok?r.json():null).then(g=>{const note=document.getElementById('boundarynote');

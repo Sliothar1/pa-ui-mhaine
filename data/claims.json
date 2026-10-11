@@ -1,4 +1,5 @@
 {
+ "curley_area_km2": 1706,
  "_note": "Single source of truth for the time-map claims. Edit here, then run: python3 tools/build.py",
  "status_values": {
   "pinned": "annal entry number or page cited",
@@ -283,8 +284,7 @@
      "conf": "attested",
      "src": "Core: Kilconnell, Aughrim, Ahascragh, Fohenagh"
     }
-   ],
-   "curley_area_km2": 1706
+   ]
   },
   {
    "id": "UM-C11",
@@ -298,8 +298,8 @@
    "pinned": "M1504.13–14 (CELT T100005E)",
    "status": "pinned",
    "centre": [
-    53.354,
-    -8.887
+    53.378,
+    -8.896
    ],
    "zoom": 11,
    "link": null,

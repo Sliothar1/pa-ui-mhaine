@@ -5,7 +5,7 @@ import json,re,glob,html,os,math,sys
 
 # Publishing switch. False while the site is a draft: every page keeps noindex and has NO canonical link.
 # Set True at launch: drops noindex and adds <link rel="canonical"> + og:url pointing at GitHub Pages.
-LIVE=False
+LIVE=os.environ.get('PA_LIVE')=='1'  # default False (draft)
 PAGES_BASE="https://sliothar1.github.io/pa-ui-mhaine/"
 os.chdir(os.path.dirname(os.path.abspath(__file__))+'/..')
 U=dict(encoding='utf-8')
@@ -16,7 +16,7 @@ def wr(f,s):
 def jdump(o,f,**k):
   with open(f,'w',**U) as fh:json.dump(o,fh,ensure_ascii=False,**k)
 D=json.loads(rd('data/claims.json'));C=D['claims'];G=json.loads(rd('data/eras.json'));PLACES=D.get('places',[]);MAP=json.loads(rd('data/places.json'))['places']
-UNPINNED=lambda v:(not v) or str(v).strip().upper() in ('','NEEDS SOURCE')
+UNPINNED=lambda v:str(v or '').strip().upper() in ('','NEEDS SOURCE')
 # schema validation
 REQ=('id','date','title','ga','claim','kind','evidence','reference','pinned','status','centre','zoom','polys')
 errs=[]
@@ -39,6 +39,19 @@ for p in MAP:
   k=tuple(p['ll'])
   if k in seen:errs.append(f"coordinate {k} defined twice ({seen[k]}, {p['id']})")
   seen[k]=p['id']
+KINDS={'label','landmark','assembly','court','lake','learned_land'}
+for p in MAP:
+  if p.get('kind') not in KINDS:errs.append(f"place {p.get('id')}: kind {p.get('kind')!r} not in {sorted(KINDS)}")
+  ll=p.get('ll')
+  if not(isinstance(ll,list) and len(ll)==2 and all(isinstance(v,(int,float)) and not isinstance(v,bool) for v in ll)):errs.append(f"place {p.get('id')}: ll must be [lat, lng] numbers")
+  if not isinstance(p.get('private'),bool):errs.append(f"place {p.get('id')}: private must be true/false")
+# backlog must not contradict pinned claims: a pinned claim's year may not sit in a Pending item that says not found / awaiting
+bl=rd('research-backlog.html');pend=bl.split('<h2 class="sec">Pending</h2>',1)[-1]
+for c in C:
+  if c['status']=='pinned':
+    yr=re.search(r'\d{3,4}',c['date']).group(0)
+    for li in re.findall(r'<li>(.*?)</li>',pend,flags=re.S):
+      if yr in li and re.search(r'not found|awaiting|waits for',li,flags=re.I):errs.append(f"backlog Pending item contradicts pinned {c['id']}: {li[:60]}")
 if len({p['id'] for p in MAP})!=len(MAP):errs.append('duplicate place ids in places.json')
 if errs:sys.exit('claims.json invalid: '+'; '.join(errs))
 def area_km2(r):
@@ -62,7 +75,8 @@ t=rd('timeslider.html')
 for mk in ('<!--STOPS-->','<!--/STOPS-->','<!--AREA-->','<!--/AREA-->','<!--CAREA-->','<!--/CAREA-->'):
   assert mk in t,f'marker {mk} missing in timeslider.html'
 t=re.sub(r'<!--AREA-->.*?<!--/AREA-->','<!--AREA-->'+f'{round(area_km2(G["WIDE"]),-1):,.0f}'+'<!--/AREA-->',t,flags=re.S)
-CA=next(c['curley_area_km2'] for c in C if 'curley_area_km2' in c)
+if 'curley_area_km2' not in D:sys.exit('claims.json: top-level "curley_area_km2" is missing (Curley\'s c.1400 area figure, injected into timeslider.html)')
+CA=D['curley_area_km2']
 t=re.sub(r'<!--CAREA-->.*?<!--/CAREA-->',f'<!--CAREA-->{CA:,}<!--/CAREA-->',t,flags=re.S)
 t=re.sub(r'<!--STOPS-->.*?<!--/STOPS-->','<!--STOPS--><ol class="stops" id="stoplist">'+lis+'</ol><!--/STOPS-->',t,flags=re.S)
 wr('timeslider.html',t)
@@ -79,6 +93,9 @@ wr('cuirt-fothnach.html',ct)
 sp=rd('sources.html');assert '<!--CLAIMS-->' in sp and '<!--/CLAIMS-->' in sp,'CLAIMS markers missing in sources.html'
 rowsh=''.join(f'<li><b>{e(c["date"])}</b> · {e(c["title"])}: {e(c["reference"])} <span class="meta">({e(c["status"])})</span></li>' for c in C)
 sp=re.sub(r'<!--CLAIMS-->.*?<!--/CLAIMS-->',lambda m:'<!--CLAIMS--><ul class="claimrefs">'+rowsh+'</ul><!--/CLAIMS-->',sp,flags=re.S)
+pl=''.join(f'<li><b>{p["id"]}</b> · {e(p.get("name",p["id"]))}: {e(p["reference"])} <span class="meta">({e(p["status"])})</span></li>' for p in PLACES)
+assert '<!--PLACES-->' in sp,'PLACES marker missing in sources.html'
+sp=re.sub(r'<!--PLACES-->.*?<!--/PLACES-->',lambda m:'<!--PLACES--><ul class="claimrefs">'+pl+'</ul><!--/PLACES-->',sp,flags=re.S)
 wr('sources.html',sp)
 # shared head + nav
 NAV=[('index.html#overview','Overview'),('index.html#map-section','Map'),('index.html#scenes','Scenes'),('timeslider.html','Time map'),('cuirt-fothnach.html','The court'),('sources.html','Sources'),('index.html#about','About')]

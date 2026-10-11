@@ -1,5 +1,4 @@
 {
- "_note": "Map places for the time map. Coordinates must be unique (checked by tools/build.py). kind: label | landmark | assembly | court | lake. private: true -> drawn as an approximate dashed area, no precise pin.",
  "places": [
   {
    "id": "athlone",
@@ -9,7 +8,8 @@
     -7.94
    ],
    "kind": "label",
-   "permanent": true
+   "permanent": true,
+   "private": false
   },
   {
    "id": "roscommon",
@@ -19,7 +19,8 @@
     -8.182
    ],
    "kind": "label",
-   "permanent": true
+   "permanent": true,
+   "private": false
   },
   {
    "id": "ballinasloe",
@@ -29,7 +30,8 @@
     -8.229
    ],
    "kind": "label",
-   "permanent": true
+   "permanent": true,
+   "private": false
   },
   {
    "id": "tiaquin",
@@ -40,7 +42,8 @@
    ],
    "kind": "label",
    "permanent": true,
-   "note": "approximate"
+   "note": "approximate",
+   "private": false
   },
   {
    "id": "abbeyknockmoy",
@@ -50,7 +53,8 @@
     -8.745
    ],
    "kind": "label",
-   "permanent": true
+   "permanent": true,
+   "private": false
   },
   {
    "id": "kilconnell",
@@ -59,7 +63,8 @@
     53.333,
     -8.4
    ],
-   "kind": "label"
+   "kind": "label",
+   "private": false
   },
   {
    "id": "aughrim",
@@ -68,7 +73,8 @@
     53.299,
     -8.316
    ],
-   "kind": "label"
+   "kind": "label",
+   "private": false
   },
   {
    "id": "ahascragh",
@@ -77,7 +83,8 @@
     53.398,
     -8.336
    ],
-   "kind": "label"
+   "kind": "label",
+   "private": false
   },
   {
    "id": "fohenagh",
@@ -87,7 +94,8 @@
     -8.421
    ],
    "kind": "label",
-   "permanent": true
+   "permanent": true,
+   "private": false
   },
   {
    "id": "tycooly",
@@ -97,7 +105,8 @@
     -8.3982
    ],
    "kind": "label",
-   "source": "OS grid M736462 (Ticooly O'Kelly, Killosolan parish, Tiaquin barony), Landed Estates Database, University of Galway, property 825; converted from Irish Grid"
+   "source": "OS grid M736462 (Ticooly O'Kelly, Killosolan parish, Tiaquin barony), Landed Estates Database, University of Galway, property 825; converted from Irish Grid",
+   "private": false
   },
   {
    "id": "clonmacnoise",
@@ -106,17 +115,20 @@
     53.326,
     -7.986
    ],
-   "kind": "label"
+   "kind": "label",
+   "private": false
   },
   {
    "id": "knockdoe",
    "name": "Knockdoe",
    "ll": [
-    53.354,
-    -8.887
+    53.378,
+    -8.896
    ],
    "kind": "label",
-   "note": "approximate"
+   "note": "approximate",
+   "private": false,
+   "source": "Knockdoe Hill summit, Irish Grid M404368 (Geograph Ireland 4929402), north of Lackagh"
   },
   {
    "id": "turoe",
@@ -126,7 +138,8 @@
     -8.5547
    ],
    "kind": "landmark",
-   "tip": "Turoe Stone, Bullaun: Iron Age decorated stone (landmark)"
+   "tip": "Turoe Stone, Bullaun: Iron Age decorated stone (landmark)",
+   "private": false
   },
   {
    "id": "tullyneeny",
@@ -136,7 +149,8 @@
     -8.38
    ],
    "kind": "assembly",
-   "tip": "Tullyneeny assembly / fair site (location approximate, verify)"
+   "tip": "Tullyneeny assembly / fair site (location approximate; see research backlog)",
+   "private": false
   },
   {
    "id": "liosmor",
@@ -168,7 +182,8 @@
     -8.406
    ],
    "kind": "lake",
-   "tip": "Loch na nÉigeas (Boggaun Lough): seasonal lake south-west of Doon Fort (FitzPatrick; position approximate)"
+   "tip": "Loch na nÉigeas (Boggaun Lough): seasonal lake south-west of Doon Fort (FitzPatrick; position approximate)",
+   "private": false
   },
   {
    "id": "ballydoogan",
@@ -177,8 +192,9 @@
     53.3875,
     -8.4006
    ],
-   "kind": "court",
-   "tip": "Baile Uí Dhubhagáin · Ballydoogan: lands of the Ó Dubhagáin learned family (FitzPatrick, pp. 147–149)"
+   "kind": "learned_land",
+   "tip": "Baile Uí Dhubhagáin · Ballydoogan: lands of the Ó Dubhagáin learned family (FitzPatrick, pp. 147–149)",
+   "private": false
   },
   {
    "id": "ballynabanaba",
@@ -199,7 +215,8 @@
     -8.4761
    ],
    "kind": "court",
-   "tip": "Gallagh (Castle Blakeney): a nearby court site, not on the poets' route"
+   "tip": "Gallagh (Castle Blakeney): a nearby court site, not on the poets' route",
+   "private": false
   },
   {
    "id": "caltra",
@@ -209,7 +226,9 @@
     -8.43
    ],
    "kind": "court",
-   "tip": "Caltra: nearby court country (approximate)"
+   "tip": "Caltra: nearby court country (approximate)",
+   "private": false,
+   "source": "Caltra village (An Cealtrach), logainm.ie / OSi Discovery Series 46; nearby court site, position = village"
   }
  ]
 }
