@@ -57,6 +57,15 @@ for p in MAP:
   ll=p.get('ll')
   if not(isinstance(ll,list) and len(ll)==2 and all(isinstance(v,(int,float)) and not isinstance(v,bool) for v in ll)):errs.append(f"place {p.get('id')}: ll must be [lat, lng] numbers")
   if not isinstance(p.get('private'),bool):errs.append(f"place {p.get('id')}: private must be true/false")
+# Licensing and provenance gate: every published place needs source + licence, and nothing derived from
+# OpenStreetMap / townlands.ie (ODbL) may enter the public data. See sources.html#attribution.
+ODBL=re.compile(r'openstreetmap|\bosm\b|townlands\.ie|odbl|nominatim|overpass',re.I)
+for p in MAP:
+  for k in ('source','licence'):
+    if not str(p.get(k) or '').strip():errs.append(f"place {p.get('id')}: missing {k} (licensing gate)")
+  for k in ('source','licence','tip','note'):
+    v=str(p.get(k) or '')
+    if ODBL.search(v) and not re.search(r'not derived from OpenStreetMap',v):errs.append(f"place {p.get('id')}: {k} mentions an OSM/townlands.ie (ODbL) source; ODbL-derived data must not enter the public site")
 # backlog must not contradict pinned claims: a pinned claim's year may not sit in a Pending item that says not found / awaiting
 bl=rd('research-backlog.html');pend=bl.split('<h2 class="sec">Pending</h2>',1)[-1]
 for c in C:
@@ -115,8 +124,8 @@ def footer(p):
   chips=''.join((f'<li><span class="pachip here" aria-current="page"><span class="pamark" aria-hidden="true">PA</span>{n} <small>you are here</small></span></li>' if u is None else f'<li><a class="pachip" href="{u}"><span class="pamark" aria-hidden="true">PA</span>{n}</a></li>') for n,u in FAMILY)
   return ('<footer class="foot credit"><nav id="paFamily" aria-label="The PA family"><span class="ga" lang="ga">Teaghlach PA</span> <ul>'+chips+'</ul></nav>'
    '<p class="seanfhocal-f"><span lang="ga">Ní neart go cur le chéile.</span> <span class="tr">There is no strength without unity. (Seanfhocal)</span></p>'
-   '<p><i lang="ga">Déanta i nGaillimh</i> · Made in Galway<br>© 2026 Garry Lohan · Designed and built by Garry Lohan · <a href="https://scholar.google.com/citations?user=9aBECzQAAAAJ&amp;hl=en">Google Scholar</a> · <a href="https://www.linkedin.com/in/garry-lohan-14923814">LinkedIn</a> · Map © OpenStreetMap contributors · <a href="'+p+'sources.html">Sources</a> · <a href="'+p+'research-backlog.html">Research backlog</a> · <a href="'+p+'index.html#feedback">Send feedback</a> · Draft preview</p>'
-   '<p class="grokline"><span class="gbadge" aria-hidden="true" title="grok (v.): to understand so thoroughly it becomes part of you (Heinlein, 1961)">G</span> Built with help from <a href="https://x.ai">Grok Bot</a><button type="button" class="egg42" aria-expanded="false" aria-controls="egg42note" aria-label="Show the note on 42">42</button>, an AI assistant for research and coding.</p><p id="egg42note" hidden>The answer to life, the universe and everything</p></footer>')
+   '<p><i lang="ga">Déanta i nGaillimh</i> · Made in Galway<br>© 2026 Garry Lohan · Designed and built by Garry Lohan · <a href="https://scholar.google.com/citations?user=9aBECzQAAAAJ&amp;hl=en">Google Scholar</a> · <a href="https://www.linkedin.com/in/garry-lohan-14923814">LinkedIn</a> · Map © OpenStreetMap contributors · <a href="'+p+'sources.html">Sources</a> · <a href="'+p+'sources.html#attribution">Data attribution</a> · <a href="'+p+'research-backlog.html">Research backlog</a> · <a href="'+p+'index.html#feedback">Send feedback</a> · Draft preview</p>'
+   '<p class="grokline"><span class="gbadge" aria-hidden="true" title="grok (v.): to understand so thoroughly it becomes part of you (Heinlein, 1961)">G</span> Built with help from <a href="https://x.ai">Grok Bot</a>, an AI assistant for research and coding.</p></footer>')
 # shared head + nav
 NAV=[('index.html#overview','Overview'),('index.html#map-section','Map'),('index.html#scenes','Scenes'),('timeslider.html','Time map'),('cuirt-fothnach.html','The court'),('croi.html','Heartland'),('sources.html','Sources'),('index.html#about','About')]
 CUR={'index.html':'Overview','timeslider.html':'Time map','cuirt-fothnach.html':'The court','croi.html':'Heartland','sources.html':'Sources'}

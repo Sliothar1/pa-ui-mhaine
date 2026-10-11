@@ -1,59 +1,74 @@
 place:abbeyknockmoy	id	abbeyknockmoy
 place:abbeyknockmoy	kind	label
+place:abbeyknockmoy	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:abbeyknockmoy	ll	[53.437,-8.745]
 place:abbeyknockmoy	meta|order	4
 place:abbeyknockmoy	name	Abbeyknockmoy
 place:abbeyknockmoy	permanent	true
 place:abbeyknockmoy	private	false
+place:abbeyknockmoy	source	Hand-placed label at the village (approximate)
 place:abbeyknockmoy	visibility|public	1
 place:ahascragh	id	ahascragh
 place:ahascragh	kind	label
+place:ahascragh	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:ahascragh	ll	[53.398,-8.336]
 place:ahascragh	meta|order	7
 place:ahascragh	name	Ahascragh
 place:ahascragh	private	false
+place:ahascragh	source	Hand-placed label at the village (approximate)
 place:ahascragh	visibility|public	1
 place:athlone	id	athlone
 place:athlone	kind	label
+place:athlone	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:athlone	ll	[53.423,-7.94]
 place:athlone	meta|order	0
 place:athlone	name	Athlone
 place:athlone	permanent	true
 place:athlone	private	false
+place:athlone	source	Hand-placed label at the town (approximate)
 place:athlone	visibility|public	1
 place:aughrim	id	aughrim
 place:aughrim	kind	label
+place:aughrim	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:aughrim	ll	[53.299,-8.316]
 place:aughrim	meta|order	6
 place:aughrim	name	Aughrim
 place:aughrim	private	false
+place:aughrim	source	Hand-placed label at the village (approximate)
 place:aughrim	visibility|public	1
 place:ballinasloe	id	ballinasloe
 place:ballinasloe	kind	label
+place:ballinasloe	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:ballinasloe	ll	[53.328,-8.229]
 place:ballinasloe	meta|order	2
 place:ballinasloe	name	Ballinasloe
 place:ballinasloe	permanent	true
 place:ballinasloe	private	false
+place:ballinasloe	source	Hand-placed label at the town (approximate)
 place:ballinasloe	visibility|public	1
 place:ballydoogan	id	ballydoogan
 place:ballydoogan	kind	learned_land
+place:ballydoogan	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:ballydoogan	ll	[53.3875,-8.4006]
 place:ballydoogan	meta|order	17
 place:ballydoogan	name	Ballydoogan
 place:ballydoogan	private	false
+place:ballydoogan	source	Hand-placed in the townland (approximate)
 place:ballydoogan	tip	Baile Uí Dhubhagáin · Ballydoogan: lands of the Ó Dubhagáin learned family (FitzPatrick, pp. 147–149)
 place:ballydoogan	visibility|public	1
 place:ballynabanaba	id	ballynabanaba
 place:ballynabanaba	kind	court
+place:ballynabanaba	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:ballynabanaba	ll	[53.395,-8.388]
 place:ballynabanaba	meta|order	18
 place:ballynabanaba	name	Ballynabanaba
 place:ballynabanaba	private	true
+place:ballynabanaba	source	Hand-placed in the townland (approximate area)
 place:ballynabanaba	tip	Baile na Banaba · Ballynabanaba: Ó Longargáin the harper. Approximate area; private land, no public access; view from the public road
 place:ballynabanaba	visibility|public	1
 place:caltra	id	caltra
 place:caltra	kind	court
+place:caltra	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:caltra	ll	[53.434,-8.43]
 place:caltra	meta|order	20
 place:caltra	name	Caltra
@@ -63,44 +78,55 @@ place:caltra	tip	Caltra: nearby court country (approximate)
 place:caltra	visibility|public	1
 place:clonmacnoise	id	clonmacnoise
 place:clonmacnoise	kind	label
+place:clonmacnoise	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:clonmacnoise	ll	[53.326,-7.986]
 place:clonmacnoise	meta|order	10
 place:clonmacnoise	name	Clonmacnoise
 place:clonmacnoise	private	false
+place:clonmacnoise	source	Hand-placed label at the monastic site (approximate)
 place:clonmacnoise	visibility|public	1
 place:doon	id	doon
 place:doon	kind	court
+place:doon	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:doon	ll	[53.3746,-8.4009]
 place:doon	meta|order	15
 place:doon	name	An Dún, Doon Fort
 place:doon	private	true
+place:doon	source	Approximate area after FitzPatrick (2023), pp. 147–149; hand-placed
 place:doon	tip	An Dún (Irish form provisional) · Doon Fort, Doon Upper: site of the 1351 feast (FitzPatrick 2023, pp. 147–149). Approximate area; private land, no public access; view from the public road
 place:doon	visibility|public	1
 place:fohenagh	id	fohenagh
 place:fohenagh	kind	label
+place:fohenagh	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:fohenagh	ll	[53.391,-8.421]
 place:fohenagh	meta|order	8
 place:fohenagh	name	Fohenagh
 place:fohenagh	permanent	true
 place:fohenagh	private	false
+place:fohenagh	source	Hand-placed label at the village (approximate)
 place:fohenagh	visibility|public	1
 place:gallagh	id	gallagh
 place:gallagh	kind	court
+place:gallagh	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:gallagh	ll	[53.4341,-8.4761]
 place:gallagh	meta|order	19
 place:gallagh	name	Gallagh (Castle Blakeney)
 place:gallagh	private	false
-place:gallagh	tip	Gallagh (Castle Blakeney): a nearby court site, not on the poets' route
+place:gallagh	source	Hand-placed in the townland (approximate)
+place:gallagh	tip	Gallagh (Castle Blakeney): recorded by O'Donovan as "the mansion seat of the head of the O'Kellys", a later seat; not on the poets' route
 place:gallagh	visibility|public	1
 place:kilconnell	id	kilconnell
 place:kilconnell	kind	label
+place:kilconnell	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:kilconnell	ll	[53.333,-8.4]
 place:kilconnell	meta|order	5
 place:kilconnell	name	Kilconnell
 place:kilconnell	private	false
+place:kilconnell	source	Hand-placed label at the village (approximate)
 place:kilconnell	visibility|public	1
 place:knockdoe	id	knockdoe
 place:knockdoe	kind	label
+place:knockdoe	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:knockdoe	ll	[53.378,-8.896]
 place:knockdoe	meta|order	11
 place:knockdoe	name	Knockdoe
@@ -110,58 +136,72 @@ place:knockdoe	source	Knockdoe Hill summit, Irish Grid M404368 (Geograph Ireland
 place:knockdoe	visibility|public	1
 place:liosmor	id	liosmor
 place:liosmor	kind	court
+place:liosmor	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:liosmor	ll	[53.4067,-8.4063]
 place:liosmor	meta|order	14
 place:liosmor	name	An Lios Mór, Pallas
 place:liosmor	private	true
+place:liosmor	source	Approximate area after FitzPatrick (2023), pp. 147–149; hand-placed
 place:liosmor	tip	An Lios Mór (Irish form provisional), Pallas: the Ó Ceallaigh pailís (FitzPatrick 2023, pp. 147–149). Approximate area; private land, no public access; view from the public road
 place:liosmor	visibility|public	1
 place:lochnaneigeas	id	lochnaneigeas
 place:lochnaneigeas	kind	lake
+place:lochnaneigeas	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:lochnaneigeas	ll	[53.3712,-8.406]
 place:lochnaneigeas	meta|order	16
 place:lochnaneigeas	name	Loch na nÉigeas (Boggaun Lough)
 place:lochnaneigeas	private	false
+place:lochnaneigeas	source	Approximate, after FitzPatrick (2023); hand-placed
 place:lochnaneigeas	tip	Loch na nÉigeas (Boggaun Lough): seasonal lake south-west of Doon Fort (FitzPatrick; position approximate)
 place:lochnaneigeas	visibility|public	1
 place:roscommon	id	roscommon
 place:roscommon	kind	label
+place:roscommon	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:roscommon	ll	[53.634,-8.182]
 place:roscommon	meta|order	1
 place:roscommon	name	Roscommon
 place:roscommon	permanent	true
 place:roscommon	private	false
+place:roscommon	source	Hand-placed label at the town (approximate)
 place:roscommon	visibility|public	1
 place:tiaquin	id	tiaquin
 place:tiaquin	kind	label
+place:tiaquin	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:tiaquin	ll	[53.37,-8.62]
 place:tiaquin	meta|order	3
 place:tiaquin	name	Tiaquin
 place:tiaquin	note	approximate
 place:tiaquin	permanent	true
 place:tiaquin	private	false
+place:tiaquin	source	Hand-placed label (approximate; barony name)
 place:tiaquin	visibility|public	1
 place:tullyneeny	id	tullyneeny
 place:tullyneeny	kind	assembly
+place:tullyneeny	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:tullyneeny	ll	[53.4,-8.38]
 place:tullyneeny	meta|order	13
 place:tullyneeny	name	Tullyneeny
 place:tullyneeny	private	false
+place:tullyneeny	source	Hand-placed (location approximate; see research backlog)
 place:tullyneeny	tip	Tullyneeny assembly / fair site (location approximate; see research backlog)
 place:tullyneeny	visibility|public	1
 place:turoe	id	turoe
 place:turoe	kind	landmark
+place:turoe	licence	own placement (PA Uí Mhaine), not derived from OpenStreetMap
 place:turoe	ll	[53.2606,-8.5547]
 place:turoe	meta|order	12
 place:turoe	name	Turoe Stone
 place:turoe	private	false
+place:turoe	source	Hand-placed at the Turoe Stone, Bullaun (approximate)
 place:turoe	tip	Turoe Stone, Bullaun: Iron Age decorated stone (landmark)
 place:turoe	visibility|public	1
 place:tycooly	id	tycooly
 place:tycooly	kind	label
-place:tycooly	ll	[53.4654,-8.3982]
+place:tycooly	licence	CC BY 4.0 (Tailte Éireann townland boundaries); centroid computed by PA Uí Mhaine
+place:tycooly	ll	[53.4645,-8.4025]
 place:tycooly	meta|order	9
-place:tycooly	name	Tycooly (Ticooly)
+place:tycooly	name	Tycooly (Ticooly O'Kelly)
 place:tycooly	private	false
-place:tycooly	source	OS grid M736462 (Ticooly O'Kelly, Killosolan parish, Tiaquin barony), Landed Estates Database, University of Galway, property 825; converted from Irish Grid
+place:tycooly	source	Centroid computed by us from the Tailte Éireann statutory townland polygon TICOOLY (O'Kelly) / Tigh Cúile (O'Kelly), Co. Galway; estate: Landed Estates Database, University of Galway, property 825 (Ticooly O'Kelly)
+place:tycooly	tip	Tycooly: statutory townland Ticooly (O'Kelly); point = townland centroid (Tailte Éireann boundary)
 place:tycooly	visibility|public	1

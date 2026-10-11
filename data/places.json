@@ -9,7 +9,9 @@
    ],
    "kind": "label",
    "permanent": true,
-   "private": false
+   "private": false,
+   "source": "Hand-placed label at the town (approximate)",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   },
   {
    "id": "roscommon",
@@ -20,7 +22,9 @@
    ],
    "kind": "label",
    "permanent": true,
-   "private": false
+   "private": false,
+   "source": "Hand-placed label at the town (approximate)",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   },
   {
    "id": "ballinasloe",
@@ -31,7 +35,9 @@
    ],
    "kind": "label",
    "permanent": true,
-   "private": false
+   "private": false,
+   "source": "Hand-placed label at the town (approximate)",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   },
   {
    "id": "tiaquin",
@@ -43,7 +49,9 @@
    "kind": "label",
    "permanent": true,
    "note": "approximate",
-   "private": false
+   "private": false,
+   "source": "Hand-placed label (approximate; barony name)",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   },
   {
    "id": "abbeyknockmoy",
@@ -54,7 +62,9 @@
    ],
    "kind": "label",
    "permanent": true,
-   "private": false
+   "private": false,
+   "source": "Hand-placed label at the village (approximate)",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   },
   {
    "id": "kilconnell",
@@ -64,7 +74,9 @@
     -8.4
    ],
    "kind": "label",
-   "private": false
+   "private": false,
+   "source": "Hand-placed label at the village (approximate)",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   },
   {
    "id": "aughrim",
@@ -74,7 +86,9 @@
     -8.316
    ],
    "kind": "label",
-   "private": false
+   "private": false,
+   "source": "Hand-placed label at the village (approximate)",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   },
   {
    "id": "ahascragh",
@@ -84,7 +98,9 @@
     -8.336
    ],
    "kind": "label",
-   "private": false
+   "private": false,
+   "source": "Hand-placed label at the village (approximate)",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   },
   {
    "id": "fohenagh",
@@ -95,18 +111,22 @@
    ],
    "kind": "label",
    "permanent": true,
-   "private": false
+   "private": false,
+   "source": "Hand-placed label at the village (approximate)",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   },
   {
    "id": "tycooly",
-   "name": "Tycooly (Ticooly)",
+   "name": "Tycooly (Ticooly O'Kelly)",
    "ll": [
-    53.4654,
-    -8.3982
+    53.4645,
+    -8.4025
    ],
    "kind": "label",
-   "source": "OS grid M736462 (Ticooly O'Kelly, Killosolan parish, Tiaquin barony), Landed Estates Database, University of Galway, property 825; converted from Irish Grid",
-   "private": false
+   "source": "Centroid computed by us from the Tailte Éireann statutory townland polygon TICOOLY (O'Kelly) / Tigh Cúile (O'Kelly), Co. Galway; estate: Landed Estates Database, University of Galway, property 825 (Ticooly O'Kelly)",
+   "private": false,
+   "licence": "CC BY 4.0 (Tailte Éireann townland boundaries); centroid computed by PA Uí Mhaine",
+   "tip": "Tycooly: statutory townland Ticooly (O'Kelly); point = townland centroid (Tailte Éireann boundary)"
   },
   {
    "id": "clonmacnoise",
@@ -116,7 +136,9 @@
     -7.986
    ],
    "kind": "label",
-   "private": false
+   "private": false,
+   "source": "Hand-placed label at the monastic site (approximate)",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   },
   {
    "id": "knockdoe",
@@ -128,7 +150,8 @@
    "kind": "label",
    "note": "approximate",
    "private": false,
-   "source": "Knockdoe Hill summit, Irish Grid M404368 (Geograph Ireland 4929402), north of Lackagh"
+   "source": "Knockdoe Hill summit, Irish Grid M404368 (Geograph Ireland 4929402), north of Lackagh",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   },
   {
    "id": "turoe",
@@ -139,7 +162,9 @@
    ],
    "kind": "landmark",
    "tip": "Turoe Stone, Bullaun: Iron Age decorated stone (landmark)",
-   "private": false
+   "private": false,
+   "source": "Hand-placed at the Turoe Stone, Bullaun (approximate)",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   },
   {
    "id": "tullyneeny",
@@ -150,7 +175,9 @@
    ],
    "kind": "assembly",
    "tip": "Tullyneeny assembly / fair site (location approximate; see research backlog)",
-   "private": false
+   "private": false,
+   "source": "Hand-placed (location approximate; see research backlog)",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   },
   {
    "id": "liosmor",
@@ -161,7 +188,9 @@
    ],
    "kind": "court",
    "private": true,
-   "tip": "An Lios Mór (Irish form provisional), Pallas: the Ó Ceallaigh pailís (FitzPatrick 2023, pp. 147–149). Approximate area; private land, no public access; view from the public road"
+   "tip": "An Lios Mór (Irish form provisional), Pallas: the Ó Ceallaigh pailís (FitzPatrick 2023, pp. 147–149). Approximate area; private land, no public access; view from the public road",
+   "source": "Approximate area after FitzPatrick (2023), pp. 147–149; hand-placed",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   },
   {
    "id": "doon",
@@ -172,7 +201,9 @@
    ],
    "kind": "court",
    "private": true,
-   "tip": "An Dún (Irish form provisional) · Doon Fort, Doon Upper: site of the 1351 feast (FitzPatrick 2023, pp. 147–149). Approximate area; private land, no public access; view from the public road"
+   "tip": "An Dún (Irish form provisional) · Doon Fort, Doon Upper: site of the 1351 feast (FitzPatrick 2023, pp. 147–149). Approximate area; private land, no public access; view from the public road",
+   "source": "Approximate area after FitzPatrick (2023), pp. 147–149; hand-placed",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   },
   {
    "id": "lochnaneigeas",
@@ -183,7 +214,9 @@
    ],
    "kind": "lake",
    "tip": "Loch na nÉigeas (Boggaun Lough): seasonal lake south-west of Doon Fort (FitzPatrick; position approximate)",
-   "private": false
+   "private": false,
+   "source": "Approximate, after FitzPatrick (2023); hand-placed",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   },
   {
    "id": "ballydoogan",
@@ -194,7 +227,9 @@
    ],
    "kind": "learned_land",
    "tip": "Baile Uí Dhubhagáin · Ballydoogan: lands of the Ó Dubhagáin learned family (FitzPatrick, pp. 147–149)",
-   "private": false
+   "private": false,
+   "source": "Hand-placed in the townland (approximate)",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   },
   {
    "id": "ballynabanaba",
@@ -205,7 +240,9 @@
    ],
    "kind": "court",
    "private": true,
-   "tip": "Baile na Banaba · Ballynabanaba: Ó Longargáin the harper. Approximate area; private land, no public access; view from the public road"
+   "tip": "Baile na Banaba · Ballynabanaba: Ó Longargáin the harper. Approximate area; private land, no public access; view from the public road",
+   "source": "Hand-placed in the townland (approximate area)",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   },
   {
    "id": "gallagh",
@@ -215,8 +252,10 @@
     -8.4761
    ],
    "kind": "court",
-   "tip": "Gallagh (Castle Blakeney): a nearby court site, not on the poets' route",
-   "private": false
+   "tip": "Gallagh (Castle Blakeney): recorded by O'Donovan as \"the mansion seat of the head of the O'Kellys\", a later seat; not on the poets' route",
+   "private": false,
+   "source": "Hand-placed in the townland (approximate)",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   },
   {
    "id": "caltra",
@@ -228,7 +267,8 @@
    "kind": "court",
    "tip": "Caltra: nearby court country (approximate)",
    "private": false,
-   "source": "Caltra village (An Cealtrach), logainm.ie / OSi Discovery Series 46; nearby court site, position = village"
+   "source": "Caltra village (An Cealtrach), logainm.ie / OSi Discovery Series 46; nearby court site, position = village",
+   "licence": "own placement (PA Uí Mhaine), not derived from OpenStreetMap"
   }
  ]
 }
