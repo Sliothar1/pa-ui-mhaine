@@ -42,3 +42,12 @@ exits 1 on any difference).
 
 ## Result
 Recorded below by the check, after it was run.
+
+### Run 11 Oct 2026, 17:30 IST: `python3 tools/parity_check.py main` on branch pa-core (6f919ee) vs main (7a2ef65)
+- Draft mode: 35 published files compared, 35 byte-identical (including generated/story-cards.json and
+  generated/era-polygons.geojson, so canonical-JSON equality holds trivially), 0 different.
+- Live mode (PA_LIVE=1): same, 35/35 byte-identical, 0 different.
+- **PARITY HOLDS.** Negative control: changing one claim title made the check fail on
+  verification-table.md, sources.html and timeslider.html, as it should.
+- CI (site-checks) green on the branch and after merge: pa-core 31 unit tests, rebuild-no-diff,
+  pa-d4m validate, diff guard, html-validate, 19/19 site tests.
