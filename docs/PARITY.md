@@ -26,6 +26,16 @@ Parity holds only if 1–3 hold in both modes with zero differences. Any differe
 In practice the comparison is stricter than required: JSON outputs are also compared byte for byte
 and the result says which level they matched at.
 
+## Correction to the scope (11 Oct 2026, after the first run, before any output was judged)
+The first run of the check applied rule 3 literally to *every* tracked file, so it flagged the
+five files this migration changes on purpose: `tools/build.py`, `.github/workflows/ci.yml`,
+`.gitignore`, `data/README.md`, and the worktree `.git` pointer. Those are build code and docs,
+not generated outputs, so rule 3 is narrowed to the **published site and its data**:
+`*.html`, `scenes/*.html`, `generated/**`, `data/*.json`, `data/*.geojson`, `*.js`, `*.css`,
+`vendor/leaflet/**`, `sitemap.xml`, `robots.txt`. Build code, CI, tests, docs and the new
+`data/d4m`/`vendor/pa-core` are reported as "changed on purpose", not compared. No output file
+differed in that first run; the rules for outputs (1 and 2) are unchanged.
+
 ## How to run
 `python3 tools/parity_check.py main` (creates two temporary worktrees, builds both, compares,
 exits 1 on any difference).

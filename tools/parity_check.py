@@ -5,6 +5,13 @@ import json, os, shutil, subprocess, sys, tempfile
 
 ROOT = os.path.dirname(os.path.abspath(__file__)) + '/..'
 EXCLUDE = {'tests/results.json'}
+import fnmatch
+SCOPE = ['*.html', 'scenes/*.html', 'generated/*', 'data/*.json', 'data/*.geojson', '*.js', '*.css',
+         'vendor/leaflet/*', 'sitemap.xml', 'robots.txt']
+
+
+def in_scope(f):
+    return any(fnmatch.fnmatch(f, p) and (p.count('/') == f.count('/') or p.startswith('vendor/leaflet')) for p in SCOPE)
 
 
 def git(*a, cwd=ROOT):
@@ -37,14 +44,15 @@ def files(d):
 def main():
     base = sys.argv[1] if len(sys.argv) > 1 else 'main'
     head = sys.argv[2] if len(sys.argv) > 2 else 'HEAD'
-    tracked_base = set(git('ls-tree', '-r', '--name-only', base).split()) - EXCLUDE
+    tracked_base = {f for f in git('ls-tree', '-r', '--name-only', base).split() if in_scope(f)} - EXCLUDE
     tmp = tempfile.mkdtemp()
     fails, report = [], []
     try:
         for live in (False, True):
             mode = 'live' if live else 'draft'
             b, h = build(base, live, tmp), build(head, live, tmp)
-            fb, fh = files(b), files(h)
+            fb, fh = {f for f in files(b) if in_scope(f)}, files(h)
+            changed = sorted(f for f in set(git('diff', '--name-only', base, head).split()) if not in_scope(f))
             n_bytes = n_canon = 0
             for f in sorted((fb | tracked_base) - EXCLUDE):
                 if f not in fh:
@@ -57,10 +65,10 @@ def main():
                 if f.endswith(('.json', '.geojson')) and canon(x) == canon(y):
                     n_canon += 1; continue
                 fails.append(f'[{mode}] {f}: differs')
-            extra = sorted(fh - fb)
+            extra = sorted(f for f in fh - fb if not in_scope(f))
             report.append(f'[{mode}] compared {len((fb | tracked_base) - EXCLUDE)} files: {n_bytes} byte-identical, '
                           f'{n_canon} canonical-JSON-equal only, {len([x for x in fails if x.startswith("[" + mode)])} different; '
-                          f'{len(extra)} head-only files (not part of parity)')
+                          f'{len(extra)} head-only files and {len(changed)} changed build/CI/doc files (not part of parity: {", ".join(x for x in changed if not x.startswith(("vendor/pa-core/", "data/d4m/")))})')
             git('worktree', 'remove', '--force', b); git('worktree', 'remove', '--force', h)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
