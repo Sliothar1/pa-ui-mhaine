@@ -1,7 +1,7 @@
 name: site-checks
 on:
   push:
-    branches: [main, v2-timeslider, pa-core, review-2026-10-11]
+    branches: [main, v2-timeslider, pa-core]
   pull_request:
 permissions:
   contents: read
