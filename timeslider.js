@@ -24,10 +24,11 @@ const STY={attested:{color:'#8a5a00',weight:3,fillColor:'#d4a64a',fillOpacity:.3
 for(const [n,ll] of Object.entries(PL))L.circleMarker(ll,{radius:5,color:'#fff',weight:1,fillColor:'#0f7c80',fillOpacity:.95}).bindTooltip(n,{permanent:['Athlone','Roscommon','Ballinasloe','Fohenagh','Abbeyknockmoy','Tiaquin'].includes(n),direction:'right',className:'lbl'}).addTo(map);
 const odonovan=L.polygon([[53.75,-8.45],[53.75,-7.95],[53.40,-7.88],[53.05,-8.05],[52.98,-8.40],[53.20,-8.85],[53.50,-8.85]],{color:'#789',weight:1,dashArray:'2 6',fillOpacity:.04}).bindTooltip("O'Donovan 1843: a claim, not a fact · sketch, not traced");
 const RT=[
- {p:[[53.328,-8.229],[53.330,-8.285],[53.331,-8.340]],n:'1. Ballinasloe west along the Eiscir Riada / old Galway road. The Turoe Stone lies away to the south-west, on the left.'},
- {p:[[53.331,-8.340],[53.333,-8.400]],n:'2. On to Kilconnell on the esker line; the friary site marks the turn.'},
- {p:[[53.333,-8.400],[53.355,-8.402],[53.3746,-8.4009]],n:'3. North from Kilconnell by the Callow Lough side towards Doon fort.'},
- {p:[[53.3746,-8.4009],[53.3875,-8.4006],[53.4067,-8.4063]],n:'4. Doon → Ballydoogan → Pallas (An Lios Mór). Gallagh and Caltra lie further north, on the right.'}];
+ {p:[[53.328,-8.229],[53.330,-8.285],[53.331,-8.340]],n:'1. Ballinasloe west along the Eiscir Riada (the esker road). The Turoe Stone lies away to the south, on the left.'},
+ {p:[[53.331,-8.340],[53.333,-8.400]],n:'2. On to Kilconnell on the esker line, where the poets turn north.'},
+ {p:[[53.333,-8.400],[53.355,-8.402],[53.3746,-8.4009]],n:'3. North from Kilconnell by Callow Lough to Doon fort.'},
+ {p:[[53.3746,-8.4009],[53.405,-8.440],[53.4341,-8.4761]],n:'4. Doon on to Gallagh (Gallagh Castle site; which Gallagh: verify with Garry Lohan).'},
+ {p:[[53.4341,-8.4761],[53.420,-8.440],[53.4067,-8.4063]],n:'5. Gallagh to the court at Pallas (An Lios Mór), Fohenagh: journey\'s end (FitzPatrick).'}];
 const routes=L.layerGroup([
  L.polyline([[53.27,-8.80],[53.30,-8.55],[53.33,-8.40],[53.33,-8.23],[53.38,-8.05],[53.423,-7.94]],{color:'#0f7c80',weight:3,dashArray:'10 6'}).bindTooltip('Slighe Mhór (Eiscir Riada), indicative line'),
  L.polyline([[53.66,-8.22],[53.55,-8.27],[53.45,-8.25],[53.33,-8.22],[53.23,-8.10],[53.18,-8.03]],{color:'#2563eb',weight:3}).bindTooltip('River Suck (approximate)'),
@@ -40,7 +41,7 @@ const learned=L.layerGroup([
  L.circleMarker([53.3746,-8.4009],{radius:6,color:'#be185d'}).bindTooltip('An Dún (Irish form provisional) · Doon fort'),
  L.circleMarker([53.3875,-8.4006],{radius:6,color:'#be185d'}).bindTooltip('Baile Uí Dhúgáin · Ballydoogan'),
  L.circleMarker([53.395,-8.388],{radius:6,color:'#be185d'}).bindTooltip('Baile na Banaba · Ballynabanaba: Ó Longargáin the harper (approximate position)'),
- L.circleMarker([53.4341,-8.4761],{radius:6,color:'#be185d'}).bindTooltip('Gallagh: nearby court site (north of the route; not Galey)'),
+ L.circleMarker([53.4341,-8.4761],{radius:6,color:'#be185d'}).bindTooltip('Gallagh: on the poets\' route between Doon and Pallas (site identification: verify)'),
  L.circleMarker([53.434,-8.43],{radius:6,color:'#be185d'}).bindTooltip('Caltra: nearby court country (approximate)')]);
 const boundary=L.geoJSON(null,{style:{color:'#dc2626',weight:3,fillOpacity:0}});
 L.control.layers(null,{"O'Donovan 1843 claim (sketch, not traced)":odonovan,"Routes, rivers and the poets' route":routes,'Assembly sites':assembly,'Learned families and court':learned},{collapsed:window.innerWidth<600}).addTo(map);

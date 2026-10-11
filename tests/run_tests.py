@@ -45,9 +45,9 @@ with sync_playwright() as p:
   gal={}
   for pg_ in PAGES:
     c=b.new_context(java_script_enabled=False);pg=c.new_page();pg.goto(BASE+pg_);txt=pg.inner_text('body');gal[pg_]=txt.count('Galey');c.close()
-  ok=all(v==0 for k,v in gal.items() if k not in('cuirt-fothnach.html','sources.html')) and gal['cuirt-fothnach.html']==1 and gal['sources.html']==1
+  ok=all(v==0 for k,v in gal.items() if k!='sources.html') and gal['sources.html']==1
   c=b.new_context();pg=c.new_page();pg.goto(BASE+'cuirt-fothnach.html');box='Where was the feast' in pg.inner_text('body');c.close()
-  rec('T06','UM-043 Galey: one line on court and sources pages, none elsewhere; no both-sides box',ok and not box,{k:v for k,v in gal.items() if v})
+  rec('T06','UM-043 Galey: one line on the sources page only, none elsewhere; no both-sides box',ok and not box,{k:v for k,v in gal.items() if v})
   # T7 boundary loader both states
   c=b.new_context();pg=c.new_page();pg.goto(BASE+'timeslider.html',wait_until='networkidle');pg.wait_for_timeout(800)
   s1=(pg.get_attribute('#boundarynote','data-state'),pg.inner_text('#boundarynote'));c.close()
