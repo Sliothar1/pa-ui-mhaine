@@ -30,7 +30,7 @@ def validate(directory, schema):
                 errs.append("%s: %s %s: prov| columns live in A_prov only" % (a, r, c))
     ds = typed_load(directory, schema, errs)
     prov = ds.assocs.get("A_prov", {})
-    data_rows = {}
+    data_rows, vis = {}, {}
     for a, rows in ds.assocs.items():
         if a == "A_prov":
             continue
@@ -38,15 +38,14 @@ def validate(directory, schema):
         for r, cols in rows.items():
             typ = r.split(":", 1)[0]
             data_rows.setdefault(r, []).append(a)
-            vis = [c for c in cols if c.startswith("visibility|")]
-            if len(vis) != 1:
-                errs.append("%s: %s: needs exactly one of visibility|public / visibility|restricted (has %s)" % (a, r, vis or "none"))
+            vis.setdefault(r, []).extend(c for c in cols if c.startswith("visibility|"))
             for k in req.get(typ, []):
                 if k not in cols:
                     errs.append("%s: %s: missing required column %s" % (a, r, k))
     for r, assocs in sorted(data_rows.items()):
-        if len(assocs) > 1:
-            errs.append("%s: row appears in several assocs %s (one home per row)" % (r, assocs))
+        # a row may appear in several assocs (D4M: A_mon, A_prop, A_sky); visibility is set once per row
+        if len(vis[r]) != 1:
+            errs.append("%s: %s: needs exactly one of visibility|public / visibility|restricted across its assocs (has %s)" % (",".join(assocs), r, vis[r] or "none"))
         typ = r.split(":", 1)[0]
         p = prov.get(r)
         if p is None:

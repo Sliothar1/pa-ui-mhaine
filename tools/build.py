@@ -15,7 +15,7 @@ def wr(f,s):
   with open(f,'w',**U) as fh:fh.write(s)
 def jdump(o,f,**k):
   with open(f,'w',**U) as fh:json.dump(o,fh,ensure_ascii=False,**k)
-# Data path (pa-core v0.1.0, vendored at vendor/pa-core): the JSON files in data/ stay the editable source;
+# Data path (pa-core v0.2.0, vendored at vendor/pa-core): the JSON files in data/ stay the editable source;
 # the json-claims adapter writes data/d4m/A_claim, A_place, A_era, A_prov TSVs; pa-core validates them;
 # everything below is generated from the TSVs only. See docs/PARITY.md and vendor/pa-core/docs/SCHEMA.md.
 sys.path.insert(0,'vendor/pa-core')

@@ -10,12 +10,13 @@ from pa_core.validate import validate
 from pa_core.export import plan_export, export, ExportError
 from pa_core.diff import diff, load_side
 from pa_core.inspect_row import inspect
-from pa_core.adapters import json_claims
+from pa_core.adapters import json_claims, tabular
 from pa_core.cli import main as cli
 
 FX = os.path.join(HERE, "fixtures")
 CL = os.path.join(FX, "claims")
 SE = os.path.join(FX, "sensitive")
+TB = os.path.join(FX, "table")
 
 
 def jl(p):
@@ -291,6 +292,73 @@ class DiffGuard(unittest.TestCase):
             shutil.rmtree(d)
 
 
+class Tabular(unittest.TestCase):
+    """v0.2.0: CSV/TSV adapter (first used by PA Réalt), json_ordered, rows in several assocs."""
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp(); self.out = os.path.join(self.tmp, "d4m")
+        self.schema = Schema.load(os.path.join(TB, "schema.json")); self.cfg = jl(os.path.join(TB, "adapter.json"))
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp)
+
+    def test_ingest_validate_roundtrip_bytes(self):
+        ds, _ = tabular.ingest(self.cfg, self.schema, self.out, root=TB)
+        self.assertEqual(validate(self.out, self.schema), [])
+        self.assertEqual(tabular.roundtrip_errors(self.cfg, self.schema, self.out, TB), [])
+        m = ds.assocs["A_mon"]
+        self.assertEqual(m["mon:007"]["county_idx"], 1)          # typed int
+        self.assertEqual(m["mon:CL004-016042-"]["townland_ga"], " ")  # whitespace kept
+        self.assertEqual(m["mon:CL004-016042-"]["lat"], 53.09698)
+        self.assertIn("mon:NI:ANT001:001", m)
+        self.assertEqual(ds.assocs["A_prov"]["mon:NI:ANT001:001"]["prov|source"], "Fixture NI SMR, record NI:ANT001:001")
+        self.assertEqual(ds.assocs["A_prov"]["mon:007"]["prov|source"], "Fixture SMR, record 007")
+
+    def test_json_ordered_keeps_key_order(self):
+        tabular.ingest(self.cfg, self.schema, self.out, root=TB)
+        _, recs, meta = tabular.reconstruct(self.cfg, self.schema, self.out, None if False else tabular.read_table(os.path.join(TB, "mon.csv"))[0])
+        self.assertEqual(list(meta["groups"]), ["wt", "pt"])
+        self.assertEqual(json.dumps(meta), json.dumps(jl(os.path.join(TB, "meta.json"))))
+        self.assertEqual([r[0] for r in recs], ["CL002-077----", "CL004-016042-", "NI:ANT001:001", "007"])
+        with self.assertRaises(SchemaError):
+            from_text("json_ordered", '{"a": 1}')
+
+    def test_reingest_identical_and_edit_detected(self):
+        _, w1 = tabular.ingest(self.cfg, self.schema, self.out, root=TB)
+        _, w2 = tabular.ingest(self.cfg, self.schema, self.out, root=TB)
+        self.assertEqual(w1, w2)
+        src = os.path.join(self.tmp, "src"); shutil.copytree(TB, src)
+        with open(os.path.join(src, "mon.csv"), "a", encoding="utf-8") as fh:
+            fh.write("X1,pt,53.0,-7.0,,,1,0,0\n")
+        self.assertTrue(tabular.roundtrip_errors(self.cfg, self.schema, self.out, src))
+
+    def test_bad_cells_and_duplicates_rejected(self):
+        for line in ("X1,pt,abc,-7.0,,,1,0,0\n", "007,pt,53.0,-7.0,,,1,0,0\n", "X2,pt,53.0\n"):
+            with self.subTest(line):
+                src = os.path.join(self.tmp, "s"); shutil.rmtree(src, ignore_errors=True); shutil.copytree(TB, src)
+                with open(os.path.join(src, "mon.csv"), "a", encoding="utf-8") as fh:
+                    fh.write(line)
+                with self.assertRaises(json_claims.AdapterError):
+                    tabular.ingest(self.cfg, self.schema, self.out, root=src)
+
+    def test_row_in_several_assocs(self):
+        tabular.ingest(self.cfg, self.schema, self.out, root=TB)
+        tsvio.write_triples(os.path.join(self.out, "A_prop.tsv"), [("mon:007", "class|pt", "1")])
+        self.assertEqual(validate(self.out, self.schema), [])
+        r = inspect(self.out, self.schema, "mon:007")
+        self.assertEqual(sorted(r["assocs"]), ["A_mon", "A_prop"])
+        # visibility twice across assocs is an error
+        tsvio.write_triples(os.path.join(self.out, "A_prop.tsv"), [("mon:007", "class|pt", "1"), ("mon:007", "visibility|restricted", "1")])
+        self.assertTrue(any("visibility" in e for e in validate(self.out, self.schema)))
+
+    def test_export_allowlist(self):
+        tabular.ingest(self.cfg, self.schema, self.out, root=TB)
+        plan = plan_export(self.out, self.schema, jl(os.path.join(TB, "allow.json")))
+        self.assertEqual(sorted(plan["mon"]["mon:007"]), ["group", "lat", "lon", "meta|order"])
+        self.assertEqual(list(plan["dataset"]["dataset:smr"]["meta"]["groups"]), ["wt", "pt"])
+        to = os.path.join(self.tmp, "exp"); export(self.out, self.schema, jl(os.path.join(TB, "allow.json")), to)
+        self.assertEqual(list(jl(os.path.join(to, "dataset.json"))["dataset:smr"]["meta"]["groups"]), ["wt", "pt"])
+
+
 class CLI(unittest.TestCase):
     def run_cli(self, *args):
         buf = io.StringIO()
@@ -313,7 +381,7 @@ class CLI(unittest.TestCase):
             shutil.rmtree(tmp)
 
     def test_version(self):
-        self.assertEqual(__version__, "0.1.0")
+        self.assertEqual(__version__, "0.2.0")
 
 
 if __name__ == "__main__":

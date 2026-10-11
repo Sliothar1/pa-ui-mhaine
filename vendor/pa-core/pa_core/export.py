@@ -33,6 +33,15 @@ def plan_export(directory, schema, allow):
     prov = ds.assocs.get("A_prov", {})
     types = allow.get("types", {})
     out = {}
+    public = {}
+    for a, rows in ds.assocs.items():
+        if a != "A_prov":
+            for r, cols in rows.items():
+                if "visibility|public" in cols:
+                    public[r] = 1
+    restricted = {r for a, rows in ds.assocs.items() for r, cols in rows.items() if "visibility|restricted" in cols}
+    for r in restricted:
+        public.pop(r, None)
     for a, rows in ds.assocs.items():
         if a == "A_prov":
             continue
@@ -40,10 +49,10 @@ def plan_export(directory, schema, allow):
             typ = r.split(":", 1)[0]
             if typ not in types or typ in schema.prov_exempt_types:
                 continue
-            if cols.get("visibility|public") != 1:
+            if public.get(r) != 1:
                 continue
             spec = types[typ]
-            rec = {}
+            rec = out.get(typ, {}).get(r, {})
             for c, v in cols.items():
                 if c.startswith(("visibility|", "sys|")) or _field(c) in HARD_DENY:
                     continue
@@ -66,6 +75,6 @@ def export(directory, schema, allow, to):
     files["index.json"] = {"pa_core": __version__, "types": {t: len(r) for t, r in plan.items()}}
     for name, obj in files.items():
         with open(os.path.join(to, name), "w", encoding="utf-8", newline="") as fh:
-            json.dump(obj, fh, ensure_ascii=False, sort_keys=True, indent=1)
+            json.dump(obj, fh, ensure_ascii=False, indent=1)  # rows and cols already sorted; json_ordered values keep their order
             fh.write("\n")
     return sorted(files)

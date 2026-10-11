@@ -12,7 +12,8 @@ A schema file is JSON:
     }
   }
 }
-Types: str, int, float, bool (true|false), json (compact, sorted keys), flag (must be 1).
+Types: str, int, float, bool (true|false), json (compact, sorted keys), json_ordered (compact, key
+order kept: for published metadata whose key order is part of the output bytes), flag (must be 1).
 A trailing `?` makes the column nullable (null is written \\N). Every column used must be
 declared (strict). Reserved namespaces (prov|, meta|, sys|, claim|) and visibility| are
 declared by the core and must not be redeclared by a site.
@@ -33,11 +34,11 @@ CORE_COLUMNS = {
     "visibility|public": "flag", "visibility|restricted": "flag",
     "sys|*": "str?", "claim|*": "flag",
 }
-TYPES = ("str", "int", "float", "bool", "json", "flag")
+TYPES = ("str", "int", "float", "bool", "json", "json_ordered", "flag")
 TYPE_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:+-]*$")
 QUAL_RE = re.compile(r"^[^\t\n\r]+$")
-FIELD_RE = re.compile(r"^[a-z_][a-z0-9_]*$")
+FIELD_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")  # v0.2.0: case allowed (Réalt sky events WS_rise)
 ISO_Z = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 INT_RE = re.compile(r"^-?(0|[1-9][0-9]*)$")
@@ -96,6 +97,8 @@ def to_text(typ, v):
         return "true" if v else "false"
     if base == "json":
         return json.dumps(v, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    if base == "json_ordered":
+        return json.dumps(v, ensure_ascii=False, separators=(",", ":"))
     if base == "flag":
         if v not in (1, "1") or isinstance(v, bool): raise SchemaError("flag value must be 1, got %r" % (v,))
         return "1"
@@ -126,6 +129,11 @@ def from_text(typ, s):
         try: v = json.loads(s)
         except ValueError as e: raise SchemaError("bad json %r: %s" % (s[:40], e))
         if to_text(typ, v) != s: raise SchemaError("non-canonical json %r" % s[:60])
+        return v
+    if base == "json_ordered":
+        try: v = json.loads(s)
+        except ValueError as e: raise SchemaError("bad json %r: %s" % (s[:40], e))
+        if to_text(typ, v) != s: raise SchemaError("non-canonical json_ordered %r" % s[:60])
         return v
     if base == "flag":
         if s != "1": raise SchemaError("flag value must be 1: %r" % s)

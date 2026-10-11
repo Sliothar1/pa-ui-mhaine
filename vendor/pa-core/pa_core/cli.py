@@ -15,7 +15,7 @@ def main(argv=None):
     ap.add_argument("--version", action="version", version="pa-core " + __version__)
     sub = ap.add_subparsers(dest="cmd", required=True)
     i = sub.add_parser("ingest", help="run an adapter, write A_*.tsv")
-    i.add_argument("adapter", choices=["json-claims"])
+    i.add_argument("adapter", choices=["json-claims", "tabular"])
     i.add_argument("--config", required=True); i.add_argument("--schema", required=True)
     i.add_argument("--out", default="data/d4m"); i.add_argument("--root", default=".")
     i.add_argument("--dry-run", action="store_true", help="report counts, write nothing")
@@ -35,9 +35,10 @@ def main(argv=None):
     a = ap.parse_args(argv)
 
     if a.cmd == "ingest":
-        from .adapters import json_claims
+        from .adapters import json_claims, tabular
         schema = Schema.load(a.schema)
-        ds, written = json_claims.ingest(_load_json(a.config), schema, a.out, a.root, a.dry_run)
+        mod = {"json-claims": json_claims, "tabular": tabular}[a.adapter]
+        ds, written = mod.ingest(_load_json(a.config), schema, a.out, a.root, a.dry_run)
         for t, c in sorted(ds.counts_by_type().items()):
             print("%-10s %d rows" % (t, c))
         print("dry run: nothing written" if a.dry_run else "wrote %s to %s" % (", ".join(sorted(written)), a.out))
@@ -47,8 +48,10 @@ def main(argv=None):
         schema = Schema.load(a.schema)
         errs = validate(a.data, schema)
         if a.roundtrip and not errs:
-            from .adapters import json_claims
-            errs += json_claims.roundtrip_errors(_load_json(a.roundtrip), schema, a.data, a.root)
+            from .adapters import json_claims, tabular
+            cfg = _load_json(a.roundtrip)
+            mod = tabular if cfg.get("adapter") == "tabular" else json_claims
+            errs += mod.roundtrip_errors(cfg, schema, a.data, a.root)
         for x in errs:
             print("ERROR " + x)
         print("valid" if not errs else "%d error(s)" % len(errs))

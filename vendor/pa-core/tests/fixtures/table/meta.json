@@ -1,0 +1,20 @@
+{
+ "source": "fixture",
+ "fields": [
+  "smrs",
+  "group"
+ ],
+ "groups": {
+  "wt": {
+   "en": "Wedge",
+   "n": 2
+  },
+  "pt": {
+   "en": "Passage",
+   "n": 1
+  }
+ },
+ "ni_counts": {
+  "ss": 1
+ }
+}

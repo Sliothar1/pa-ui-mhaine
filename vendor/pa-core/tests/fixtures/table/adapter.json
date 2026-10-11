@@ -1,0 +1,20 @@
+{
+ "adapter": "tabular",
+ "file": "mon.csv",
+ "delimiter": ",",
+ "assoc": "A_mon",
+ "type": "mon",
+ "id_col": "smrs",
+ "source": "Fixture SMR, record {id}",
+ "source_by_prefix": {
+  "NI:": "Fixture NI SMR, record {id}"
+ },
+ "status": "pinned",
+ "meta_json": {
+  "file": "meta.json",
+  "row": "dataset:smr",
+  "col": "meta",
+  "source": "Fixture SMR export",
+  "status": "pinned"
+ }
+}

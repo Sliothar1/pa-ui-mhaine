@@ -1,0 +1,14 @@
+{
+ "types": {
+  "mon": [
+   "group",
+   "lat",
+   "lon",
+   "meta|order"
+  ],
+  "dataset": [
+   "meta"
+  ]
+ },
+ "include_prov": false
+}
