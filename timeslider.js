@@ -33,7 +33,7 @@ const routes=L.layerGroup([
  L.polyline([[53.66,-8.22],[53.55,-8.27],[53.45,-8.25],[53.33,-8.22],[53.23,-8.10],[53.18,-8.03]],{color:'#2563eb',weight:3}).bindTooltip('River Suck (approximate)'),
  L.polyline([[53.65,-8.00],[53.50,-7.97],[53.423,-7.94],[53.326,-7.99],[53.20,-8.02]],{color:'#2563eb',weight:4}).bindTooltip('River Shannon (approximate)'),
  L.circleMarker([53.2606,-8.5547],{radius:7,color:'#7c3aed',fillOpacity:.8}).bindTooltip('Turoe Stone, Bullaun: Iron Age decorated stone (landmark)'),
- ...RT.map(s=>L.polyline(s.p,{color:'#c2410c',weight:4,dashArray:'8 6'}).bindTooltip("Poets' route · route as told locally, reconstructed<br>"+s.n,{sticky:true}))]);
+ ...RT.map(s=>L.polyline(s.p,{color:'#c2410c',weight:4,dashArray:'8 6'}).bindTooltip("Poets' route: Reconstructed from local telling; not a contemporary itinerary. Stops are approximate.<br>"+s.n,{sticky:true}))]);
 const assembly=L.layerGroup([L.circleMarker([53.40,-8.38],{radius:7,color:'#a16207'}).bindTooltip('Tullyneeny assembly / fair site (location approximate, verify)')]);
 const learned=L.layerGroup([
  L.circleMarker([53.4067,-8.4063],{radius:7,color:'#be185d'}).bindTooltip('An Lios Mór (Irish form provisional), Pallas: court of Ó Ceallaigh and site of the 1351 feast (FitzPatrick, pp. 147–149: Lios Mór at Pallis is the pailís)'),
@@ -54,7 +54,7 @@ function draw(s){terrG.clearLayers();s.polys.forEach(p=>{L.polygon(G[p.geom],STY
 function go(i,announce){i=(i+S.length)%S.length;if(i===cur)return;cur=i;const s=S[i];sl.value=i;sl.setAttribute('aria-valuetext',s.date+': '+s.title);
  draw(s);RM?map.setView(s.centre,s.zoom,{animate:false}):map.flyTo(s.centre,s.zoom,{duration:2});
  card.innerHTML='<p class="kicker">Stop '+(i+1)+' of '+S.length+' · '+esc(s.date)+'</p><h2 class="cardh"><span lang="ga">'+esc(s.ga)+'</span> · '+esc(s.title)+'</h2><p class="badges"><span class="badge '+s.kind+'">'+esc(s.kind)+'</span> <span class="badge">'+s.polys.map(p=>CL[p.conf]).join(' + ')+'</span></p><p>'+esc(s.claim)+'</p>'+(s.link?'<p><a href="'+s.link+'">Visit the court at Fohenagh →</a></p>':'')+
-  '<p class="srcp" data-claim="'+s.id+'"><b>Reference:</b> '+esc(s.reference)+' · <b>Date:</b> '+esc(s.date)+' · <b>Evidence:</b> '+esc(s.evidence)+' · <b>Status:</b> <span class="status">'+esc(s.status)+'</span></p>';
+  '<p class="srcp" data-claim="'+s.id+'"><b>Reference:</b> '+esc(s.reference)+' · <b>Date:</b> '+esc(s.date)+' · <b>Evidence:</b> '+esc(s.evidence)+' · <b>Status:</b> <span class="status">'+esc(s.status)+'</span></p>'+(s.confidence?'<p class="srcp extra"><b>Confidence:</b> '+esc(s.confidence)+' · <span class="alts"><b>Alternatives:</b> '+s.alternatives.map(esc).join(', ')+'</span> · <b>Basis:</b> '+esc(s.basis)+' · <b>Revision:</b> '+esc(s.revision)+'</p>':'');
  if(announce)live.textContent='Stop '+(i+1)+': '+s.date+', '+s.title+'. '+s.kind+'.';
  document.querySelectorAll('.ticks button').forEach((b,j)=>b.setAttribute('aria-current',j===i?'step':'false'));}
 function stop(){clearInterval(timer);timer=null;if(RM)return;pb.textContent='▶ Play';pb.setAttribute('aria-pressed','false');}

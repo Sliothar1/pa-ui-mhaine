@@ -223,7 +223,14 @@
      "reference": "Knott, Ériu 5 (1911) 50–69; Bardic Poetry Database 932",
      "status": "pinned"
     }
-   ]
+   ],
+   "confidence": "site's reading",
+   "alternatives": [
+    "Castle Blakeney (Gallagh)",
+    "Galey"
+   ],
+   "basis": "FitzPatrick, Landscapes of the Learned, pp. 147–49 (p. 148 awaited)",
+   "revision": "Pending p. 148"
   },
   {
    "id": "UM-C09",
