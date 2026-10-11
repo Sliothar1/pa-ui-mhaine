@@ -1,245 +1,245 @@
-claim:UM-C01	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+claim:UM-C01	prov|code_sha	pa-core-0.2.0+c2d38266c506
 claim:UM-C01	prov|fetched_at	2026-10-11T16:28:14Z
 claim:UM-C01	prov|sha256	025d797d2734e649f06b64db949bf9850e4cb173e6d6d1ec966b67e50d377d0d
 claim:UM-C01	prov|source	Origin tradition (Curley; O'Donovan 1843). Claenloch 538 per later tradition
 claim:UM-C01	prov|status	tradition
-claim:UM-C02	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+claim:UM-C02	prov|code_sha	pa-core-0.2.0+c2d38266c506
 claim:UM-C02	prov|fetched_at	2026-10-11T16:28:14Z
 claim:UM-C02	prov|sha256	6b0ad1a7b88a9fc4811a86bc965286b2a992ad8c6811fc5040cb84f9d3e52f88
 claim:UM-C02	prov|source	King-lists for Uí Maine (Curley ch.2)
 claim:UM-C02	prov|status	needs source
-claim:UM-C03	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+claim:UM-C03	prov|code_sha	pa-core-0.2.0+c2d38266c506
 claim:UM-C03	prov|fetched_at	2026-10-11T16:28:14Z
 claim:UM-C03	prov|pinned	AI962.3 (CELT T100004)
 claim:UM-C03	prov|sha256	e83369fe2cdec2220d98bd6315836ffd0ed08491e47e4ff30245be124e9a3a7c
 claim:UM-C03	prov|source	Annals of Inisfallen AI962.3; AFM M960 (year)
 claim:UM-C03	prov|status	pinned
-claim:UM-C04	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+claim:UM-C04	prov|code_sha	pa-core-0.2.0+c2d38266c506
 claim:UM-C04	prov|fetched_at	2026-10-11T16:28:14Z
 claim:UM-C04	prov|pinned	AI1014.2 (CELT T100004)
 claim:UM-C04	prov|sha256	128f52a4ae9f4f5ec4b5a9df15aca618ba0a1624cd5a34133a8e9a81345ad899
 claim:UM-C04	prov|source	Annals of Inisfallen AI1014.2
 claim:UM-C04	prov|status	pinned
-claim:UM-C05	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+claim:UM-C05	prov|code_sha	pa-core-0.2.0+c2d38266c506
 claim:UM-C05	prov|fetched_at	2026-10-11T16:28:14Z
 claim:UM-C05	prov|pinned	T1139.4 (CELT T100002A)
 claim:UM-C05	prov|sha256	f68778f982d686a7b5e0b90aecc80fda40e71cf1f92133c6c83c7dba0032ff1d
 claim:UM-C05	prov|source	Annals of Tigernach T1139.4 (the Suck dug by Toirrdelbach); AFM M1139 (bridges at Athlone and Dún Leodha on the Suck)
 claim:UM-C05	prov|status	pinned
-claim:UM-C06	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+claim:UM-C06	prov|code_sha	pa-core-0.2.0+c2d38266c506
 claim:UM-C06	prov|fetched_at	2026-10-11T16:28:14Z
 claim:UM-C06	prov|sha256	9e882ae4f6504e969748ead3a6fc40acbdd56f76dc00692de7022a035178013e
 claim:UM-C06	prov|source	Annals of the Four Masters M1167 (church at Clonmacnoise by Conchobar Ua Ceallaigh)
 claim:UM-C06	prov|status	annal identified, entry not pinned
-claim:UM-C07	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+claim:UM-C07	prov|code_sha	pa-core-0.2.0+c2d38266c506
 claim:UM-C07	prov|fetched_at	2026-10-11T16:28:14Z
 claim:UM-C07	prov|sha256	c6b27cdd8b27ab544474d8279463789a5fb3f7b23eb051d94058a5258987f14d
 claim:UM-C07	prov|source	Annals of the Four Masters M1316; Annals of Connacht 1316
 claim:UM-C07	prov|status	annal identified, entry not pinned
-claim:UM-C08	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+claim:UM-C08	prov|code_sha	pa-core-0.2.0+c2d38266c506
 claim:UM-C08	prov|fetched_at	2026-10-11T16:28:14Z
 claim:UM-C08	prov|pinned	FitzPatrick pp. 147–149; Knott, Ériu 5, pp. 50–69 (60–61)
 claim:UM-C08	prov|sha256	62612600ea62089d89d9143f046838341f9d03c98ed155b395685c6a20fac02d
 claim:UM-C08	prov|source	FitzPatrick, Landscapes of the Learned (2023), pp. 147–149 (feast site identified as Doon Fort, Doon Upper, in her 2016 field survey; pailís at Lios Mór, Pallas); poem: Knott, Ériu 5 (1911) 50–69, esp. 60–61; Bardic Poetry Database poem 932
 claim:UM-C08	prov|status	pinned
-claim:UM-C09	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+claim:UM-C09	prov|code_sha	pa-core-0.2.0+c2d38266c506
 claim:UM-C09	prov|fetched_at	2026-10-11T16:28:14Z
 claim:UM-C09	prov|pinned	M1353.7 (CELT T100005C)
 claim:UM-C09	prov|sha256	f4a1592de1e8f22195b143a7b083f16aa3df7a61637f9ff1a634169c859e2fcf
 claim:UM-C09	prov|source	Annals of the Four Masters M1353.7
 claim:UM-C09	prov|status	pinned
-claim:UM-C10	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+claim:UM-C10	prov|code_sha	pa-core-0.2.0+c2d38266c506
 claim:UM-C10	prov|fetched_at	2026-10-11T16:28:14Z
 claim:UM-C10	prov|sha256	31d80b1ff5b51a8fe76a27fcd4e72449cdf40d2f9399cc7e120a84f8baf05148
 claim:UM-C10	prov|source	Curley 2022, PhD thesis (widest extent c. 1380–1420; c. 1,706 km²)
 claim:UM-C10	prov|status	needs source
-claim:UM-C11	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+claim:UM-C11	prov|code_sha	pa-core-0.2.0+c2d38266c506
 claim:UM-C11	prov|fetched_at	2026-10-11T16:28:14Z
 claim:UM-C11	prov|pinned	M1504.13–14 (CELT T100005E)
 claim:UM-C11	prov|sha256	08466b0c28d526689626d945f0b6b417a7f8198bdee04229630c145f3ed34556
 claim:UM-C11	prov|source	Annals of the Four Masters M1504.13–14
 claim:UM-C11	prov|status	pinned
-claim:UM-C12	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+claim:UM-C12	prov|code_sha	pa-core-0.2.0+c2d38266c506
 claim:UM-C12	prov|fetched_at	2026-10-11T16:28:14Z
 claim:UM-C12	prov|sha256	476385448a8532e45603439eb4e16d58495de7a18c9a886bfd03a7c64f74d1e6
 claim:UM-C12	prov|source	Curley 2022, PhD thesis (closing period)
 claim:UM-C12	prov|status	needs source
-court:UM-P01	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+court:UM-P01	prov|code_sha	pa-core-0.2.0+c2d38266c506
 court:UM-P01	prov|fetched_at	2026-10-11T16:28:14Z
 court:UM-P01	prov|sha256	ab87b909155d4c382a38195b2e1a2800c6e3b356d1d91cf813ce5b7db1543fa5
 court:UM-P01	prov|source	FitzPatrick, Landscapes of the Learned (2023), pp. 147–149
 court:UM-P01	prov|status	pinned
-court:UM-P02	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+court:UM-P02	prov|code_sha	pa-core-0.2.0+c2d38266c506
 court:UM-P02	prov|fetched_at	2026-10-11T16:28:14Z
 court:UM-P02	prov|sha256	f0cb20452071f8081911fe53db2f6e45235946667c1b4a131b24f7d89c96b21e
 court:UM-P02	prov|source	FitzPatrick, Landscapes of the Learned (2023), pp. 147–149
 court:UM-P02	prov|status	pinned
-court:UM-P03	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+court:UM-P03	prov|code_sha	pa-core-0.2.0+c2d38266c506
 court:UM-P03	prov|fetched_at	2026-10-11T16:28:14Z
 court:UM-P03	prov|sha256	5ef284e517171d004a81b7d9af92efa67d24f096185c882e2a54a04e01f55dfd
 court:UM-P03	prov|source	FitzPatrick, Landscapes of the Learned (2023), pp. 147–149
 court:UM-P03	prov|status	pinned
-court:UM-P04	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+court:UM-P04	prov|code_sha	pa-core-0.2.0+c2d38266c506
 court:UM-P04	prov|fetched_at	2026-10-11T16:28:14Z
 court:UM-P04	prov|sha256	7829a7cc338dc9687df01706dcbe9d7675311626b8fb4f5d1c435fa7945db30d
 court:UM-P04	prov|source	Book of Lecan, via FitzPatrick
 court:UM-P04	prov|status	partly pinned
-court:UM-P05	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+court:UM-P05	prov|code_sha	pa-core-0.2.0+c2d38266c506
 court:UM-P05	prov|fetched_at	2026-10-11T16:28:14Z
 court:UM-P05	prov|sha256	ae7536583bf596d66057afc2f78e497ec10a475099acfee477a04e5a89660867
 court:UM-P05	prov|source	FitzPatrick, Landscapes of the Learned (2023), pp. 147–149; Knott, Ériu 5, 60–61
 court:UM-P05	prov|status	partly pinned
-era:CORE	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+era:CORE	prov|code_sha	pa-core-0.2.0+c2d38266c506
 era:CORE	prov|fetched_at	2026-10-11T16:28:14Z
 era:CORE	prov|sha256	088a7dfb5926cd8e3873f980ecb461442d96853ae39743d0e6556d09524000c7
 era:CORE	prov|source	data/eras.json (sketched era outlines, approximate)
 era:CORE	prov|status	interpretation
-era:LATE	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+era:LATE	prov|code_sha	pa-core-0.2.0+c2d38266c506
 era:LATE	prov|fetched_at	2026-10-11T16:28:14Z
 era:LATE	prov|sha256	342276abd4a009bf0d7fe114e99c389c70fb8ec3228b6a73fcf5f10c801b39f5
 era:LATE	prov|source	data/eras.json (sketched era outlines, approximate)
 era:LATE	prov|status	interpretation
-era:MID	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+era:MID	prov|code_sha	pa-core-0.2.0+c2d38266c506
 era:MID	prov|fetched_at	2026-10-11T16:28:14Z
 era:MID	prov|sha256	4905b69b57ce055eb3bf446e7bb5220ef536eee5937e0c9f625a2dce4ca9496d
 era:MID	prov|source	data/eras.json (sketched era outlines, approximate)
 era:MID	prov|status	interpretation
-era:TIR	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+era:TIR	prov|code_sha	pa-core-0.2.0+c2d38266c506
 era:TIR	prov|fetched_at	2026-10-11T16:28:14Z
 era:TIR	prov|sha256	89ca83ca57c8734e7d3b632106f411a692831cda1b164705582f3c44a7ec38dc
 era:TIR	prov|source	data/eras.json (sketched era outlines, approximate)
 era:TIR	prov|status	interpretation
-era:WIDE	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+era:WIDE	prov|code_sha	pa-core-0.2.0+c2d38266c506
 era:WIDE	prov|fetched_at	2026-10-11T16:28:14Z
 era:WIDE	prov|sha256	7e4741bc1e3204563df075a44a9b74a479116233ab5a27b805817ba585bd7b65
 era:WIDE	prov|source	data/eras.json (sketched era outlines, approximate)
 era:WIDE	prov|status	interpretation
-ledger:claims	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+ledger:claims	prov|code_sha	pa-core-0.2.0+c2d38266c506
 ledger:claims	prov|fetched_at	2026-10-11T16:28:14Z
 ledger:claims	prov|sha256	49bd20472b725d88222b830eee16a27a67aada8042b4480af7a8e4ce4aa30e4c
 ledger:claims	prov|source	data/claims.json
-place:abbeyknockmoy	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:abbeyknockmoy	prov|fetched_at	2026-10-11T16:28:14Z
-place:abbeyknockmoy	prov|sha256	7f7e85c7c000a7e87bec8b6464d18a761bcece8e24b96ccbd3a5b3879c0c8de7
+place:abbeyknockmoy	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:abbeyknockmoy	prov|fetched_at	2026-10-11T17:31:56Z
+place:abbeyknockmoy	prov|sha256	b359a6327b9b63157ae3e0885b1faee69212eca2f0970bb58fefeb3ae3960ef8
 place:abbeyknockmoy	prov|source	data/places.json (hand-placed map positions)
 place:abbeyknockmoy	prov|status	interpretation
-place:ahascragh	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:ahascragh	prov|fetched_at	2026-10-11T16:28:14Z
-place:ahascragh	prov|sha256	86113193aea5950df1ae39d01e93b057cbc269bc88ad5a2236de70f2d1530913
+place:ahascragh	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:ahascragh	prov|fetched_at	2026-10-11T17:31:56Z
+place:ahascragh	prov|sha256	612db94f749be65a71c5a21bdc537a1db6aabe8a7f4e38a1cc378588999ec89e
 place:ahascragh	prov|source	data/places.json (hand-placed map positions)
 place:ahascragh	prov|status	interpretation
-place:athlone	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:athlone	prov|fetched_at	2026-10-11T16:28:14Z
-place:athlone	prov|sha256	822d2ef0e3bae6349f0d852e086c786f9a510bbc7b34f7855114e7e27b2b939b
+place:athlone	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:athlone	prov|fetched_at	2026-10-11T17:32:02Z
+place:athlone	prov|sha256	78ab7d2d3ca922dca36cb8968b3ef6196af69a283ff69488628aaa44c7fa5180
 place:athlone	prov|source	data/places.json (hand-placed map positions)
 place:athlone	prov|status	interpretation
-place:aughrim	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:aughrim	prov|fetched_at	2026-10-11T16:28:14Z
-place:aughrim	prov|sha256	aae34347551cbf8ef260b559a1796d556908b34393b4d90b7b4b6e62a425a5b1
+place:aughrim	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:aughrim	prov|fetched_at	2026-10-11T17:31:56Z
+place:aughrim	prov|sha256	ce230c9d8c3c624bd961bed9150e882ac7aa6c68cb636cce9460cf30bcc614e4
 place:aughrim	prov|source	data/places.json (hand-placed map positions)
 place:aughrim	prov|status	interpretation
-place:ballinasloe	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:ballinasloe	prov|fetched_at	2026-10-11T16:28:14Z
-place:ballinasloe	prov|sha256	b87cdc44006c1ba1461b6fa4a1ea366af7400a1cf9e11b87c917eb392cda0f2b
+place:ballinasloe	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:ballinasloe	prov|fetched_at	2026-10-11T17:31:56Z
+place:ballinasloe	prov|sha256	0af5df39ee0740f5c5a113653be293b19b58052da89221d9a2db00cf02a574fd
 place:ballinasloe	prov|source	data/places.json (hand-placed map positions)
 place:ballinasloe	prov|status	interpretation
-place:ballydoogan	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:ballydoogan	prov|fetched_at	2026-10-11T16:28:14Z
-place:ballydoogan	prov|sha256	34c4be664cebfeb775934b5b0544ec0ab2f3ded8a98078eda2384e78c3e3e769
+place:ballydoogan	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:ballydoogan	prov|fetched_at	2026-10-11T17:31:56Z
+place:ballydoogan	prov|sha256	7dba941e268b0ac1fafbc212f7aeeae546ca049fdcd3d42eea0b1a33cd7ae977
 place:ballydoogan	prov|source	data/places.json (hand-placed map positions)
 place:ballydoogan	prov|status	interpretation
-place:ballynabanaba	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:ballynabanaba	prov|fetched_at	2026-10-11T16:28:14Z
-place:ballynabanaba	prov|sha256	a57af98e18d96406ddc38ea15b87d5559b18c323a0854092e18043781e5ff6e9
+place:ballynabanaba	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:ballynabanaba	prov|fetched_at	2026-10-11T17:31:56Z
+place:ballynabanaba	prov|sha256	b95bdded29ff5c494664687a20e2929292992f150ee12801cbddb37ed0a28cc3
 place:ballynabanaba	prov|source	data/places.json (hand-placed map positions)
 place:ballynabanaba	prov|status	interpretation
-place:caltra	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:caltra	prov|fetched_at	2026-10-11T16:28:14Z
-place:caltra	prov|sha256	5e4e42d284b935d6e308b60144274955e69a2dbb24712aa673e0152da99a0918
+place:caltra	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:caltra	prov|fetched_at	2026-10-11T17:31:56Z
+place:caltra	prov|sha256	22d7fc95677e284c951b2a097ce6c839d8b52000df5b654709ad6ba98bf6f080
 place:caltra	prov|source	data/places.json (hand-placed map positions)
 place:caltra	prov|status	interpretation
-place:clonmacnoise	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:clonmacnoise	prov|fetched_at	2026-10-11T16:28:14Z
-place:clonmacnoise	prov|sha256	b2f606748e782d68b0295d91032b4b4d8cebd64ea793f205764fa8c08a6b3f3e
+place:clonmacnoise	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:clonmacnoise	prov|fetched_at	2026-10-11T17:31:56Z
+place:clonmacnoise	prov|sha256	d3a4f0242f5d97da768412169de3a9224c5720ca4080a80f50dd85fadb5e1d7d
 place:clonmacnoise	prov|source	data/places.json (hand-placed map positions)
 place:clonmacnoise	prov|status	interpretation
-place:doon	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:doon	prov|fetched_at	2026-10-11T16:28:14Z
-place:doon	prov|sha256	b88ff7ee8b4a4a651d8593f4bd50d221f5ad31b6399ddf592642e45b2bea5fbc
+place:doon	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:doon	prov|fetched_at	2026-10-11T17:31:56Z
+place:doon	prov|sha256	1d84763a027c70eef464c4630072b69e470775528742aec811d15ca8d1c60271
 place:doon	prov|source	data/places.json (hand-placed map positions)
 place:doon	prov|status	interpretation
-place:fohenagh	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:fohenagh	prov|fetched_at	2026-10-11T16:28:14Z
-place:fohenagh	prov|sha256	c0219385a5f96130fdfb4f5a58600236c570f543402f73ca95ef0994640a5277
+place:fohenagh	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:fohenagh	prov|fetched_at	2026-10-11T17:31:56Z
+place:fohenagh	prov|sha256	569c17d93933585edb54b224ae7da11943af6500dfa8a51ec5876801204ad9a8
 place:fohenagh	prov|source	data/places.json (hand-placed map positions)
 place:fohenagh	prov|status	interpretation
-place:gallagh	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:gallagh	prov|fetched_at	2026-10-11T16:28:14Z
-place:gallagh	prov|sha256	30f52a0c0cd85fba778ec71ec1b1a8fd121f87570d212b9ed6e0132a84161b6b
+place:gallagh	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:gallagh	prov|fetched_at	2026-10-11T17:32:28Z
+place:gallagh	prov|sha256	0eb1afd59ca9f7439ac3e32f33f289f2999fc95da6c5b763204fcbefab5dc489
 place:gallagh	prov|source	data/places.json (hand-placed map positions)
 place:gallagh	prov|status	interpretation
-place:kilconnell	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:kilconnell	prov|fetched_at	2026-10-11T16:28:14Z
-place:kilconnell	prov|sha256	1227caa8da0ace4f70ef83ab4a9fd5587b3d70aad0bee87df4e4e55cbab57eb6
+place:kilconnell	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:kilconnell	prov|fetched_at	2026-10-11T17:31:56Z
+place:kilconnell	prov|sha256	d57ee6fb21fcb19ccd9c182134a0a6c6335163daa38f944854190c8e8a534bea
 place:kilconnell	prov|source	data/places.json (hand-placed map positions)
 place:kilconnell	prov|status	interpretation
-place:knockdoe	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:knockdoe	prov|fetched_at	2026-10-11T16:28:14Z
-place:knockdoe	prov|sha256	d9fa6e5d1671899a784b8e1b2d8c76edef6d78c8546359a5a9f0021eeea7bc05
+place:knockdoe	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:knockdoe	prov|fetched_at	2026-10-11T17:31:56Z
+place:knockdoe	prov|sha256	612c9216ebf0ad7c18857ac1615727fff6bdc8755296414d2944009a21b9ae51
 place:knockdoe	prov|source	data/places.json (hand-placed map positions)
 place:knockdoe	prov|status	interpretation
-place:liosmor	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:liosmor	prov|fetched_at	2026-10-11T16:28:14Z
-place:liosmor	prov|sha256	6df21fb96b70390c64d0f94e8d4e18900d41d01119d6906a8ecaad23d1e8000d
+place:liosmor	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:liosmor	prov|fetched_at	2026-10-11T17:31:56Z
+place:liosmor	prov|sha256	01242abff305d7d0eaca8cb34cf9d572ad4753b09bbbd681460bdf910e97f3f3
 place:liosmor	prov|source	data/places.json (hand-placed map positions)
 place:liosmor	prov|status	interpretation
-place:lochnaneigeas	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:lochnaneigeas	prov|fetched_at	2026-10-11T16:28:14Z
-place:lochnaneigeas	prov|sha256	e0bf034ace0143ae730952aa54cf1ed9589f4b525b42e1cca8b77408f771ab65
+place:lochnaneigeas	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:lochnaneigeas	prov|fetched_at	2026-10-11T17:31:56Z
+place:lochnaneigeas	prov|sha256	49b541f26aa517bfacd8d63ac15d8c14de74e9af8f5279fee0e861055b9c5739
 place:lochnaneigeas	prov|source	data/places.json (hand-placed map positions)
 place:lochnaneigeas	prov|status	interpretation
-place:roscommon	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:roscommon	prov|fetched_at	2026-10-11T16:28:14Z
-place:roscommon	prov|sha256	5f7c51f5b1fc96a9f827fac75cd9c2c427f9292408bb1cac1da14552e02c40f2
+place:roscommon	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:roscommon	prov|fetched_at	2026-10-11T17:32:00Z
+place:roscommon	prov|sha256	f1399705b2c26c76ff6f02a66e68019063416db4b5c7321b754c192db87cc327
 place:roscommon	prov|source	data/places.json (hand-placed map positions)
 place:roscommon	prov|status	interpretation
-place:tiaquin	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:tiaquin	prov|fetched_at	2026-10-11T16:28:14Z
-place:tiaquin	prov|sha256	a271ae8034c46690d7fda6de5203174ee804f1997da447b0765cfa4fa417620b
+place:tiaquin	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:tiaquin	prov|fetched_at	2026-10-11T17:31:56Z
+place:tiaquin	prov|sha256	c69dbfdb129085b0ebc31157c4956b96623bb9dcd46d73a061f9b8709ef7e724
 place:tiaquin	prov|source	data/places.json (hand-placed map positions)
 place:tiaquin	prov|status	interpretation
-place:tullyneeny	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:tullyneeny	prov|fetched_at	2026-10-11T16:28:14Z
-place:tullyneeny	prov|sha256	5920f46a15983c89a264cf963e217a225ca090a9657a196e8d37d244e32c0ce3
+place:tullyneeny	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:tullyneeny	prov|fetched_at	2026-10-11T17:31:56Z
+place:tullyneeny	prov|sha256	e9056d328b8438d957e5f70afb59c0cd31d8111df692894ee9022d798aab2850
 place:tullyneeny	prov|source	data/places.json (hand-placed map positions)
 place:tullyneeny	prov|status	interpretation
-place:turoe	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:turoe	prov|fetched_at	2026-10-11T16:28:14Z
-place:turoe	prov|sha256	2518077c14d75bd91e503d82a9ce96eddff50932b2f0655a6c6cbfb700c6091e
+place:turoe	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:turoe	prov|fetched_at	2026-10-11T17:31:56Z
+place:turoe	prov|sha256	fd9152967b218c01bb3b6d324a97278750f0b893ef976ed5173b90dc4481596a
 place:turoe	prov|source	data/places.json (hand-placed map positions)
 place:turoe	prov|status	interpretation
-place:tycooly	prov|code_sha	pa-core-0.1.0+24673da7c9aa
-place:tycooly	prov|fetched_at	2026-10-11T16:28:14Z
-place:tycooly	prov|sha256	646a5f8e4ff23ee660df23dd3124d7cbad7bf6522bc598aacac312dda4f0f192
+place:tycooly	prov|code_sha	pa-core-0.2.0+c2d38266c506
+place:tycooly	prov|fetched_at	2026-10-11T17:32:28Z
+place:tycooly	prov|sha256	bdc19d8a60727662326f595cb5ce7b3e37b116c786132b686c77fd2f4000d5d0
 place:tycooly	prov|source	data/places.json (hand-placed map positions)
 place:tycooly	prov|status	interpretation
-status:annal-identified-entry-not-pinned	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+status:annal-identified-entry-not-pinned	prov|code_sha	pa-core-0.2.0+c2d38266c506
 status:annal-identified-entry-not-pinned	prov|fetched_at	2026-10-11T16:28:14Z
 status:annal-identified-entry-not-pinned	prov|sha256	d12cef3785ad75fa0c2fd25b7b9372b54bebc20459ba96ad1ba8eb2e908dbf63
 status:annal-identified-entry-not-pinned	prov|source	data/claims.json
-status:needs-source	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+status:needs-source	prov|code_sha	pa-core-0.2.0+c2d38266c506
 status:needs-source	prov|fetched_at	2026-10-11T16:28:14Z
 status:needs-source	prov|sha256	5469569cd2fd6cd77f221c2dcc076c7fed894a87048266408a85db223e38df75
 status:needs-source	prov|source	data/claims.json
-status:partly-pinned	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+status:partly-pinned	prov|code_sha	pa-core-0.2.0+c2d38266c506
 status:partly-pinned	prov|fetched_at	2026-10-11T16:28:14Z
 status:partly-pinned	prov|sha256	befca29547873c7543c87a5a8167ba2a51f0ec209140f653542bd5fc6cfe3f5b
 status:partly-pinned	prov|source	data/claims.json
-status:pinned	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+status:pinned	prov|code_sha	pa-core-0.2.0+c2d38266c506
 status:pinned	prov|fetched_at	2026-10-11T16:28:14Z
 status:pinned	prov|sha256	b7b55da436e7b8862adcb9991c9b23ac57e478ffdccf29376a3e33d8cacdeddf
 status:pinned	prov|source	data/claims.json
-status:tradition	prov|code_sha	pa-core-0.1.0+24673da7c9aa
+status:tradition	prov|code_sha	pa-core-0.2.0+c2d38266c506
 status:tradition	prov|fetched_at	2026-10-11T16:28:14Z
 status:tradition	prov|sha256	323001cedfe90319dbf3148d728b7eeaae136b8d4352a0de5096537c4340b035
 status:tradition	prov|source	data/claims.json

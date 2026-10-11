@@ -1,1 +1,1 @@
-ADAPTERS = ("json-claims",)
+ADAPTERS = ("json-claims", "tabular")

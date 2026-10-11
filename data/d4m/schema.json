@@ -20,8 +20,8 @@
   },
   "A_place": {
    "columns": {"id": "str", "name": "str", "ll": "json", "kind": "str", "private": "bool", "permanent": "bool",
-               "tip": "str", "source": "str", "note": "str"},
-   "required": {"place": ["id", "name", "ll", "kind", "private"]}
+               "tip": "str", "source": "str", "licence": "str", "note": "str"},
+   "required": {"place": ["id", "name", "ll", "kind", "private", "source", "licence"]}
   },
   "A_era": {
    "columns": {"ring": "json"},

@@ -1,4 +1,4 @@
-# pa-core data contract, schema version 1 (pa-core v0.1.0)
+# pa-core data contract, schema version 1 (pa-core v0.2.0)
 
 The shared interchange format for PA sites. Each site keeps its own editable source (JSON, CSV,
 fetch scripts); the associations below are what the core validates, diffs and exports.
@@ -31,13 +31,16 @@ Round-trip tests: `tests/test_core.py` (`Escaping`).
 - **Row key**: `type:id[|qualifier]`. `type` is lowercase `[a-z][a-z0-9_]*`. `id` matches
   `[A-Za-z0-9][A-Za-z0-9._:+-]*` (case kept: Uí Mhaine ids are `UM-C01`; Réalt rows become
   `mon:SMR123`). The optional qualifier is typically an ISO UTC time (`2026-10-11T00:00:00Z`).
-- **Col key**: `field[|qualifier]`, field `[a-z_][a-z0-9_]*`. An unescaped `|` is the separator.
+- **Col key**: `field[|qualifier]`, field `[A-Za-z_][A-Za-z0-9_]*` (v0.2.0 allows capitals, e.g. Réalt `WS_rise|3200BC`; prefer lowercase for new fields). An unescaped `|` is the separator.
 - Set membership / exploded values: `field|value` with value `1` (type `flag`), e.g. `tag|harbour`.
   Flags are their own columns and are never confused with a numeric value of 1.
-- Each data row has exactly one home association. A `(row, col)` pair appears at most once.
+- A row may appear in several associations (e.g. `A_mon`, `A_prop`, `A_sky`), but its visibility flag
+  is set exactly once across them, and it has one `A_prov` row. A `(row, col)` pair appears at most once
+  per association. (v0.1.0 required one home per row; relaxed in v0.2.0.)
 
 ## 4. Types (per column, from the site schema file)
-`str`, `int`, `float`, `bool` (`true`/`false`), `json` (compact, sorted keys), `flag` (must be `1`).
+`str`, `int`, `float`, `bool` (`true`/`false`), `json` (compact, sorted keys), `json_ordered` (compact,
+key order kept; v0.2.0, for published metadata whose key order is part of the output bytes), `flag` (must be `1`).
 A trailing `?` makes the column nullable. Values must be in canonical form (no `007` in an `int`
 column: ids such as `007` are declared `str` and stay strings). Every column used must be declared:
 undeclared columns fail validation.
@@ -83,9 +86,17 @@ Core terms: `pinned`, `partly pinned`, `annal identified`, `year only`, `needs s
 status to the longest vocabulary term it starts with (`pinned · private land` -> `pinned`);
 anything else needs an explicit `prov_status_overrides` entry in the adapter config.
 
+## 6b. Adapters
+- `json-claims` (v0.1.0): hand-edited JSON ledgers (lists of records, a status vocabulary, top-level
+  scalars, id-keyed mappings). Round-trip check: canonical-JSON equality with the source.
+- `tabular` (v0.2.0): one CSV or TSV table with a header, one record per line, cells typed by the
+  schema; `prov|source` from a template (`{id}`, optional per-id-prefix templates); an optional whole
+  JSON document stored as one `json_ordered` cell (dataset metadata). Round-trip check: the table is
+  reproduced byte for byte by `tabular.table_text` (Python csv, LF, minimal quoting).
+
 ## 7. Export (default deny)
 `pa-d4m export --allow export.allow.json --to site/data/` writes `<type>.json` (`{row: {col: val}}`)
-plus `index.json`. A row is exported only if it is `visibility|public`, its type is in the allowlist,
+plus `index.json`. A row's columns from all its associations are merged. A row is exported only if it is `visibility|public`, its type is in the allowlist,
 and it is not a prov-exempt config type; only allow-listed columns go out (`"*"` = all declared
 non-core columns). `visibility|*`, `sys|*` and HARD_DENY fields (`consent`, `age_band`, `age`,
 `dob`, `birth_date`, `email`, `phone`, `address`, `minor`, `guardian`, `private_text`, `ocr_private`)
@@ -93,7 +104,7 @@ are never emitted, even when allow-listed. Export refuses an invalid dataset.
 
 ## 8. Commands
 ```
-pa-d4m ingest json-claims --config data/d4m/adapter.json --schema data/d4m/schema.json --out data/d4m [--dry-run]
+pa-d4m ingest json-claims|tabular --config data/d4m/adapter.json --schema data/d4m/schema.json --out data/d4m [--dry-run]
 pa-d4m validate data/d4m --schema data/d4m/schema.json [--roundtrip data/d4m/adapter.json]
 pa-d4m export data/d4m --schema ... --allow ... --to site/data
 pa-d4m diff git:origin/main data/d4m [--max-drop 10] [--strict]
@@ -104,5 +115,5 @@ when any row type drops by more than `--max-drop` percent (relative seed guard);
 any triple change (use it for pure refactors). A side is a directory or `git:<ref>`.
 
 ## 9. Versioning
-Sites vendor pa-core at `vendor/pa-core`, pinned to a tag (`v0.1.0`), never `main`.
+Sites vendor pa-core at `vendor/pa-core`, pinned to a tag (`v0.2.0`), never `main`.
 Any change to this document's rules bumps `schema_version` and needs a migration note in CHANGELOG.md.

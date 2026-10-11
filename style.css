@@ -69,3 +69,4 @@ body.show #map,body.show #cap,body.show #ctl{visibility:visible}
 .pachip.here{border-color:var(--accent)}.pachip small{color:var(--muted)}.pamark{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;background:var(--accent);color:var(--panel);font:600 11px var(--serif)}
 .seanfhocal-f span[lang]{font-family:var(--serif);font-style:italic;color:var(--ink2)}.gbadge{display:inline-grid;place-items:center;height:16px;padding:0 6px;border-radius:999px;background:var(--accent);color:var(--panel);font-size:9px;font-weight:700}
 .egg42{background:none;border:0;padding:0 1px;min-width:0;min-height:0;font-size:.65rem;vertical-align:super;color:var(--muted);text-decoration:underline;cursor:pointer}
+.notice{border-left:4px solid var(--accent);padding:8px 12px;background:rgba(127,127,127,.12);border-radius:6px}

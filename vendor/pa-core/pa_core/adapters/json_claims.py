@@ -109,7 +109,7 @@ def build(config, schema, root=".", previous=None):
 
 
 def ingest(config, schema, out, root=".", dry_run=False):
-    previous = typed_load(out, schema) if os.path.isdir(out) else None
+    previous = typed_load(out, schema, errors=[]) if os.path.isdir(out) else None  # lenient: only A_prov fetched_at is reused
     ds = build(config, schema, root, previous)
     if dry_run:
         return ds, None
