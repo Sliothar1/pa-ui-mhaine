@@ -1,0 +1,14 @@
+{
+ "schema_version": 1,
+ "status_vocabulary_extra": ["annal identified, entry not pinned"],
+ "prov_exempt_types": ["status", "ledger"],
+ "assocs": {
+  "A_claim": {
+   "columns": {"id": "str", "date": "str", "title": "str", "pinned": "str?", "status": "str", "centre": "json",
+               "zoom": "int", "code": "str", "link": "str?", "polys": "json", "name": "str", "reference": "str",
+               "description": "str", "_note": "str", "area_km2": "int"},
+   "required": {"claim": ["id", "date", "status", "polys"], "court": ["id", "reference", "status"]}
+  },
+  "A_era": {"columns": {"ring": "json"}, "required": {"era": ["ring"]}}
+ }
+}

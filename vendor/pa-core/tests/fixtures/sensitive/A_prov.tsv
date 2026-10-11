@@ -1,0 +1,15 @@
+find:F1	prov|source	beach survey
+find:F1	prov|status	interpretation
+find:F1	prov|fetched_at	2026-10-11T00:00:00Z
+find:F1	prov|sha256	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+find:F1	prov|code_sha	test
+find:F2	prov|source	beach survey
+find:F2	prov|status	interpretation
+find:F2	prov|fetched_at	2026-10-11T00:00:00Z
+find:F2	prov|sha256	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+find:F2	prov|code_sha	test
+person:P1	prov|source	form
+person:P1	prov|status	needs source
+person:P1	prov|fetched_at	2026-10-11T00:00:00Z
+person:P1	prov|sha256	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+person:P1	prov|code_sha	test

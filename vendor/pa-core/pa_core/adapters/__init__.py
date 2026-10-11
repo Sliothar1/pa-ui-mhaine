@@ -1,0 +1,1 @@
+ADAPTERS = ("json-claims",)

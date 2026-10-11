@@ -1,0 +1,31 @@
+{
+ "schema_version": 1,
+ "status_vocabulary_extra": ["annal identified, entry not pinned"],
+ "prov_exempt_types": ["status", "ledger"],
+ "assocs": {
+  "A_claim": {
+   "columns": {
+    "id": "str", "date": "str", "title": "str", "ga": "str", "claim": "str", "kind": "str",
+    "evidence": "str", "reference": "str", "pinned": "str?", "status": "str", "centre": "json",
+    "zoom": "int", "link": "str?", "polys": "json", "parts": "json", "confidence": "str",
+    "alternatives": "json", "basis": "str", "revision": "str",
+    "name": "str", "description": "str", "curley_area_km2": "int", "_note": "str"
+   },
+   "required": {
+    "claim": ["id", "date", "title", "ga", "claim", "kind", "evidence", "reference", "pinned", "status", "centre", "zoom", "polys"],
+    "court": ["id", "name", "reference", "date", "evidence", "status"],
+    "status": ["name", "description"],
+    "ledger": ["curley_area_km2"]
+   }
+  },
+  "A_place": {
+   "columns": {"id": "str", "name": "str", "ll": "json", "kind": "str", "private": "bool", "permanent": "bool",
+               "tip": "str", "source": "str", "note": "str"},
+   "required": {"place": ["id", "name", "ll", "kind", "private"]}
+  },
+  "A_era": {
+   "columns": {"ring": "json"},
+   "required": {"era": ["ring"]}
+  }
+ }
+}

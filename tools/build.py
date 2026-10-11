@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebuild generated content from the single source of truth (data/claims.json, data/eras.json).
+"""Rebuild generated content from data/d4m/*.tsv (written by pa-core from the editable data/claims.json, places.json, eras.json).
 Also normalises the shared head (theme.js, social meta, vendored Leaflet) and the nav on every page."""
 import json,re,glob,html,os,math,sys
 
@@ -15,7 +15,19 @@ def wr(f,s):
   with open(f,'w',**U) as fh:fh.write(s)
 def jdump(o,f,**k):
   with open(f,'w',**U) as fh:json.dump(o,fh,ensure_ascii=False,**k)
-D=json.loads(rd('data/claims.json'));C=D['claims'];G=json.loads(rd('data/eras.json'));PLACES=D.get('places',[]);MAP=json.loads(rd('data/places.json'))['places']
+# Data path (pa-core v0.1.0, vendored at vendor/pa-core): the JSON files in data/ stay the editable source;
+# the json-claims adapter writes data/d4m/A_claim, A_place, A_era, A_prov TSVs; pa-core validates them;
+# everything below is generated from the TSVs only. See docs/PARITY.md and vendor/pa-core/docs/SCHEMA.md.
+sys.path.insert(0,'vendor/pa-core')
+from pa_core.schema import Schema
+from pa_core.validate import validate as d4m_validate
+from pa_core.adapters import json_claims
+D4M='data/d4m';SCHEMA=Schema.load(D4M+'/schema.json');ACFG=json.loads(rd(D4M+'/adapter.json'))
+if os.environ.get('PA_D4M_NO_INGEST')!='1':json_claims.ingest(ACFG,SCHEMA,D4M)
+_e=d4m_validate(D4M,SCHEMA)+json_claims.roundtrip_errors(ACFG,SCHEMA,D4M)
+if _e:sys.exit('data/d4m invalid: '+'; '.join(_e))
+_R=json_claims.reconstruct(ACFG,SCHEMA,D4M)
+D=_R['data/claims.json'];C=D['claims'];G=_R['data/eras.json'];PLACES=D.get('places',[]);MAP=_R['data/places.json']['places']
 UNPINNED=lambda v:str(v or '').strip().upper() in ('','NEEDS SOURCE')
 # schema validation
 REQ=('id','date','title','ga','claim','kind','evidence','reference','pinned','status','centre','zoom','polys')
