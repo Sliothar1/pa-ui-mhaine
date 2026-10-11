@@ -27,8 +27,7 @@ const RT=[
  {p:[[53.328,-8.229],[53.330,-8.285],[53.331,-8.340]],n:'1. Ballinasloe west along the Eiscir Riada (the esker road). The Turoe Stone lies away to the south, on the left.'},
  {p:[[53.331,-8.340],[53.333,-8.400]],n:'2. On to Kilconnell on the esker line, where the poets turn north.'},
  {p:[[53.333,-8.400],[53.355,-8.402],[53.3746,-8.4009]],n:'3. North from Kilconnell by Callow Lough to Doon fort.'},
- {p:[[53.3746,-8.4009],[53.405,-8.440],[53.4341,-8.4761]],n:'4. Doon on to Gallagh (Gallagh Castle site; which Gallagh: verify with Garry Lohan).'},
- {p:[[53.4341,-8.4761],[53.420,-8.440],[53.4067,-8.4063]],n:'5. Gallagh to the court at Pallas (An Lios Mór), Fohenagh: journey\'s end (FitzPatrick).'}];
+ {p:[[53.3746,-8.4009],[53.390,-8.404],[53.4067,-8.4063]],n:'4. Doon, above Loch na nÉigeas, north to the court at Pallas (An Lios Mór), Fohenagh: journey\'s end (FitzPatrick, Landscapes of the Learned, pp. 147–149).'}];
 const routes=L.layerGroup([
  L.polyline([[53.27,-8.80],[53.30,-8.55],[53.33,-8.40],[53.33,-8.23],[53.38,-8.05],[53.423,-7.94]],{color:'#0f7c80',weight:3,dashArray:'10 6'}).bindTooltip('Slighe Mhór (Eiscir Riada), indicative line'),
  L.polyline([[53.66,-8.22],[53.55,-8.27],[53.45,-8.25],[53.33,-8.22],[53.23,-8.10],[53.18,-8.03]],{color:'#2563eb',weight:3}).bindTooltip('River Suck (approximate)'),
@@ -37,11 +36,12 @@ const routes=L.layerGroup([
  ...RT.map(s=>L.polyline(s.p,{color:'#c2410c',weight:4,dashArray:'8 6'}).bindTooltip("Poets' route · route as told locally, reconstructed<br>"+s.n,{sticky:true}))]);
 const assembly=L.layerGroup([L.circleMarker([53.40,-8.38],{radius:7,color:'#a16207'}).bindTooltip('Tullyneeny assembly / fair site (location approximate, verify)')]);
 const learned=L.layerGroup([
- L.circleMarker([53.4067,-8.4063],{radius:7,color:'#be185d'}).bindTooltip('An Lios Mór (Irish form provisional), Pallas: court of Ó Ceallaigh and site of the 1351 feast (FitzPatrick)'),
- L.circleMarker([53.3746,-8.4009],{radius:6,color:'#be185d'}).bindTooltip('An Dún (Irish form provisional) · Doon fort'),
- L.circleMarker([53.3875,-8.4006],{radius:6,color:'#be185d'}).bindTooltip('Baile Uí Dhúgáin · Ballydoogan'),
+ L.circleMarker([53.4067,-8.4063],{radius:7,color:'#be185d'}).bindTooltip('An Lios Mór (Irish form provisional), Pallas: court of Ó Ceallaigh and site of the 1351 feast (FitzPatrick, pp. 147–149: Lios Mór at Pallis is the pailís)'),
+ L.circleMarker([53.3746,-8.4009],{radius:6,color:'#be185d'}).bindTooltip('An Dún (Irish form provisional) · Doon fort, overlooking Loch na nÉigeas (FitzPatrick, Fig. 4.14)'),
+ L.circleMarker([53.3715,-8.3960],{radius:6,color:'#2563eb',fillOpacity:.6}).bindTooltip('Loch na nÉigeas · seasonal lake at Doon Upper (FitzPatrick, Fig. 4.14; position approximate)'),
+ L.circleMarker([53.3875,-8.4006],{radius:6,color:'#be185d'}).bindTooltip('Baile Uí Dhubhagáin · Ballydoogan: lands of the Ó Dubhagáin learned family (FitzPatrick, pp. 147–149)'),
  L.circleMarker([53.395,-8.388],{radius:6,color:'#be185d'}).bindTooltip('Baile na Banaba · Ballynabanaba: Ó Longargáin the harper (approximate position)'),
- L.circleMarker([53.4341,-8.4761],{radius:6,color:'#be185d'}).bindTooltip('Gallagh: on the poets\' route between Doon and Pallas (site identification: verify)'),
+ L.circleMarker([53.4341,-8.4761],{radius:6,color:'#be185d'}).bindTooltip('Gallagh (Castle Blakeney): a nearby court site, not on the poets\' route'),
  L.circleMarker([53.434,-8.43],{radius:6,color:'#be185d'}).bindTooltip('Caltra: nearby court country (approximate)')]);
 const boundary=L.geoJSON(null,{style:{color:'#dc2626',weight:3,fillOpacity:0}});
 L.control.layers(null,{"O'Donovan 1843 claim (sketch, not traced)":odonovan,"Routes, rivers and the poets' route":routes,'Assembly sites':assembly,'Learned families and court':learned},{collapsed:window.innerWidth<600}).addTo(map);
