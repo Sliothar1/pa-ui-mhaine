@@ -1,0 +1,382 @@
+{
+ "curley_area_km2": 1706,
+ "_note": "Single source of truth for the time-map claims. Edit here, then run: python3 tools/build.py",
+ "status_values": {
+  "pinned": "annal entry number or page cited",
+  "partly pinned": "some parts pinned, others not",
+  "needs source": "no page or annal pinned",
+  "tradition": "told as tradition; not verifiable",
+  "annal identified, entry not pinned": "annal and year identified; entry number not pinned"
+ },
+ "claims": [
+  {
+   "id": "UM-C01",
+   "date": "c. 500",
+   "title": "Máine Mór comes west",
+   "ga": "Teacht Mháine Mhóir",
+   "claim": "The kingdom's own story tells of Máine Mór leading his people west to settle beyond the Shannon, and of a victory at Claenloch that secured the land. This is told as tradition, not record.",
+   "kind": "tradition",
+   "evidence": "local tradition",
+   "reference": "Origin tradition (Curley; O'Donovan 1843). Claenloch 538 per later tradition",
+   "pinned": null,
+   "status": "tradition",
+   "centre": [
+    53.36,
+    -8.33
+   ],
+   "zoom": 9,
+   "link": null,
+   "polys": [
+    {
+     "geom": "MID",
+     "conf": "claimed",
+     "src": "Family origin tradition (Curley; O'Donovan 1843)"
+    }
+   ]
+  },
+  {
+   "id": "UM-C02",
+   "date": "c. 800",
+   "title": "The ruling lines settle",
+   "ga": "Na craobhacha ríoga",
+   "claim": "Several branches of the dynasty share and contest the kingship, and the kingdom takes shape across the Suck valley.",
+   "kind": "recorded",
+   "evidence": "later source",
+   "reference": "King-lists for Uí Maine (Curley ch.2)",
+   "pinned": null,
+   "status": "needs source",
+   "centre": [
+    53.38,
+    -8.3
+   ],
+   "zoom": 9,
+   "link": null,
+   "polys": [
+    {
+     "geom": "MID",
+     "conf": "claimed",
+     "src": "Extent sketched from Curley ch.2; no boundary recorded"
+    }
+   ]
+  },
+  {
+   "id": "UM-C03",
+   "date": "960 (AFM) / 962 (AI)",
+   "title": "Murchad, king of Uí Maine",
+   "ga": "Bás Mhurchadha",
+   "claim": "The annals record the death of Murchad son of Áed, king of Uí Maine. In this era the ruling line came to be known as Uí Chellaig, after an earlier king named Cellach.",
+   "kind": "recorded",
+   "evidence": "contemporary record",
+   "reference": "Annals of Inisfallen AI962.3; AFM M960 (year)",
+   "pinned": "AI962.3 (CELT T100004)",
+   "status": "pinned",
+   "centre": [
+    53.38,
+    -8.3
+   ],
+   "zoom": 9,
+   "link": null,
+   "polys": [
+    {
+     "geom": "MID",
+     "conf": "interpretation",
+     "src": "Extent: interpretation after Curley"
+    }
+   ]
+  },
+  {
+   "id": "UM-C04",
+   "date": "1014",
+   "title": "Tadg Mór at Clontarf",
+   "ga": "Tadhg Mór i gCluain Tarbh",
+   "claim": "Tadg Mór Ua Cellaig fights beside Brian Bórama at Clontarf and is remembered among the fallen, a proud memory for the family.",
+   "kind": "recorded",
+   "evidence": "contemporary record",
+   "reference": "Annals of Inisfallen AI1014.2",
+   "pinned": "AI1014.2 (CELT T100004)",
+   "status": "pinned",
+   "centre": [
+    53.36,
+    -6.2
+   ],
+   "zoom": 7,
+   "link": null,
+   "polys": [
+    {
+     "geom": "MID",
+     "conf": "interpretation",
+     "src": "Extent: interpretation after Curley"
+    }
+   ]
+  },
+  {
+   "id": "UM-C05",
+   "date": "1139",
+   "title": "The Suck is dug",
+   "ga": "Tochailt na Suca",
+   "claim": "The Annals of Tigernach record that Toirrdelbach Ó Conchobair, king of Connacht, had the river Suck dug out by a great muster of Connacht men, so that it flooded two marshes into lakes on its way to Lough Ree. In the same year he built bridges at Athlone and at Dún Leodha (Ballinasloe) on the Suck.",
+   "kind": "recorded",
+   "evidence": "contemporary record",
+   "reference": "Annals of Tigernach T1139.4 (the Suck dug by Toirrdelbach); AFM M1139 (bridges at Athlone and Dún Leodha on the Suck)",
+   "pinned": "T1139.4 (CELT T100002A)",
+   "status": "pinned",
+   "centre": [
+    53.42,
+    -8.05
+   ],
+   "zoom": 9,
+   "link": null,
+   "polys": [
+    {
+     "geom": "TIR",
+     "conf": "interpretation",
+     "src": "Extent: interpretation after Curley"
+    }
+   ]
+  },
+  {
+   "id": "UM-C06",
+   "date": "1167",
+   "title": "A church at Clonmacnoise",
+   "ga": "Teampall Uí Cheallaigh",
+   "claim": "Conchobar Ua Ceallaigh and the people of Uí Maine build a church at Clonmacnoise, still remembered as O'Kelly's Church: a sign of the kingdom's close ties to the great monastery across the Shannon.",
+   "kind": "recorded",
+   "evidence": "contemporary record",
+   "reference": "Annals of the Four Masters M1167 (church at Clonmacnoise by Conchobar Ua Ceallaigh)",
+   "pinned": null,
+   "status": "annal identified, entry not pinned",
+   "centre": [
+    53.326,
+    -7.986
+   ],
+   "zoom": 11,
+   "link": null,
+   "polys": [
+    {
+     "geom": "TIR",
+     "conf": "interpretation",
+     "src": "Tír Maine heartland: interpretation after Curley"
+    }
+   ]
+  },
+  {
+   "id": "UM-C07",
+   "date": "1316",
+   "title": "Tadg at Athenry",
+   "ga": "Tadhg ag Baile Átha an Rí",
+   "claim": "On 10 August 1316 Tadg Ó Ceallaigh, king of Uí Maine, falls at Athenry with many of his kin. The annals remember him as the man the Gaels hoped most from in his time. The lordship regroups around its core.",
+   "kind": "recorded",
+   "evidence": "contemporary record",
+   "reference": "Annals of the Four Masters M1316; Annals of Connacht 1316",
+   "pinned": null,
+   "status": "annal identified, entry not pinned",
+   "centre": [
+    53.3,
+    -8.6
+   ],
+   "zoom": 9,
+   "link": null,
+   "polys": [
+    {
+     "geom": "CORE",
+     "conf": "attested",
+     "src": "Core around Kilconnell and Fohenagh: named sites and annal places"
+    }
+   ]
+  },
+  {
+   "id": "UM-C08",
+   "date": "1351",
+   "title": "The great Christmas feast",
+   "ga": "Nollaig na nÉigeas",
+   "claim": "Uilliam Buide Ó Ceallaigh welcomes the poets, judges, historians and musicians of Ireland for Christmas. The feast is held at An Dún, Doon Fort, a hall of stone and timber raised for the occasion above Loch na nÉigeas, in the court landscape around the pailís at Lios Mór, Pallas. Gofraidh Fionn Ó Dálaigh praises it in verse.",
+   "kind": "recorded",
+   "evidence": "contemporary record (poem); scholarly interpretation (location)",
+   "reference": "FitzPatrick, Landscapes of the Learned (2023), pp. 147–149 (feast site identified as Doon Fort, Doon Upper, in her 2016 field survey; pailís at Lios Mór, Pallas); poem: Knott, Ériu 5 (1911) 50–69, esp. 60–61; Bardic Poetry Database poem 932",
+   "pinned": "FitzPatrick pp. 147–149; Knott, Ériu 5, pp. 50–69 (60–61)",
+   "status": "pinned",
+   "centre": [
+    53.3746,
+    -8.4009
+   ],
+   "zoom": 12,
+   "link": "cuirt-fothnach.html",
+   "polys": [
+    {
+     "geom": "CORE",
+     "conf": "attested",
+     "src": "Core: Pallas court (FitzPatrick) and nearby sites"
+    }
+   ],
+   "parts": [
+    {
+     "claim": "Lios Mór at Pallas is the Ó Ceallaigh pailís",
+     "reference": "FitzPatrick pp. 147–149",
+     "status": "pinned"
+    },
+    {
+     "claim": "The 1351 feast dún is Doon Fort (An Dún), Doon Upper, above Loch na nÉigeas (Boggaun Lough)",
+     "reference": "FitzPatrick pp. 147–149 (2016 survey); Knott, Ériu 5, 60–61",
+     "status": "pinned"
+    },
+    {
+     "claim": "A castle of Tadhg Ó Ceallaigh at Doon in 1574",
+     "reference": "Nolan, as cited by FitzPatrick",
+     "status": "pinned (secondary)"
+    }
+   ],
+   "confidence": "scholarly identification (FitzPatrick 2016 field survey, published 2023)",
+   "alternatives": [
+    "Galey and Castle Blakeney proposed; FitzPatrick favours Doon"
+   ],
+   "basis": "FitzPatrick, Landscapes of the Learned (2023), pp. 147–149"
+  },
+  {
+   "id": "UM-C09",
+   "date": "1353",
+   "title": "Kilconnell Friary",
+   "ga": "Mainistir Chill Chonaill",
+   "claim": "Uilliam founds a Franciscan friary at Kilconnell, a stone centre of learning and prayer at the heart of the lordship.",
+   "kind": "recorded",
+   "evidence": "contemporary record",
+   "reference": "Annals of the Four Masters M1353.7",
+   "pinned": "M1353.7 (CELT T100005C)",
+   "status": "pinned",
+   "centre": [
+    53.333,
+    -8.4
+   ],
+   "zoom": 11,
+   "link": null,
+   "polys": [
+    {
+     "geom": "CORE",
+     "conf": "attested",
+     "src": "Core: Kilconnell Friary and the Pallas court"
+    }
+   ]
+  },
+  {
+   "id": "UM-C10",
+   "date": "c. 1400",
+   "title": "Widest extent",
+   "ga": "Uí Mhaine ina buaic",
+   "claim": "Around 1380 to 1420 the lordship is at its broadest, from Athlone and Roscommon to Abbeyknockmoy and Tiaquin, with Ballinasloe and Tycooly (Ticooly) inside it. The solid core is well attested; the hatched outer band is the claimed reach.",
+   "kind": "recorded",
+   "evidence": "later source",
+   "reference": "Curley 2022, PhD thesis (widest extent c. 1380–1420; c. 1,706 km²)",
+   "pinned": null,
+   "status": "needs source",
+   "centre": [
+    53.43,
+    -8.3
+   ],
+   "zoom": 9,
+   "link": null,
+   "polys": [
+    {
+     "geom": "WIDE",
+     "conf": "claimed",
+     "src": "Claimed / outer band: Curley's widest extent c. 1380–1420 (about six baronies, c. 1,706 km²)"
+    },
+    {
+     "geom": "CORE",
+     "conf": "attested",
+     "src": "Core: Kilconnell, Aughrim, Ahascragh, Fohenagh"
+    }
+   ]
+  },
+  {
+   "id": "UM-C11",
+   "date": "1504",
+   "title": "Knockdoe",
+   "ga": "Cnoc Tuagh",
+   "claim": "A great battle near Knockdoe draws in lords from across Connacht and beyond, with Ó Ceallaigh at its heart.",
+   "kind": "recorded",
+   "evidence": "contemporary record",
+   "reference": "Annals of the Four Masters M1504.13–14",
+   "pinned": "M1504.13–14 (CELT T100005E)",
+   "status": "pinned",
+   "centre": [
+    53.378,
+    -8.896
+   ],
+   "zoom": 11,
+   "link": null,
+   "polys": [
+    {
+     "geom": "LATE",
+     "conf": "interpretation",
+     "src": "Extent: interpretation after Curley"
+    }
+   ]
+  },
+  {
+   "id": "UM-C12",
+   "date": "1590s–1600s",
+   "title": "The lordship ends",
+   "ga": "Deireadh ré",
+   "claim": "The lordship of Uí Mhaine ended with the Tudor changes of the late 1500s and the land settlements of the early 1600s. Its names, townlands, poems and stones remain, and that is what this site celebrates.",
+   "kind": "recorded",
+   "evidence": "later source",
+   "reference": "Curley 2022, PhD thesis (closing period)",
+   "pinned": null,
+   "status": "needs source",
+   "centre": [
+    53.36,
+    -8.38
+   ],
+   "zoom": 10,
+   "link": null,
+   "polys": [
+    {
+     "geom": "CORE",
+     "conf": "attested",
+     "src": "Core townlands and sites that remain"
+    }
+   ]
+  }
+ ],
+ "places": [
+  {
+   "id": "UM-P01",
+   "name": "An Lios Mór, Pallas",
+   "reference": "FitzPatrick, Landscapes of the Learned (2023), pp. 147–149",
+   "date": "14th c.",
+   "evidence": "scholarly identification",
+   "status": "pinned · private land, no public access; view from the public road"
+  },
+  {
+   "id": "UM-P02",
+   "name": "An Dún, Doon Fort (Doon Upper)",
+   "reference": "FitzPatrick, Landscapes of the Learned (2023), pp. 147–149",
+   "date": "1351 (feast); castle 1574",
+   "evidence": "scholarly identification",
+   "status": "pinned: 1351 feast site · private land, no public access; view from the public road"
+  },
+  {
+   "id": "UM-P03",
+   "name": "Baile Uí Dhúgáin, Ballydoogan",
+   "reference": "FitzPatrick, Landscapes of the Learned (2023), pp. 147–149",
+   "date": "townland names",
+   "evidence": "later source (scholarly study)",
+   "status": "pinned"
+  },
+  {
+   "id": "UM-P04",
+   "name": "Baile na Banaba, Ballynabanaba",
+   "reference": "Book of Lecan, via FitzPatrick",
+   "date": "c. 1400 (Lecan)",
+   "evidence": "contemporary record (as cited)",
+   "status": "Irish form checked: Baile na Banaba; coordinates approximate · private land, no public access; view from the public road"
+  },
+  {
+   "id": "UM-P05",
+   "name": "Loch na nÉigeas (Boggaun Lough)",
+   "reference": "FitzPatrick, Landscapes of the Learned (2023), pp. 147–149; Knott, Ériu 5, 60–61",
+   "date": "—",
+   "evidence": "later source (scholarly study)",
+   "status": "identified (south-west of Doon Fort); map position approximate"
+  }
+ ]
+}

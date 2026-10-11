@@ -1,0 +1,9 @@
+{
+  "$schema": "https://html-validate.org/schemas/config.json",
+  "extends": ["html-validate:standard"],
+  "rules": {
+    "no-inline-style": "off",
+    "long-title": "off",
+    "no-trailing-whitespace": "off"
+  }
+}

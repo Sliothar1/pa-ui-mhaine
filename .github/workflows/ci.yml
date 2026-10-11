@@ -1,0 +1,36 @@
+name: site-checks
+on:
+  push:
+    branches: [main, v2-timeslider]
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: site-checks-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - uses: actions/setup-node@v4
+        with: {node-version: '20'}
+      - name: Install Playwright, axe-core and html-validate
+        run: |
+          pip install playwright==1.63.0
+          python -m playwright install --with-deps chromium
+          npm install --no-save axe-core@4.10.2 html-validate@9.7.1
+      - name: Rebuild generated files; fail if anything changed
+        run: |
+          python3 tools/build.py
+          git diff --exit-code || (echo "::error::Run tools/build.py and commit the result" && exit 1)
+      - name: HTML validation
+        run: npx html-validate "*.html" "scenes/*.html"
+      - name: Serve and test (axe, links, anchors, no 404s, theme, claims agreement, focus contrast)
+        run: |
+          python3 -m http.server 8799 >/dev/null 2>&1 &
+          sleep 2
+          BASE=http://localhost:8799/ AXE=node_modules/axe-core/axe.min.js python3 tests/run_tests.py
