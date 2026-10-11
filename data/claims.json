@@ -191,9 +191,9 @@
    "claim": "Uilliam Buide Ó Ceallaigh welcomes the poets, judges, historians and musicians of Ireland for Christmas at his court at Pallas, and Gofraidh Fionn Ó Dálaigh praises it in verse.",
    "kind": "recorded",
    "evidence": "contemporary record",
-   "reference": "Knott, Ériu 5 (1911) 50–69; Bardic Poetry Database poem 932. Site at Pallas: FitzPatrick, Landscapes of the Learned, pp. 147–149",
-   "pinned": "Ériu 5, pp. 50–69 (poem); FitzPatrick pp. 147–149",
-   "status": "pinned",
+   "reference": "Poem: Knott, Ériu 5 (1911) 50–69; Bardic Poetry Database poem 932. Lios Mór at Pallas = the Ó Ceallaigh pailís: FitzPatrick, Landscapes of the Learned pp. 147–149. Feast held at Pallas: this site's reading, awaiting FitzPatrick p. 148",
+   "pinned": "Ériu 5 pp. 50–69 (poem); FitzPatrick pp. 147–149 (Pallas = pailís); feast site awaiting p. 148",
+   "status": "partly pinned",
    "centre": [
     53.4,
     -8.41
@@ -205,6 +205,23 @@
      "geom": "CORE",
      "conf": "attested",
      "src": "Core: Pallas court (FitzPatrick) and nearby sites"
+    }
+   ],
+   "parts": [
+    {
+     "claim": "Lios Mór at Pallas is the Ó Ceallaigh pailís",
+     "reference": "FitzPatrick, Landscapes of the Learned, pp. 147–149",
+     "status": "pinned"
+    },
+    {
+     "claim": "The 1351 feast was held at Pallas",
+     "reference": "Site's reading (Garry Lohan's decision). FitzPatrick p. 147 notes that Castle Blakeney (Gallagh) and Galey have both been proposed; her discussion continues on p. 148, not yet seen",
+     "status": "site's reading, awaiting p. 148"
+    },
+    {
+     "claim": "Gofraidh Fionn Ó Dálaigh's poem on the feast",
+     "reference": "Knott, Ériu 5 (1911) 50–69; Bardic Poetry Database 932",
+     "status": "pinned"
     }
    ]
   },
