@@ -150,6 +150,19 @@ with sync_playwright() as p:
     if 'noindex' in h or 'rel="canonical"' not in h or 'og:url' not in h:badlive.append(pg_)
   shutil.rmtree(tmp)
   rec('T18','LIVE build (PA_LIVE=1, temp copy): no noindex, canonical + og:url on every page',not badlive,badlive)
+  # T19 PA family pattern: footer on every page has the 4 family sites, Garry credit, 42 egg; About uses Fúinn/About; no ATU
+  bad19=[]
+  for pg_ in PAGES:
+    h=open(ROOT+'/'+pg_,encoding='utf-8').read()
+    need=['id="paFamily"','PA Marine','PA Réalt','HurlingWiki','PA Uí Mhaine','Designed and built by Garry Lohan','scholar.google.com','linkedin.com/in/garry-lohan','class="egg42"','Déanta i nGaillimh']
+    miss=[n for n in need if n not in h]
+    if miss or re.search(r'\bATU\b|Atlantic Technological',h):bad19.append((pg_,miss))
+  ix=open(ROOT+'/index.html',encoding='utf-8').read()
+  if 'lang="ga">Fúinn</span>About' not in ix:bad19.append(('index.html','about heading'))
+  c=b.new_context();pg=c.new_page();pg.goto(BASE+'index.html',wait_until='networkidle');pg.click('.egg42')
+  if not pg.is_visible('#egg42note') or pg.get_attribute('.egg42','aria-expanded')!='true':bad19.append(('index.html','42 egg toggle'))
+  c.close()
+  rec('T19','PA family footer/About pattern on every page; 42 egg toggles; no ATU',not bad19,bad19)
   rec('T17','draft mode: noindex on every page, no canonical/og:url (LIVE=False)',not badidx,badidx)
   b.close()
 json.dump(R,open(ROOT+'/tests/results.json','w'),ensure_ascii=False,indent=1)

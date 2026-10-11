@@ -60,3 +60,12 @@ body.show #map,body.show #cap,body.show #ctl{visibility:visible}
 .entry{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0}.entry a{display:block;padding:16px;border-radius:14px;border:1px solid var(--line);background:var(--panel);text-decoration:none;color:var(--ink);font:500 18px var(--serif)}.entry a span{display:block;font:14px var(--sans);color:var(--ink2)}
 .cardh{font-size:20px;margin:4px 0}
 .sitenav,.hero,#cap,body.show{--focus:#f0c674}.draft{--focus:#061f33}
+
+/* PA family: About credit + footer (shared pattern; Uí Mhaine accent) */
+.ga{display:block;font:italic 1rem var(--serif);color:var(--accent);letter-spacing:.02em}#about .small{font-size:.9rem;color:var(--muted)}
+.foot{margin-top:32px;padding:18px 0 8px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem;line-height:1.7}
+#paFamily{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:10px}#paFamily .ga{display:inline;font-size:.9rem}#paFamily ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.pachip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px 3px 4px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;background:var(--panel)}
+.pachip.here{border-color:var(--accent)}.pachip small{color:var(--muted)}.pamark{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;background:var(--accent);color:var(--panel);font:600 11px var(--serif)}
+.seanfhocal-f span[lang]{font-family:var(--serif);font-style:italic;color:var(--ink2)}.gbadge{display:inline-grid;place-items:center;height:16px;padding:0 6px;border-radius:999px;background:var(--accent);color:var(--panel);font-size:9px;font-weight:700}
+.egg42{background:none;border:0;padding:0 1px;min-width:0;min-height:0;font-size:.65rem;vertical-align:super;color:var(--muted);text-decoration:underline;cursor:pointer}
