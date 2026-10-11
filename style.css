@@ -35,3 +35,11 @@ a,button{min-height:24px;min-width:24px}.credit a,.draft a,.card li a{display:in
 body.show .sitenav,body.show .draft{visibility:hidden}body.show main>*:not(#map-section),body.show #map-section>*:not(#map):not(#cap):not(#ctl){visibility:hidden}
 @media (prefers-reduced-motion:reduce){#cap{transition:none}}
 body.show #map,body.show #cap,body.show #ctl{visibility:visible}
+/* v2 time map */
+#tmap{height:min(70vh,560px);border-radius:16px;border:1px solid var(--line);margin-top:10px}
+.tsctl{display:flex;gap:12px;align-items:center;margin-top:10px}.tsctl input{flex:1;accent-color:#d4a64a}
+.ticks{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.ticks button{font:12px var(--sans);padding:4px 8px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
+.ticks button[aria-current="step"]{background:#d4a64a;color:#061f33;border-color:#d4a64a}
+.leaflet-tooltip.lbl{background:rgba(6,31,51,.8);color:#fff;border:0;box-shadow:none}
+button:focus-visible,input:focus-visible,#tmap:focus-visible{outline:3px solid #f0c674;outline-offset:2px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
