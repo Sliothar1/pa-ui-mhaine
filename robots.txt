@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pa-hy-many.vercel.app/sitemap.xml
+Sitemap: https://sliothar1.github.io/pa-ui-mhaine/sitemap.xml
