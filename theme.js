@@ -7,6 +7,6 @@
   apply(get()==='light'?'light':'dark');
   function label(){var t=d.getAttribute('data-theme');document.querySelectorAll('.themebtn').forEach(function(b){b.setAttribute('aria-label','Theme: '+t+'. Switch to '+(t==='dark'?'light':'dark')+' theme');b.setAttribute('aria-pressed',t==='dark'?'true':'false');});}
   function toggle(){var t=d.getAttribute('data-theme')==='dark'?'light':'dark';apply(t);set(t);label();}
-  function init(){apply(d.getAttribute('data-theme'));document.querySelectorAll('.themebtn').forEach(function(b){b.addEventListener('click',toggle);});label();}
+  function init(){apply(d.getAttribute('data-theme'));document.querySelectorAll('.themebtn').forEach(function(b){b.addEventListener('click',toggle);});label();document.querySelectorAll('.egg42').forEach(function(b){b.addEventListener('click',function(){var n=document.getElementById(b.getAttribute('aria-controls'));var o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));if(n)n.hidden=o;});});}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
