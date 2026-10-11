@@ -1,0 +1,65 @@
+{
+ "root": ".",
+ "css": [
+  "style.css"
+ ],
+ "js": [
+  "scenes.js",
+  "timeslider.js",
+  "theme.js"
+ ],
+ "themes": {
+  "light": ":root",
+  "dark": "[data-theme=\"dark\"]"
+ },
+ "surfaces": [
+  "bg",
+  "panel",
+  "warnbg"
+ ],
+ "text_tokens": {
+  "ink": "text",
+  "ink2": "text",
+  "muted": "text",
+  "meta": "text",
+  "accent": "text",
+  "warn": "ui",
+  "focus": "ui"
+ },
+ "contrast_exempt": {},
+ "pages": [
+  "index.html",
+  "croi.html",
+  "cuirt-fothnach.html",
+  "research-backlog.html",
+  "sources.html",
+  "timeslider.html",
+  "scenes/scene1.html",
+  "scenes/scene2.html",
+  "scenes/scene3.html",
+  "scenes/scene4.html",
+  "scenes/scene5.html",
+  "scenes/scene6.html",
+  "scenes/scene7.html",
+  "scenes/scene8.html"
+ ],
+ "map_pages": {
+  "index.html": {
+   "list": "index.html#sc-h scene list + #j-h 'Read the journey' text",
+   "note": "scene pages are text equivalents of the fly-through"
+  },
+  "timeslider.html": {
+   "list": "timeslider.html#stoplist (twelve stops) + #routelist",
+   "note": "ordered lists on the same page, work without JS"
+  }
+ },
+ "irish_allow": [
+  "Uí",
+  "Mhaine",
+  "Garry",
+  "Lohan",
+  "Éireann",
+  "Tailte",
+  "Réalt"
+ ]
+}

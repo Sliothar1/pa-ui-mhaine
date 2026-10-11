@@ -41,6 +41,8 @@ jobs:
           python3 vendor/pa-core/pa_d4m.py diff "git:$BASE" data/d4m --max-drop 10
       - name: HTML validation
         run: npx html-validate "*.html" "scenes/*.html"
+      - name: Static a11y gate (token contrast per theme, skip links, reduced motion, lang, lang=ga heuristic, list views)
+        run: python3 tools/a11y_check.py a11y.json
       - name: Serve and test (axe, links, anchors, no 404s, theme, claims agreement, focus contrast)
         run: |
           python3 -m http.server 8799 >/dev/null 2>&1 &
