@@ -1,66 +1,70 @@
-// PA Uí Mhaine v2 time-slider. All polygons are approximate / interpretation only.
+// PA Uí Mhaine time map. Data: data/claims.json (single source of truth) + data/eras.json (sketch geometry).
 (function(){
+'use strict';
 const RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-// [lat,lng] rings; rough sketches around the Suck/Shannon basin.
-const CORE=[[53.43,-8.47],[53.44,-8.36],[53.41,-8.28],[53.33,-8.26],[53.27,-8.30],[53.28,-8.42],[53.33,-8.48],[53.39,-8.50]];
-const MID=[[53.52,-8.52],[53.56,-8.30],[53.55,-8.12],[53.44,-8.02],[53.32,-8.10],[53.22,-8.22],[53.20,-8.40],[53.27,-8.55],[53.38,-8.60]];
-const TIRMAINE=[[53.68,-8.30],[53.70,-8.12],[53.58,-7.98],[53.44,-7.98],[53.36,-8.12],[53.40,-8.35],[53.52,-8.42]];
-const WIDE=[[53.46,-8.78],[53.57,-8.60],[53.66,-8.24],[53.66,-8.12],[53.58,-8.00],[53.45,-7.92],[53.38,-7.96],[53.30,-8.10],[53.22,-8.22],[53.20,-8.42],[53.28,-8.62],[53.36,-8.70]];
-const LATE=[[53.46,-8.60],[53.58,-8.30],[53.56,-8.08],[53.44,-8.02],[53.32,-8.15],[53.25,-8.28],[53.26,-8.45],[53.34,-8.58]];
-const S=[{"y": "c. 500", "ga": "Teacht Mháine Mhóir", "t": "Máine Mór comes west", "k": "tradition", "an": "Origin tradition; Claenloch dated 538 in later tradition", "c": [53.36, -8.33], "z": 9, "polys": [{"r": [[53.52, -8.52], [53.56, -8.3], [53.55, -8.12], [53.44, -8.02], [53.32, -8.1], [53.22, -8.22], [53.2, -8.4], [53.27, -8.55], [53.38, -8.6]], "conf": "claimed", "src": "Family origin tradition (Curley; O'Donovan 1843)"}], "d": "The kingdom's own story tells of Máine Mór leading his people west to settle beyond the Shannon, and of a victory at Claenloch that secured the land. This is told as tradition, not record.", "ev": "local tradition", "st": "tradition, not verifiable"}, {"y": "c. 800", "ga": "Na craobhacha ríoga", "t": "The ruling lines settle", "k": "recorded", "an": "King-lists and annal entries for Uí Maine kings, 8th–9th c.", "c": [53.38, -8.3], "z": 9, "polys": [{"r": [[53.52, -8.52], [53.56, -8.3], [53.55, -8.12], [53.44, -8.02], [53.32, -8.1], [53.22, -8.22], [53.2, -8.4], [53.27, -8.55], [53.38, -8.6]], "conf": "claimed", "src": "Extent sketched from Curley ch.2; no boundary recorded"}], "d": "Several branches of the dynasty share and contest the kingship, and the kingdom takes shape across the Suck valley.", "ev": "later source", "st": "synthesis, to confirm"}, {"y": "960", "ga": "Bás Mhurchadha", "t": "Murchad, king of Uí Maine", "k": "recorded", "an": "Annals of the Four Masters 960 (Annals of Ulster and Inisfallen give 962)", "c": [53.38, -8.3], "z": 9, "polys": [{"r": [[53.52, -8.52], [53.56, -8.3], [53.55, -8.12], [53.44, -8.02], [53.32, -8.1], [53.22, -8.22], [53.2, -8.4], [53.27, -8.55], [53.38, -8.6]], "conf": "interpretation", "src": "Extent: interpretation after Curley"}], "d": "The annals record the death of Murchad son of Áed, king of Uí Maine. In this era the ruling line came to be known as Uí Chellaig, after an earlier king named Cellach.", "ev": "contemporary record", "st": "checked (AFM 960 / AU 962)"}, {"y": "1014", "ga": "Tadhg Mór i gCluain Tarbh", "t": "Tadg Mór at Clontarf", "k": "recorded", "an": "Annals of Ulster 1014", "c": [53.36, -6.2], "z": 7, "polys": [{"r": [[53.52, -8.52], [53.56, -8.3], [53.55, -8.12], [53.44, -8.02], [53.32, -8.1], [53.22, -8.22], [53.2, -8.4], [53.27, -8.55], [53.38, -8.6]], "conf": "interpretation", "src": "Extent: interpretation after Curley"}], "d": "Tadg Mór Ua Cellaig fights beside Brian Bórama at Clontarf and is remembered among the fallen, a proud memory for the family.", "ev": "contemporary record", "st": "checked"}, {"y": "c. 1139", "ga": "Aibhneacha mar bhóithre", "t": "Rivers as roads", "k": "tradition", "an": "Annal entry not yet found; date unconfirmed", "c": [53.42, -8.05], "z": 9, "polys": [{"r": [[53.68, -8.3], [53.7, -8.12], [53.58, -7.98], [53.44, -7.98], [53.36, -8.12], [53.4, -8.35], [53.52, -8.42]], "conf": "interpretation", "src": "Extent: interpretation after Curley"}], "d": "In this age Toirrdelbach Ó Conchobair, king of Connacht, is said to have worked on the waterways. Whatever the detail, boats on the Suck and Shannon tied Uí Maine to the wider midlands.", "ev": "later source", "st": "annal not found; date softened"}, {"y": "1167", "ga": "Teampall Uí Cheallaigh", "t": "A church at Clonmacnoise", "k": "recorded", "an": "Annals of the Four Masters 1167", "c": [53.48, -8.1], "z": 9, "polys": [{"r": [[53.68, -8.3], [53.7, -8.12], [53.58, -7.98], [53.44, -7.98], [53.36, -8.12], [53.4, -8.35], [53.52, -8.42]], "conf": "interpretation", "src": "Tír Maine heartland: interpretation after Curley"}], "d": "Conchobar Ua Ceallaigh and the people of Uí Maine build a church at Clonmacnoise, still remembered as O'Kelly's Church: a sign of the kingdom's close ties to the great monastery across the Shannon.", "ev": "contemporary record", "st": "checked (corrected from burial to church-building)"}, {"y": "1316", "ga": "Tadhg ag Baile Átha an Rí", "t": "Tadg at Athenry", "k": "recorded", "an": "Annals of the Four Masters and Annals of Connacht 1316", "c": [53.3, -8.6], "z": 9, "polys": [{"r": [[53.43, -8.47], [53.44, -8.36], [53.41, -8.28], [53.33, -8.26], [53.27, -8.3], [53.28, -8.42], [53.33, -8.48], [53.39, -8.5]], "conf": "attested", "src": "Core around Kilconnell and Fohenagh: named sites and annal places"}], "d": "On 10 August 1316 Tadg Ó Ceallaigh, king of Uí Maine, falls at Athenry with many of his kin. The annals remember him as the man the Gaels hoped most from in his time. The lordship regroups around its core.", "ev": "contemporary record", "st": "checked"}, {"y": "1351", "ga": "Nollaig na nÉigeas", "t": "The great Christmas feast", "k": "recorded", "an": "Annals of Clonmacnoise 1351; poem ed. Knott, Ériu 5 (1911)", "c": [53.4, -8.41], "z": 10, "link": "cuirt-fothnach.html", "polys": [{"r": [[53.43, -8.47], [53.44, -8.36], [53.41, -8.28], [53.33, -8.26], [53.27, -8.3], [53.28, -8.42], [53.33, -8.48], [53.39, -8.5]], "conf": "attested", "src": "Core: Pallas court (FitzPatrick) and nearby sites"}], "d": "Uilliam Buide Ó Ceallaigh welcomes the poets, judges, historians and musicians of Ireland for Christmas at his court at Pallas, and Gofraidh Fionn Ó Dálaigh praises it in verse.", "ev": "contemporary record", "st": "checked"}, {"y": "1353", "ga": "Mainistir Chill Chonaill", "t": "Kilconnell Friary", "k": "recorded", "an": "Annals of the Four Masters 1353", "c": [53.36, -8.4], "z": 10, "polys": [{"r": [[53.43, -8.47], [53.44, -8.36], [53.41, -8.28], [53.33, -8.26], [53.27, -8.3], [53.28, -8.42], [53.33, -8.48], [53.39, -8.5]], "conf": "attested", "src": "Core: Kilconnell Friary and the Pallas court"}], "d": "Uilliam founds a Franciscan friary at Kilconnell, a stone centre of learning and prayer at the heart of the lordship.", "ev": "contemporary record", "st": "checked"}, {"y": "c. 1400", "ga": "Uí Mhaine ina buaic", "t": "Widest extent", "k": "recorded", "an": "Annal places c. 1380–1420, mapped by Curley", "c": [53.43, -8.3], "z": 9, "polys": [{"r": [[53.46, -8.78], [53.57, -8.6], [53.66, -8.24], [53.66, -8.12], [53.58, -8.0], [53.45, -7.92], [53.38, -7.96], [53.3, -8.1], [53.22, -8.22], [53.2, -8.42], [53.28, -8.62], [53.36, -8.7]], "conf": "claimed", "src": "Claimed / outer band: Curley's widest extent c. 1380–1420 (about six baronies, c. 1,706 km²)"}, {"r": [[53.43, -8.47], [53.44, -8.36], [53.41, -8.28], [53.33, -8.26], [53.27, -8.3], [53.28, -8.42], [53.33, -8.48], [53.39, -8.5]], "conf": "attested", "src": "Core: Kilconnell, Aughrim, Ahascragh, Fohenagh"}], "d": "Around 1380 to 1420 the lordship is at its broadest, from Athlone and Roscommon to Abbeyknockmoy and Tiaquin, with Ballinasloe and Tycooly (Ticooly) inside it. The solid core is well attested; the hatched outer band is the claimed reach.", "ev": "later source", "st": "interpretation (Curley)"}, {"y": "1504", "ga": "Cnoc Tuagh", "t": "Knockdoe", "k": "recorded", "an": "Annals of the Four Masters 1504", "c": [53.38, -8.7], "z": 10, "polys": [{"r": [[53.46, -8.6], [53.58, -8.3], [53.56, -8.08], [53.44, -8.02], [53.32, -8.15], [53.25, -8.28], [53.26, -8.45], [53.34, -8.58]], "conf": "interpretation", "src": "Extent: interpretation after Curley"}], "d": "A great battle near Knockdoe draws in lords from across Connacht and beyond, with Ó Ceallaigh at its heart.", "ev": "contemporary record", "st": "checked"}, {"y": "1590s–1600s", "ga": "Deireadh ré", "t": "The lordship ends", "k": "recorded", "an": "Tudor and early Stuart settlements (Curley)", "c": [53.36, -8.38], "z": 10, "polys": [{"r": [[53.43, -8.47], [53.44, -8.36], [53.41, -8.28], [53.33, -8.26], [53.27, -8.3], [53.28, -8.42], [53.33, -8.48], [53.39, -8.5]], "conf": "attested", "src": "Core townlands and sites that remain"}], "d": "The lordship of Uí Mhaine ended with the Tudor changes of the late 1500s and the land settlements of the early 1600s. Its names, townlands, poems and stones remain, and that is what this site celebrates.", "ev": "later source", "st": "summary"}];
-const CL={"attested": "well attested", "interpretation": "interpretation", "claimed": "claimed"};
-const PL={
- Athlone:[53.423,-7.940],Roscommon:[53.634,-8.182],Ballinasloe:[53.328,-8.229],Tiaquin:[53.37,-8.62],Abbeyknockmoy:[53.437,-8.745],
- Kilconnell:[53.333,-8.400],Aughrim:[53.299,-8.316],Ahascragh:[53.398,-8.336],Fohenagh:[53.391,-8.421],Tycooly:[53.475,-8.412],Clonmacnoise:[53.326,-7.986]};
-
+const CL={attested:'Core sites attested · outline sketched',interpretation:'Interpretation',claimed:'Claimed'};
+const PL={Athlone:[53.423,-7.940],Roscommon:[53.634,-8.182],Ballinasloe:[53.328,-8.229],Tiaquin:[53.37,-8.62],Abbeyknockmoy:[53.437,-8.745],
+ Kilconnell:[53.333,-8.400],Aughrim:[53.299,-8.316],Ahascragh:[53.398,-8.336],Fohenagh:[53.391,-8.421],'Tycooly (Ticooly)':[53.475,-8.412],Clonmacnoise:[53.326,-7.986],Knockdoe:[53.354,-8.887]};
+const SVGNS='http://www.w3.org/2000/svg';
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 document.getElementById('jsui').hidden=false;
 const map=L.map('tmap',{zoomControl:true,keyboard:true,zoomAnimation:!RM,fadeAnimation:!RM,markerZoomAnimation:!RM}).setView([53.42,-8.3],9);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:18}).addTo(map);
-// hatch pattern for claimed areas
-const svgNS='http://www.w3.org/2000/svg';
-map.whenReady(()=>{});
+let tileErrors=0;
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:18})
+ .on('tileerror',()=>{if(++tileErrors===3)document.getElementById('tilenote').hidden=false;}).addTo(map);
 const terrG=L.featureGroup().addTo(map);
-function addHatch(){const svg=map.getPanes().overlayPane.querySelector('svg');if(!svg||svg.querySelector('#hatch'))return;const d=document.createElementNS(svgNS,'defs');d.innerHTML='<pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#b07d1a" stroke-width="3"/></pattern>';svg.insertBefore(d,svg.firstChild)}
-const STY={attested:{color:'#8a5a00',weight:3,fillColor:'#d4a64a',fillOpacity:.35},interpretation:{color:'#b07d1a',weight:2,dashArray:'6 6',fillColor:'#d4a64a',fillOpacity:.2},claimed:{color:'#b07d1a',weight:2,dashArray:'2 6',fillOpacity:.5,className:'hatched'}};
+function ensureHatch(){const svg=map.getPanes().overlayPane.querySelector('svg');if(!svg||svg.querySelector('#hatch'))return;
+ const defs=document.createElementNS(SVGNS,'defs'),pat=document.createElementNS(SVGNS,'pattern'),line=document.createElementNS(SVGNS,'line');
+ [['id','hatch'],['width','8'],['height','8'],['patternUnits','userSpaceOnUse'],['patternTransform','rotate(45)']].forEach(a=>pat.setAttribute(a[0],a[1]));
+ [['x1','0'],['y1','0'],['x2','0'],['y2','8'],['stroke','#b07d1a'],['stroke-width','3']].forEach(a=>line.setAttribute(a[0],a[1]));
+ pat.appendChild(line);defs.appendChild(pat);svg.insertBefore(defs,svg.firstChild);}
+function applyHatch(){ensureHatch();terrG.eachLayer(l=>{if(l.options.hatched&&l.getElement())l.getElement().setAttribute('fill','url(#hatch)');});}
+map.on('zoomend moveend viewreset',applyHatch);
+const STY={attested:{color:'#8a5a00',weight:3,fillColor:'#d4a64a',fillOpacity:.35},interpretation:{color:'#b07d1a',weight:2,dashArray:'6 6',fillColor:'#d4a64a',fillOpacity:.2},claimed:{color:'#b07d1a',weight:2,dashArray:'2 6',fillOpacity:.5,hatched:true}};
 for(const [n,ll] of Object.entries(PL))L.circleMarker(ll,{radius:5,color:'#fff',weight:1,fillColor:'#0f7c80',fillOpacity:.95}).bindTooltip(n,{permanent:['Athlone','Roscommon','Ballinasloe','Fohenagh','Abbeyknockmoy','Tiaquin'].includes(n),direction:'right',className:'lbl'}).addTo(map);
 const odonovan=L.polygon([[53.75,-8.45],[53.75,-7.95],[53.40,-7.88],[53.05,-8.05],[52.98,-8.40],[53.20,-8.85],[53.50,-8.85]],{color:'#789',weight:1,dashArray:'2 6',fillOpacity:.04}).bindTooltip("O'Donovan 1843: a claim, not a fact · sketch, not traced");
-// poets' route, reconstructed (as told locally): west from Ballinasloe on the esker line, north at Kilconnell to Pallas
 const RT=[
- {p:[[53.328,-8.229],[53.330,-8.285],[53.331,-8.340]],n:'1. Ballinasloe west along the Eiscir Riada / old Galway road: the esker ridge was the dry road west. Turoe Stone country lies away to the south-west, on the left.'},
- {p:[[53.331,-8.340],[53.333,-8.400]],n:'2. On to Kilconnell, still on the esker line; the friary site (founded 1353) marks the turn.'},
+ {p:[[53.328,-8.229],[53.330,-8.285],[53.331,-8.340]],n:'1. Ballinasloe west along the Eiscir Riada / old Galway road. The Turoe Stone lies away to the south-west, on the left.'},
+ {p:[[53.331,-8.340],[53.333,-8.400]],n:'2. On to Kilconnell on the esker line; the friary site marks the turn.'},
  {p:[[53.333,-8.400],[53.355,-8.402],[53.3746,-8.4009]],n:'3. North from Kilconnell by the Callow Lough side towards Doon fort.'},
- {p:[[53.3746,-8.4009],[53.3875,-8.4006],[53.4067,-8.4063]],n:'4. Doon → Ballydoogan → Pallas (An Lios Mór), the court. Gallagh and Caltra lie further north, on the right.'}];
-const routeG=L.layerGroup(RT.map(s=>L.polyline(s.p,{color:'#c2410c',weight:4,dashArray:'8 6'}).bindTooltip('Poets\' route · route as told locally, reconstructed<br>'+s.n,{sticky:true})));
+ {p:[[53.3746,-8.4009],[53.3875,-8.4006],[53.4067,-8.4063]],n:'4. Doon → Ballydoogan → Pallas (An Lios Mór). Gallagh and Caltra lie further north, on the right.'}];
 const routes=L.layerGroup([
  L.polyline([[53.27,-8.80],[53.30,-8.55],[53.33,-8.40],[53.33,-8.23],[53.38,-8.05],[53.423,-7.94]],{color:'#0f7c80',weight:3,dashArray:'10 6'}).bindTooltip('Slighe Mhór (Eiscir Riada), indicative line'),
  L.polyline([[53.66,-8.22],[53.55,-8.27],[53.45,-8.25],[53.33,-8.22],[53.23,-8.10],[53.18,-8.03]],{color:'#2563eb',weight:3}).bindTooltip('River Suck (approximate)'),
  L.polyline([[53.65,-8.00],[53.50,-7.97],[53.423,-7.94],[53.326,-7.99],[53.20,-8.02]],{color:'#2563eb',weight:4}).bindTooltip('River Shannon (approximate)'),
- L.circleMarker([53.2606,-8.5547],{radius:7,color:'#7c3aed',fillOpacity:.8}).bindTooltip('Cloch an Tuair · Turoe Stone, Bullaun: Iron Age decorated stone (landmark)'),
- routeG]);
+ L.circleMarker([53.2606,-8.5547],{radius:7,color:'#7c3aed',fillOpacity:.8}).bindTooltip('Turoe Stone, Bullaun: Iron Age decorated stone (landmark)'),
+ ...RT.map(s=>L.polyline(s.p,{color:'#c2410c',weight:4,dashArray:'8 6'}).bindTooltip("Poets' route · route as told locally, reconstructed<br>"+s.n,{sticky:true}))]);
 const assembly=L.layerGroup([L.circleMarker([53.40,-8.38],{radius:7,color:'#a16207'}).bindTooltip('Tullyneeny assembly / fair site (location approximate, verify)')]);
 const learned=L.layerGroup([
- L.circleMarker([53.4067,-8.4063],{radius:7,color:'#be185d'}).bindTooltip('An Lios Mór, Pallas: court of Ó Ceallaigh and site of the 1351 feast (FitzPatrick)'),
- L.circleMarker([53.3746,-8.4009],{radius:6,color:'#be185d'}).bindTooltip('An Dún · Doon fort'),
+ L.circleMarker([53.4067,-8.4063],{radius:7,color:'#be185d'}).bindTooltip('An Lios Mór (Irish form provisional), Pallas: court of Ó Ceallaigh and site of the 1351 feast (FitzPatrick)'),
+ L.circleMarker([53.3746,-8.4009],{radius:6,color:'#be185d'}).bindTooltip('An Dún (Irish form provisional) · Doon fort'),
  L.circleMarker([53.3875,-8.4006],{radius:6,color:'#be185d'}).bindTooltip('Baile Uí Dhúgáin · Ballydoogan'),
  L.circleMarker([53.395,-8.388],{radius:6,color:'#be185d'}).bindTooltip('Baile na Banaba · Ballynabanaba: Ó Longargáin the harper (approximate position)'),
- L.circleMarker([53.4341,-8.4761],{radius:6,color:'#be185d'}).bindTooltip('Gallagh: nearby court site (north of the route)'),
+ L.circleMarker([53.4341,-8.4761],{radius:6,color:'#be185d'}).bindTooltip('Gallagh: nearby court site (north of the route; not Galey)'),
  L.circleMarker([53.434,-8.43],{radius:6,color:'#be185d'}).bindTooltip('Caltra: nearby court country (approximate)')]);
+const boundary=L.geoJSON(null,{style:{color:'#dc2626',weight:3,fillOpacity:0}});
 L.control.layers(null,{"O'Donovan 1843 claim (sketch, not traced)":odonovan,"Routes, rivers and the poets' route":routes,'Assembly sites':assembly,'Learned families and court':learned},{collapsed:window.innerWidth<600}).addTo(map);
-const sl=document.getElementById('slider'),card=document.getElementById('card'),pb=document.getElementById('play'),live=document.getElementById('live');
-let cur=-1,timer=null;
-function draw(s){terrG.clearLayers();s.polys.forEach(p=>{L.polygon(p.r,STY[p.conf]).bindTooltip('<b>'+CL[p.conf]+'</b> · approximate<br>Source: '+p.src,{sticky:true}).addTo(terrG)});addHatch();terrG.eachLayer(l=>{if(l.options.className==='hatched'&&l.getElement())l.getElement().setAttribute('fill','url(#hatch)')})}
-function go(i,announce){i=(i+S.length)%S.length;if(i===cur)return;cur=i;const s=S[i];sl.value=i;sl.setAttribute('aria-valuetext',s.y+': '+s.t);
- draw(s);RM?map.setView(s.c,s.z,{animate:false}):map.flyTo(s.c,s.z,{duration:2});
- const conf=s.polys.map(p=>CL[p.conf]).join(' + ');
- card.innerHTML='<p class="kicker">Stop '+(i+1)+' of '+S.length+' · '+s.y+'</p><h2 class="cardh"><span lang="ga">'+s.ga+'</span> · '+s.t+'</h2><p class="badges"><span class="badge '+s.k+'">'+s.k+'</span> <span class="badge">'+conf+'</span></p><p>'+s.d+'</p>'+(s.link?'<p><a href="'+s.link+'">Visit the court at Fohenagh →</a></p>':'')+'<p class="srcp"><b>Reference:</b> '+s.an+' · <b>Date:</b> '+s.y+' · <b>Evidence:</b> '+s.ev+' · <b>Status:</b> '+s.st+'</p>';
- if(announce)live.textContent='Stop '+(i+1)+': '+s.y+', '+s.t+'. '+s.k+'.';
- document.querySelectorAll('.ticks button').forEach((b,j)=>b.setAttribute('aria-current',j===i?'step':'false'))}
-const tk=document.getElementById('ticks');S.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.textContent=s.y;b.setAttribute('aria-label',s.y+': '+s.t);b.onclick=()=>{stop();go(i,true)};tk.appendChild(b)});
-sl.max=S.length-1;sl.addEventListener('input',()=>{stop();go(+sl.value,true)});
-function stop(){clearInterval(timer);timer=null;pb.textContent='▶ Play';pb.setAttribute('aria-pressed','false')}
-if(RM){pb.disabled=true;pb.textContent='Autoplay off (reduced motion)';}
-else pb.onclick=()=>{if(timer)return stop();pb.textContent='❚❚ Pause';pb.setAttribute('aria-pressed','true');timer=setInterval(()=>go(cur+1,true),7000)};
-document.addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('#tmap,input,textarea,select'))return;const k=e.key;if(k==='ArrowRight'||k==='.'){stop();go(cur+1,true)}else if(k==='ArrowLeft'||k===','){stop();go(cur-1,true)}else if(k==='Home'){stop();go(0,true)}else if(k==='End'){stop();go(S.length-1,true)}});
-document.getElementById('stoplist').hidden=true;
-go(9,false);
+fetch('data/true-boundary.geojson').then(r=>r.ok?r.json():null).then(g=>{const note=document.getElementById('boundarynote');
+ if(g&&Array.isArray(g.features)&&g.features.length){boundary.addData(g).bindTooltip('Surveyed boundary (Garry Lohan)').addTo(map);note.textContent='Surveyed boundary shown in red.';note.dataset.state='drawn';}
+ else{note.textContent='Boundary survey coming soon.';note.dataset.state='empty';}}).catch(()=>{const n=document.getElementById('boundarynote');n.textContent='Boundary survey coming soon.';n.dataset.state='empty';});
+const sl=document.getElementById('slider'),card=document.getElementById('card'),pb=document.getElementById('play'),live=document.getElementById('live'),region=document.getElementById('tsregion');
+let S=[],G={},cur=-1,timer=null;
+function draw(s){terrG.clearLayers();s.polys.forEach(p=>{L.polygon(G[p.geom],STY[p.conf]).bindTooltip('<b>'+CL[p.conf]+'</b> · approximate'+(p.geom==='WIDE'?' · not to scale':'')+'<br>Source: '+esc(p.src),{sticky:true}).addTo(terrG);});applyHatch();}
+function go(i,announce){i=(i+S.length)%S.length;if(i===cur)return;cur=i;const s=S[i];sl.value=i;sl.setAttribute('aria-valuetext',s.date+': '+s.title);
+ draw(s);RM?map.setView(s.centre,s.zoom,{animate:false}):map.flyTo(s.centre,s.zoom,{duration:2});
+ card.innerHTML='<p class="kicker">Stop '+(i+1)+' of '+S.length+' · '+esc(s.date)+'</p><h2 class="cardh"><span lang="ga">'+esc(s.ga)+'</span> · '+esc(s.title)+'</h2><p class="badges"><span class="badge '+s.kind+'">'+esc(s.kind)+'</span> <span class="badge">'+s.polys.map(p=>CL[p.conf]).join(' + ')+'</span></p><p>'+esc(s.claim)+'</p>'+(s.link?'<p><a href="'+s.link+'">Visit the court at Fohenagh →</a></p>':'')+
+  '<p class="srcp" data-claim="'+s.id+'"><b>Reference:</b> '+esc(s.reference)+' · <b>Date:</b> '+esc(s.date)+' · <b>Evidence:</b> '+esc(s.evidence)+' · <b>Status:</b> <span class="status">'+esc(s.status)+'</span></p>';
+ if(announce)live.textContent='Stop '+(i+1)+': '+s.date+', '+s.title+'. '+s.kind+'.';
+ document.querySelectorAll('.ticks button').forEach((b,j)=>b.setAttribute('aria-current',j===i?'step':'false'));}
+function stop(){clearInterval(timer);timer=null;if(RM)return;pb.textContent='▶ Play';pb.setAttribute('aria-pressed','false');}
+// Shortcuts are scoped to the slider region (WCAG 2.1.4): only active while focus is inside it.
+region.addEventListener('keydown',e=>{if(e.target===sl&&['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;let n=null;
+ if(e.key==='.'||e.key==='ArrowRight')n=cur+1;else if(e.key===','||e.key==='ArrowLeft')n=cur-1;else if(e.key==='Home')n=0;else if(e.key==='End')n=S.length-1;
+ if(n!==null){e.preventDefault();stop();go(n,true);}});
+Promise.all([fetch('data/claims.json').then(r=>r.json()),fetch('data/eras.json').then(r=>r.json())]).then(([c,g])=>{S=c.claims;G=g;
+ const tk=document.getElementById('ticks');S.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.textContent=s.date;b.setAttribute('aria-label',s.date+': '+s.title);b.onclick=()=>{stop();go(i,true);};tk.appendChild(b);});
+ sl.max=S.length-1;sl.addEventListener('input',()=>{stop();go(+sl.value,true);});
+ if(RM){pb.disabled=true;pb.textContent='Autoplay off (reduced motion)';}
+ else pb.onclick=()=>{if(timer)return stop();pb.textContent='❚❚ Pause';pb.setAttribute('aria-pressed','true');timer=setInterval(()=>go(cur+1,true),7000);};
+ document.getElementById('stoplist').hidden=true;go(S.findIndex(s=>s.date==='c. 1400'),false);});
 })();

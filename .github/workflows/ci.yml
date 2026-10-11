@@ -1,0 +1,31 @@
+name: site-checks
+on:
+  push:
+    branches: [main, v2-timeslider]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - uses: actions/setup-node@v4
+        with: {node-version: '20'}
+      - name: Install Playwright and axe-core
+        run: |
+          pip install playwright==1.63.0
+          python -m playwright install --with-deps chromium
+          npm install --no-save axe-core@4.10.2
+      - name: Rebuild generated files and check they are committed
+        run: |
+          python3 tools/build.py
+          git diff --exit-code -- timeslider.html generated/ || (echo "Run tools/build.py and commit" && exit 1)
+      - name: Serve and test (axe, link check, no 404s, theme, claims agreement)
+        run: |
+          python3 -m http.server 8799 >/dev/null 2>&1 &
+          sleep 2
+          BASE=http://localhost:8799/ AXE=node_modules/axe-core/axe.min.js python3 tests/run_tests.py
