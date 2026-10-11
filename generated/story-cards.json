@@ -88,12 +88,12 @@
   "date": "1351",
   "title": "The great Christmas feast",
   "ga": "Nollaig na nÉigeas",
-  "claim": "Uilliam Buide Ó Ceallaigh welcomes the poets, judges, historians and musicians of Ireland for Christmas at his court at Pallas, and Gofraidh Fionn Ó Dálaigh praises it in verse.",
+  "claim": "Uilliam Buide Ó Ceallaigh welcomes the poets, judges, historians and musicians of Ireland for Christmas. The feast is held at An Dún, Doon Fort, a hall of stone and timber raised for the occasion above Loch na nÉigeas, in the court landscape around the pailís at Lios Mór, Pallas. Gofraidh Fionn Ó Dálaigh praises it in verse.",
   "kind": "recorded",
   "evidence": "contemporary record",
-  "reference": "Poem: Knott, Ériu 5 (1911) 50–69; Bardic Poetry Database poem 932. Lios Mór at Pallas = the Ó Ceallaigh pailís: FitzPatrick, Landscapes of the Learned pp. 147–149. Feast held at Pallas: this site's reading, awaiting FitzPatrick p. 148",
-  "pinned": "Ériu 5 pp. 50–69 (poem); FitzPatrick pp. 147–149 (Pallas = pailís); feast site awaiting p. 148",
-  "status": "partly pinned"
+  "reference": "FitzPatrick, Landscapes of the Learned, pp. 147–149 (feast site identified as Doon Fort, Doon Upper; pailís at Lios Mór, Pallas); poem: Knott, Ériu 5 (1911) 50–69, esp. 60–61; Bardic Poetry Database poem 932",
+  "pinned": "FitzPatrick pp. 147–149; Knott, Ériu 5, pp. 50–69 (60–61)",
+  "status": "pinned"
  },
  {
   "id": "UM-C09",
