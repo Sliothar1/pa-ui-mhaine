@@ -51,3 +51,9 @@ Recorded below by the check, after it was run.
   verification-table.md, sources.html and timeslider.html, as it should.
 - CI (site-checks) green on the branch and after merge: pa-core 31 unit tests, rebuild-no-diff,
   pa-d4m validate, diff guard, html-validate, 19/19 site tests.
+
+### Run 11 Oct 2026, 18:30 IST: pa-core v0.1.0 → v0.2.0 bump, `python3 tools/parity_check.py main` on branch review-2026-10-11 (bump commit only, before any content change) vs main (9414014)
+- Draft mode: 36 published files compared (35 from the pa-core migration run plus croi.html, added since), 36 byte-identical, 0 different.
+- Live mode (PA_LIVE=1): 36/36 byte-identical, 0 different.
+- Changed on purpose, not compared: vendor/pa-core/**, CI pin, build.py comment, data/README.md, data/d4m/A_prov.tsv (`prov|code_sha` now `pa-core-0.2.0+…`).
+- **PARITY HOLDS.** Content changes on this branch come in later, separate commits.
