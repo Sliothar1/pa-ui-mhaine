@@ -1,7 +1,7 @@
 name: site-checks
 on:
   push:
-    branches: [main, v2-timeslider]
+    branches: [main, v2-timeslider, pa-core]
   pull_request:
 permissions:
   contents: read
@@ -14,6 +14,7 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - uses: actions/setup-node@v4
@@ -23,10 +24,21 @@ jobs:
           pip install playwright==1.63.0
           python -m playwright install --with-deps chromium
           npm install --no-save axe-core@4.10.2 html-validate@9.7.1
+      - name: pa-core pinned and its unit tests pass (vendored v0.1.0)
+        run: |
+          python3 -c "import sys; sys.path.insert(0,'vendor/pa-core'); import pa_core; assert pa_core.__version__=='0.1.0', pa_core.__version__"
+          (cd vendor/pa-core && python3 -m unittest discover -s tests)
       - name: Rebuild generated files; fail if anything changed
         run: |
           python3 tools/build.py
           git diff --exit-code || (echo "::error::Run tools/build.py and commit the result" && exit 1)
+      - name: pa-d4m validate (schema, provenance, status vocabulary, visibility, TSVs reproduce the JSON)
+        run: python3 vendor/pa-core/pa_d4m.py validate data/d4m --schema data/d4m/schema.json --roundtrip data/d4m/adapter.json
+      - name: pa-d4m diff guard (fail on a >10% row drop per type vs the base)
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then BASE=origin/${{ github.base_ref }}; else BASE=${{ github.event.before }}; fi
+          if ! git cat-file -e "$BASE^{commit}" 2>/dev/null; then BASE=HEAD~1; fi
+          python3 vendor/pa-core/pa_d4m.py diff "git:$BASE" data/d4m --max-drop 10
       - name: HTML validation
         run: npx html-validate "*.html" "scenes/*.html"
       - name: Serve and test (axe, links, anchors, no 404s, theme, claims agreement, focus contrast)

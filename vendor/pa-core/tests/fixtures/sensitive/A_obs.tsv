@@ -1,0 +1,8 @@
+find:F1	note	shell found
+find:F1	consent	parent
+find:F1	age_band	u16
+find:F1	visibility|public	1
+find:F2	note	SECRET-RESTRICTED-NOTE
+find:F2	visibility|restricted	1
+person:P1	email	someone@example.com
+person:P1	visibility|public	1

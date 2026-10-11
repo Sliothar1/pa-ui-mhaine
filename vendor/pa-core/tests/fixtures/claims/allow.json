@@ -1,0 +1,1 @@
+{"types": {"claim": ["id", "date", "title", "status"], "era": "*", "court": "*"}, "include_prov": true}

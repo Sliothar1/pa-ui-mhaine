@@ -1,0 +1,34 @@
+# Parity definition for the pa-core migration (written before any comparison was run)
+
+Date: 11 Oct 2026. Scope: branch `pa-core` (pa-core v0.1.0 vendored at `vendor/pa-core`) versus `main`
+at the commit the branch was cut from (`7a2ef65`). This is a pure data-representation refactor:
+no claim, place, era, reference, status or wording changes.
+
+## What "parity" means
+Run `tools/build.py` on a clean checkout of each side, in both publishing modes
+(draft: `PA_LIVE` unset; live: `PA_LIVE=1`). Then, for every file that the build writes or
+rewrites, and for every file tracked on main:
+
+1. **JSON outputs** (`generated/story-cards.json`, `generated/era-polygons.geojson`, and any other
+   `*.json` / `*.geojson` tracked on main): equal after canonicalisation, i.e.
+   `json.dumps(json.load(f), ensure_ascii=False, sort_keys=True, separators=(",", ":"))` is the
+   same string on both sides. Key order and whitespace are not part of parity; values, types,
+   list order and nulls are.
+2. **HTML** (`*.html`, `scenes/*.html`): byte-identical.
+3. **Everything else tracked on main** (`generated/verification-table.md`, data, JS, CSS, sitemap,
+   robots): byte-identical.
+4. Files that exist only on the branch (`data/d4m/*`, `vendor/pa-core/**`, `docs/PARITY.md`,
+   `tools/parity_check.py`, CI changes) are listed but are not part of parity.
+
+`tests/results.json` is excluded: it is a test-run log, rewritten by every test run.
+
+Parity holds only if 1–3 hold in both modes with zero differences. Any difference blocks the merge.
+In practice the comparison is stricter than required: JSON outputs are also compared byte for byte
+and the result says which level they matched at.
+
+## How to run
+`python3 tools/parity_check.py main` (creates two temporary worktrees, builds both, compares,
+exits 1 on any difference).
+
+## Result
+Recorded below by the check, after it was run.

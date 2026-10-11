@@ -1,0 +1,12 @@
+{
+ "_note": "fixture ledger",
+ "area_km2": 1706,
+ "status_values": {"pinned": "entry cited", "needs source": "nothing pinned", "annal identified, entry not pinned": "year known"},
+ "claims": [
+  {"id": "FX-C02", "date": "1014", "title": "Tab\there | pipe \\ back\nnewline", "pinned": "AI1014.2", "status": "pinned", "centre": [53.36, -8.33], "zoom": 9, "code": "007", "link": null, "polys": [{"geom": "MID", "conf": "claimed"}]},
+  {"id": "FX-C01", "date": "c. 500", "title": "Literal \\N is not null", "pinned": null, "status": "annal identified, entry not pinned", "centre": [53.0, -8.0], "zoom": 8, "code": "010", "link": null, "polys": []}
+ ],
+ "places": [
+  {"id": "FX-P01", "name": "A place", "reference": "Book p. 1", "status": "pinned · private land, view from road"}
+ ]
+}

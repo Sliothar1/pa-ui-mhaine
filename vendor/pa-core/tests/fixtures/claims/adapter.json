@@ -1,0 +1,11 @@
+{
+ "adapter": "json-claims",
+ "sources": [
+  {"file": "claims.json", "assoc": "A_claim",
+   "lists": [{"key": "claims", "type": "claim", "id_key": "id", "source_key": "title", "status_key": "status", "pinned_key": "pinned"},
+             {"key": "places", "type": "court", "id_key": "id", "source_key": "reference", "status_key": "status"}],
+   "vocabulary": {"key": "status_values", "type": "status"},
+   "scalars": {"type": "ledger", "id": "claims"}},
+  {"file": "eras.json", "assoc": "A_era", "mapping": {"type": "era", "value_col": "ring", "source": "eras.json (sketch)", "status": "interpretation"}}
+ ]
+}

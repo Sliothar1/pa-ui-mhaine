@@ -1,0 +1,260 @@
+claim:UM-C01	centre	[53.36,-8.33]
+claim:UM-C01	claim	The kingdom's own story tells of Máine Mór leading his people west to settle beyond the Shannon, and of a victory at Claenloch that secured the land. This is told as tradition, not record.
+claim:UM-C01	date	c. 500
+claim:UM-C01	evidence	local tradition
+claim:UM-C01	ga	Teacht Mháine Mhóir
+claim:UM-C01	id	UM-C01
+claim:UM-C01	kind	tradition
+claim:UM-C01	link	\N
+claim:UM-C01	meta|order	0
+claim:UM-C01	pinned	\N
+claim:UM-C01	polys	[{"conf":"claimed","geom":"MID","src":"Family origin tradition (Curley; O'Donovan 1843)"}]
+claim:UM-C01	reference	Origin tradition (Curley; O'Donovan 1843). Claenloch 538 per later tradition
+claim:UM-C01	status	tradition
+claim:UM-C01	title	Máine Mór comes west
+claim:UM-C01	visibility|public	1
+claim:UM-C01	zoom	9
+claim:UM-C02	centre	[53.38,-8.3]
+claim:UM-C02	claim	Several branches of the dynasty share and contest the kingship, and the kingdom takes shape across the Suck valley.
+claim:UM-C02	date	c. 800
+claim:UM-C02	evidence	later source
+claim:UM-C02	ga	Na craobhacha ríoga
+claim:UM-C02	id	UM-C02
+claim:UM-C02	kind	recorded
+claim:UM-C02	link	\N
+claim:UM-C02	meta|order	1
+claim:UM-C02	pinned	\N
+claim:UM-C02	polys	[{"conf":"claimed","geom":"MID","src":"Extent sketched from Curley ch.2; no boundary recorded"}]
+claim:UM-C02	reference	King-lists for Uí Maine (Curley ch.2)
+claim:UM-C02	status	needs source
+claim:UM-C02	title	The ruling lines settle
+claim:UM-C02	visibility|public	1
+claim:UM-C02	zoom	9
+claim:UM-C03	centre	[53.38,-8.3]
+claim:UM-C03	claim	The annals record the death of Murchad son of Áed, king of Uí Maine. In this era the ruling line came to be known as Uí Chellaig, after an earlier king named Cellach.
+claim:UM-C03	date	960 (AFM) / 962 (AI)
+claim:UM-C03	evidence	contemporary record
+claim:UM-C03	ga	Bás Mhurchadha
+claim:UM-C03	id	UM-C03
+claim:UM-C03	kind	recorded
+claim:UM-C03	link	\N
+claim:UM-C03	meta|order	2
+claim:UM-C03	pinned	AI962.3 (CELT T100004)
+claim:UM-C03	polys	[{"conf":"interpretation","geom":"MID","src":"Extent: interpretation after Curley"}]
+claim:UM-C03	reference	Annals of Inisfallen AI962.3; AFM M960 (year)
+claim:UM-C03	status	pinned
+claim:UM-C03	title	Murchad, king of Uí Maine
+claim:UM-C03	visibility|public	1
+claim:UM-C03	zoom	9
+claim:UM-C04	centre	[53.36,-6.2]
+claim:UM-C04	claim	Tadg Mór Ua Cellaig fights beside Brian Bórama at Clontarf and is remembered among the fallen, a proud memory for the family.
+claim:UM-C04	date	1014
+claim:UM-C04	evidence	contemporary record
+claim:UM-C04	ga	Tadhg Mór i gCluain Tarbh
+claim:UM-C04	id	UM-C04
+claim:UM-C04	kind	recorded
+claim:UM-C04	link	\N
+claim:UM-C04	meta|order	3
+claim:UM-C04	pinned	AI1014.2 (CELT T100004)
+claim:UM-C04	polys	[{"conf":"interpretation","geom":"MID","src":"Extent: interpretation after Curley"}]
+claim:UM-C04	reference	Annals of Inisfallen AI1014.2
+claim:UM-C04	status	pinned
+claim:UM-C04	title	Tadg Mór at Clontarf
+claim:UM-C04	visibility|public	1
+claim:UM-C04	zoom	7
+claim:UM-C05	centre	[53.42,-8.05]
+claim:UM-C05	claim	The Annals of Tigernach record that Toirrdelbach Ó Conchobair, king of Connacht, had the river Suck dug out by a great muster of Connacht men, so that it flooded two marshes into lakes on its way to Lough Ree. In the same year he built bridges at Athlone and at Dún Leodha (Ballinasloe) on the Suck.
+claim:UM-C05	date	1139
+claim:UM-C05	evidence	contemporary record
+claim:UM-C05	ga	Tochailt na Suca
+claim:UM-C05	id	UM-C05
+claim:UM-C05	kind	recorded
+claim:UM-C05	link	\N
+claim:UM-C05	meta|order	4
+claim:UM-C05	pinned	T1139.4 (CELT T100002A)
+claim:UM-C05	polys	[{"conf":"interpretation","geom":"TIR","src":"Extent: interpretation after Curley"}]
+claim:UM-C05	reference	Annals of Tigernach T1139.4 (the Suck dug by Toirrdelbach); AFM M1139 (bridges at Athlone and Dún Leodha on the Suck)
+claim:UM-C05	status	pinned
+claim:UM-C05	title	The Suck is dug
+claim:UM-C05	visibility|public	1
+claim:UM-C05	zoom	9
+claim:UM-C06	centre	[53.326,-7.986]
+claim:UM-C06	claim	Conchobar Ua Ceallaigh and the people of Uí Maine build a church at Clonmacnoise, still remembered as O'Kelly's Church: a sign of the kingdom's close ties to the great monastery across the Shannon.
+claim:UM-C06	date	1167
+claim:UM-C06	evidence	contemporary record
+claim:UM-C06	ga	Teampall Uí Cheallaigh
+claim:UM-C06	id	UM-C06
+claim:UM-C06	kind	recorded
+claim:UM-C06	link	\N
+claim:UM-C06	meta|order	5
+claim:UM-C06	pinned	\N
+claim:UM-C06	polys	[{"conf":"interpretation","geom":"TIR","src":"Tír Maine heartland: interpretation after Curley"}]
+claim:UM-C06	reference	Annals of the Four Masters M1167 (church at Clonmacnoise by Conchobar Ua Ceallaigh)
+claim:UM-C06	status	annal identified, entry not pinned
+claim:UM-C06	title	A church at Clonmacnoise
+claim:UM-C06	visibility|public	1
+claim:UM-C06	zoom	11
+claim:UM-C07	centre	[53.3,-8.6]
+claim:UM-C07	claim	On 10 August 1316 Tadg Ó Ceallaigh, king of Uí Maine, falls at Athenry with many of his kin. The annals remember him as the man the Gaels hoped most from in his time. The lordship regroups around its core.
+claim:UM-C07	date	1316
+claim:UM-C07	evidence	contemporary record
+claim:UM-C07	ga	Tadhg ag Baile Átha an Rí
+claim:UM-C07	id	UM-C07
+claim:UM-C07	kind	recorded
+claim:UM-C07	link	\N
+claim:UM-C07	meta|order	6
+claim:UM-C07	pinned	\N
+claim:UM-C07	polys	[{"conf":"attested","geom":"CORE","src":"Core around Kilconnell and Fohenagh: named sites and annal places"}]
+claim:UM-C07	reference	Annals of the Four Masters M1316; Annals of Connacht 1316
+claim:UM-C07	status	annal identified, entry not pinned
+claim:UM-C07	title	Tadg at Athenry
+claim:UM-C07	visibility|public	1
+claim:UM-C07	zoom	9
+claim:UM-C08	alternatives	["Galey and Castle Blakeney proposed; FitzPatrick favours Doon"]
+claim:UM-C08	basis	FitzPatrick, Landscapes of the Learned (2023), pp. 147–149
+claim:UM-C08	centre	[53.3746,-8.4009]
+claim:UM-C08	claim	Uilliam Buide Ó Ceallaigh welcomes the poets, judges, historians and musicians of Ireland for Christmas. The feast is held at An Dún, Doon Fort, a hall of stone and timber raised for the occasion above Loch na nÉigeas, in the court landscape around the pailís at Lios Mór, Pallas. Gofraidh Fionn Ó Dálaigh praises it in verse.
+claim:UM-C08	confidence	scholarly identification (FitzPatrick 2016 field survey, published 2023)
+claim:UM-C08	date	1351
+claim:UM-C08	evidence	contemporary record (poem); scholarly interpretation (location)
+claim:UM-C08	ga	Nollaig na nÉigeas
+claim:UM-C08	id	UM-C08
+claim:UM-C08	kind	recorded
+claim:UM-C08	link	cuirt-fothnach.html
+claim:UM-C08	meta|order	7
+claim:UM-C08	parts	[{"claim":"Lios Mór at Pallas is the Ó Ceallaigh pailís","reference":"FitzPatrick pp. 147–149","status":"pinned"},{"claim":"The 1351 feast dún is Doon Fort (An Dún), Doon Upper, above Loch na nÉigeas (Boggaun Lough)","reference":"FitzPatrick pp. 147–149 (2016 survey); Knott, Ériu 5, 60–61","status":"pinned"},{"claim":"A castle of Tadhg Ó Ceallaigh at Doon in 1574","reference":"Nolan, as cited by FitzPatrick","status":"pinned (secondary)"}]
+claim:UM-C08	pinned	FitzPatrick pp. 147–149; Knott, Ériu 5, pp. 50–69 (60–61)
+claim:UM-C08	polys	[{"conf":"attested","geom":"CORE","src":"Core: Pallas court (FitzPatrick) and nearby sites"}]
+claim:UM-C08	reference	FitzPatrick, Landscapes of the Learned (2023), pp. 147–149 (feast site identified as Doon Fort, Doon Upper, in her 2016 field survey; pailís at Lios Mór, Pallas); poem: Knott, Ériu 5 (1911) 50–69, esp. 60–61; Bardic Poetry Database poem 932
+claim:UM-C08	status	pinned
+claim:UM-C08	title	The great Christmas feast
+claim:UM-C08	visibility|public	1
+claim:UM-C08	zoom	12
+claim:UM-C09	centre	[53.333,-8.4]
+claim:UM-C09	claim	Uilliam founds a Franciscan friary at Kilconnell, a stone centre of learning and prayer at the heart of the lordship.
+claim:UM-C09	date	1353
+claim:UM-C09	evidence	contemporary record
+claim:UM-C09	ga	Mainistir Chill Chonaill
+claim:UM-C09	id	UM-C09
+claim:UM-C09	kind	recorded
+claim:UM-C09	link	\N
+claim:UM-C09	meta|order	8
+claim:UM-C09	pinned	M1353.7 (CELT T100005C)
+claim:UM-C09	polys	[{"conf":"attested","geom":"CORE","src":"Core: Kilconnell Friary and the Pallas court"}]
+claim:UM-C09	reference	Annals of the Four Masters M1353.7
+claim:UM-C09	status	pinned
+claim:UM-C09	title	Kilconnell Friary
+claim:UM-C09	visibility|public	1
+claim:UM-C09	zoom	11
+claim:UM-C10	centre	[53.43,-8.3]
+claim:UM-C10	claim	Around 1380 to 1420 the lordship is at its broadest, from Athlone and Roscommon to Abbeyknockmoy and Tiaquin, with Ballinasloe and Tycooly (Ticooly) inside it. The solid core is well attested; the hatched outer band is the claimed reach.
+claim:UM-C10	date	c. 1400
+claim:UM-C10	evidence	later source
+claim:UM-C10	ga	Uí Mhaine ina buaic
+claim:UM-C10	id	UM-C10
+claim:UM-C10	kind	recorded
+claim:UM-C10	link	\N
+claim:UM-C10	meta|order	9
+claim:UM-C10	pinned	\N
+claim:UM-C10	polys	[{"conf":"claimed","geom":"WIDE","src":"Claimed / outer band: Curley's widest extent c. 1380–1420 (about six baronies, c. 1,706 km²)"},{"conf":"attested","geom":"CORE","src":"Core: Kilconnell, Aughrim, Ahascragh, Fohenagh"}]
+claim:UM-C10	reference	Curley 2022, PhD thesis (widest extent c. 1380–1420; c. 1,706 km²)
+claim:UM-C10	status	needs source
+claim:UM-C10	title	Widest extent
+claim:UM-C10	visibility|public	1
+claim:UM-C10	zoom	9
+claim:UM-C11	centre	[53.378,-8.896]
+claim:UM-C11	claim	A great battle near Knockdoe draws in lords from across Connacht and beyond, with Ó Ceallaigh at its heart.
+claim:UM-C11	date	1504
+claim:UM-C11	evidence	contemporary record
+claim:UM-C11	ga	Cnoc Tuagh
+claim:UM-C11	id	UM-C11
+claim:UM-C11	kind	recorded
+claim:UM-C11	link	\N
+claim:UM-C11	meta|order	10
+claim:UM-C11	pinned	M1504.13–14 (CELT T100005E)
+claim:UM-C11	polys	[{"conf":"interpretation","geom":"LATE","src":"Extent: interpretation after Curley"}]
+claim:UM-C11	reference	Annals of the Four Masters M1504.13–14
+claim:UM-C11	status	pinned
+claim:UM-C11	title	Knockdoe
+claim:UM-C11	visibility|public	1
+claim:UM-C11	zoom	11
+claim:UM-C12	centre	[53.36,-8.38]
+claim:UM-C12	claim	The lordship of Uí Mhaine ended with the Tudor changes of the late 1500s and the land settlements of the early 1600s. Its names, townlands, poems and stones remain, and that is what this site celebrates.
+claim:UM-C12	date	1590s–1600s
+claim:UM-C12	evidence	later source
+claim:UM-C12	ga	Deireadh ré
+claim:UM-C12	id	UM-C12
+claim:UM-C12	kind	recorded
+claim:UM-C12	link	\N
+claim:UM-C12	meta|order	11
+claim:UM-C12	pinned	\N
+claim:UM-C12	polys	[{"conf":"attested","geom":"CORE","src":"Core townlands and sites that remain"}]
+claim:UM-C12	reference	Curley 2022, PhD thesis (closing period)
+claim:UM-C12	status	needs source
+claim:UM-C12	title	The lordship ends
+claim:UM-C12	visibility|public	1
+claim:UM-C12	zoom	10
+court:UM-P01	date	14th c.
+court:UM-P01	evidence	scholarly identification
+court:UM-P01	id	UM-P01
+court:UM-P01	meta|order	0
+court:UM-P01	name	An Lios Mór, Pallas
+court:UM-P01	reference	FitzPatrick, Landscapes of the Learned (2023), pp. 147–149
+court:UM-P01	status	pinned · private land, no public access; view from the public road
+court:UM-P01	visibility|public	1
+court:UM-P02	date	1351 (feast); castle 1574
+court:UM-P02	evidence	scholarly identification
+court:UM-P02	id	UM-P02
+court:UM-P02	meta|order	1
+court:UM-P02	name	An Dún, Doon Fort (Doon Upper)
+court:UM-P02	reference	FitzPatrick, Landscapes of the Learned (2023), pp. 147–149
+court:UM-P02	status	pinned: 1351 feast site · private land, no public access; view from the public road
+court:UM-P02	visibility|public	1
+court:UM-P03	date	townland names
+court:UM-P03	evidence	later source (scholarly study)
+court:UM-P03	id	UM-P03
+court:UM-P03	meta|order	2
+court:UM-P03	name	Baile Uí Dhúgáin, Ballydoogan
+court:UM-P03	reference	FitzPatrick, Landscapes of the Learned (2023), pp. 147–149
+court:UM-P03	status	pinned
+court:UM-P03	visibility|public	1
+court:UM-P04	date	c. 1400 (Lecan)
+court:UM-P04	evidence	contemporary record (as cited)
+court:UM-P04	id	UM-P04
+court:UM-P04	meta|order	3
+court:UM-P04	name	Baile na Banaba, Ballynabanaba
+court:UM-P04	reference	Book of Lecan, via FitzPatrick
+court:UM-P04	status	Irish form checked: Baile na Banaba; coordinates approximate · private land, no public access; view from the public road
+court:UM-P04	visibility|public	1
+court:UM-P05	date	—
+court:UM-P05	evidence	later source (scholarly study)
+court:UM-P05	id	UM-P05
+court:UM-P05	meta|order	4
+court:UM-P05	name	Loch na nÉigeas (Boggaun Lough)
+court:UM-P05	reference	FitzPatrick, Landscapes of the Learned (2023), pp. 147–149; Knott, Ériu 5, 60–61
+court:UM-P05	status	identified (south-west of Doon Fort); map position approximate
+court:UM-P05	visibility|public	1
+ledger:claims	_note	Single source of truth for the time-map claims. Edit here, then run: python3 tools/build.py
+ledger:claims	curley_area_km2	1706
+ledger:claims	meta|order	0
+ledger:claims	visibility|public	1
+status:annal-identified-entry-not-pinned	description	annal and year identified; entry number not pinned
+status:annal-identified-entry-not-pinned	meta|order	4
+status:annal-identified-entry-not-pinned	name	annal identified, entry not pinned
+status:annal-identified-entry-not-pinned	visibility|public	1
+status:needs-source	description	no page or annal pinned
+status:needs-source	meta|order	2
+status:needs-source	name	needs source
+status:needs-source	visibility|public	1
+status:partly-pinned	description	some parts pinned, others not
+status:partly-pinned	meta|order	1
+status:partly-pinned	name	partly pinned
+status:partly-pinned	visibility|public	1
+status:pinned	description	annal entry number or page cited
+status:pinned	meta|order	0
+status:pinned	name	pinned
+status:pinned	visibility|public	1
+status:tradition	description	told as tradition; not verifiable
+status:tradition	meta|order	3
+status:tradition	name	tradition
+status:tradition	visibility|public	1
