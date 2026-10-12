@@ -136,7 +136,7 @@ with sync_playwright() as p:
     fc[theme]=res;c.close()
   rec('T16','focus outline contrast >=3:1 in light and dark (content, nav link, banner link, hero link if any)',all(v>=3 for t in fc.values() for v in t.values() if isinstance(v,float)),fc)
   # T17 draft indexing: noindex on every page and no canonical while LIVE=False
-  live=os.environ.get('PA_LIVE')=='1'
+  live=os.environ.get('PA_LIVE','1')!='0'
   badidx=[]
   for pg_ in PAGES:
     h=open(ROOT+'/'+pg_,encoding='utf-8').read()

@@ -5,7 +5,7 @@ import json,re,glob,html,os,math,sys
 
 # Publishing switch. False while the site is a draft: every page keeps noindex and has NO canonical link.
 # Set True at launch: drops noindex and adds <link rel="canonical"> + og:url pointing at GitHub Pages.
-LIVE=os.environ.get('PA_LIVE')=='1'  # default False (draft)
+LIVE=os.environ.get('PA_LIVE','1')!='0'  # default True (live since 12 Oct 2026); PA_LIVE=0 for a draft build
 PAGES_BASE="https://sliothar1.github.io/pa-ui-mhaine/"
 os.chdir(os.path.dirname(os.path.abspath(__file__))+'/..')
 U=dict(encoding='utf-8')
@@ -119,7 +119,7 @@ assert '<!--PLACES-->' in sp,'PLACES marker missing in sources.html'
 sp=re.sub(r'<!--PLACES-->.*?<!--/PLACES-->',lambda m:'<!--PLACES--><ul class="claimrefs">'+pl+'</ul><!--/PLACES-->',sp,flags=re.S)
 wr('sources.html',sp)
 # shared PA family strip + footer (same on every page; see PA BRAND.md)
-FAMILY=[('PA Marine','https://sliothar1.github.io/PA-Marine-Demo/'),('PA Réalt','https://sliothar1.github.io/pa-realt/'),('HurlingWiki','https://hurlingwiki.vercel.app'),('PA Uí Mhaine',None)]
+FAMILY=[('PA Marine','https://sliothar1.github.io/PA-Marine-Demo/'),('PA Réalt','https://sliothar1.github.io/pa-realt/'),('PA Iomáint · HurlingWiki','https://hurlingwiki.vercel.app'),('PA Uí Mhaine',None)]
 def footer(p):
   chips=''.join((f'<li><span class="pachip here" aria-current="page"><span class="pamark" aria-hidden="true">PA</span>{n} <small>you are here</small></span></li>' if u is None else f'<li><a class="pachip" href="{u}"><span class="pamark" aria-hidden="true">PA</span>{n}</a></li>') for n,u in FAMILY)
   return ('<footer class="foot credit"><nav id="paFamily" aria-label="The PA family"><span class="ga" lang="ga">Teaghlach PA</span> <ul>'+chips+'</ul></nav>'
