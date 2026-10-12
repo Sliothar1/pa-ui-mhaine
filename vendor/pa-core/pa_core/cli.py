@@ -1,4 +1,4 @@
-"""pa-d4m: ingest | validate | export | diff | inspect.  Exit 0 = ok, 1 = check failed, 2 = usage."""
+"""pa-d4m: ingest | validate | export | diff | inspect | parity.  Exit 0 = ok, 1 = check failed, 2 = usage."""
 import argparse, json, sys
 
 from . import __version__
@@ -23,6 +23,7 @@ def main(argv=None):
     v.add_argument("data", nargs="?", default="data/d4m"); v.add_argument("--schema", required=True)
     v.add_argument("--roundtrip", metavar="ADAPTER_CONFIG", help="also check the TSVs reproduce the JSON sources")
     v.add_argument("--root", default=".")
+    v.add_argument("--edges", action="store_true", help="also check the edge-row convention (docs/EDGES.md)")
     e = sub.add_parser("export", help="default-deny export to static JSON")
     e.add_argument("data", nargs="?", default="data/d4m"); e.add_argument("--schema", required=True)
     e.add_argument("--allow", required=True); e.add_argument("--to", required=True)
@@ -32,6 +33,10 @@ def main(argv=None):
     d.add_argument("--max-drop", type=float, default=10.0); d.add_argument("--strict", action="store_true")
     n = sub.add_parser("inspect", help="show one row: columns, provenance, status, linked rows")
     n.add_argument("row"); n.add_argument("data", nargs="?", default="data/d4m"); n.add_argument("--schema", required=True)
+    p = sub.add_parser("parity", help="byte equality + schema diff + semantic hash + negative control")
+    p.add_argument("base"); p.add_argument("head"); p.add_argument("--schema")
+    p.add_argument("--json", action="store_true", help="print the report as JSON")
+    p.add_argument("--no-negative-control", action="store_true")
     a = ap.parse_args(argv)
 
     if a.cmd == "ingest":
@@ -52,6 +57,9 @@ def main(argv=None):
             cfg = _load_json(a.roundtrip)
             mod = tabular if cfg.get("adapter") == "tabular" else json_claims
             errs += mod.roundtrip_errors(cfg, schema, a.data, a.root)
+        if a.edges and not errs:
+            from .edges import edge_errors
+            errs += edge_errors(a.data, schema)
         for x in errs:
             print("ERROR " + x)
         print("valid" if not errs else "%d error(s)" % len(errs))
@@ -77,6 +85,32 @@ def main(argv=None):
         if r is None:
             print("no such row: " + a.row); return 1
         print(json.dumps(r, ensure_ascii=False, indent=1)); return 0
+    if a.cmd == "parity":
+        from .parity import compare, negative_control
+        sch = Schema.load(a.schema) if a.schema else None
+        rep = compare(a.base, a.head, sch)
+        if not a.no_negative_control:
+            ok, what = negative_control(a.base, a.head, sch)
+            rep["negative_control"] = {"ok": ok, "detail": what}
+        good = rep["pass"] and rep.get("negative_control", {"ok": True})["ok"]
+        if a.json:
+            print(json.dumps(rep, ensure_ascii=False, indent=1, sort_keys=True))
+        else:
+            b = rep["bytes"]
+            print("bytes: %s (%d files; differ %d, only-base %d, only-head %d)" % (
+                "identical" if b["equal"] else "DIFFER", b["files"], len(b["differ"]), len(b["only_base"]), len(b["only_head"])))
+            for f in (b["differ"] + b["only_base"] + b["only_head"])[:20]:
+                print("  " + f)
+            if "schema_diff" in rep:
+                print("schema diff: " + ("none" if not rep["schema_diff"] else "%d change(s)" % len(rep["schema_diff"])))
+                for l in rep["schema_diff"][:20]:
+                    print("  " + l)
+                h = rep["semantic_hash"]
+                print("semantic hash: base %s head %s %s" % (h["base"][:16], h["head"][:16], "equal" if h["base"] == h["head"] else "DIFFER"))
+            if "negative_control" in rep:
+                print("negative control: " + rep["negative_control"]["detail"])
+            print("parity gate: " + ("PASS" if good else "FAIL"))
+        return 0 if good else 1
     return 2
 
 

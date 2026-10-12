@@ -1,0 +1,1 @@
+{"types": {"player": ["name"], "club": "*", "match": "*", "role": "*", "edge": "*", "claim": "*"}, "include_prov": true}

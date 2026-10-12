@@ -1,0 +1,18 @@
+{
+ "role:member": {
+  "label": "club member (playing)",
+  "prov|code_sha": "fixture",
+  "prov|fetched_at": "2026-10-11T00:00:00Z",
+  "prov|sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "prov|source": "fixture: tests/fixtures/edges (synthetic)",
+  "prov|status": "needs source"
+ },
+ "role:right-corner-forward": {
+  "label": "right corner-forward",
+  "prov|code_sha": "fixture",
+  "prov|fetched_at": "2026-10-11T00:00:00Z",
+  "prov|sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "prov|source": "fixture: tests/fixtures/edges (synthetic)",
+  "prov|status": "needs source"
+ }
+}

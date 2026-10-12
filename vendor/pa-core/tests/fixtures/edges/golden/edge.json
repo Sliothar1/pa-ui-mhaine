@@ -1,0 +1,29 @@
+{
+ "edge:E-0001": {
+  "claim|CL-0001": 1,
+  "end": "1962",
+  "from": "player:P-0001",
+  "prov|code_sha": "fixture",
+  "prov|fetched_at": "2026-10-11T00:00:00Z",
+  "prov|sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "prov|source": "fixture: tests/fixtures/edges (synthetic)",
+  "prov|status": "interpretation",
+  "role": "member",
+  "start": "1950",
+  "to": "club:C-0001"
+ },
+ "edge:E-0002": {
+  "claim|CL-0002": 1,
+  "claim|CL-0003": 1,
+  "end": "1959-09-06",
+  "from": "player:P-0001",
+  "prov|code_sha": "fixture",
+  "prov|fetched_at": "2026-10-11T00:00:00Z",
+  "prov|sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "prov|source": "fixture: tests/fixtures/edges (synthetic)",
+  "prov|status": "interpretation",
+  "role": "right-corner-forward",
+  "start": "1959-09-06",
+  "to": "match:M-1959-0001"
+ }
+}

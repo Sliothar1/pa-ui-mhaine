@@ -18,3 +18,7 @@ jobs:
         run: python3 -m unittest discover -s tests -v
       - name: CLI smoke
         run: python3 pa_d4m.py --version
+      - name: Edge fixture + parity smoke (negative control must fail)
+        run: |
+          python3 pa_d4m.py validate tests/fixtures/edges --schema tests/fixtures/edges/schema.json --edges
+          python3 pa_d4m.py parity tests/fixtures/edges/golden tests/fixtures/edges/golden

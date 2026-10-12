@@ -24,9 +24,9 @@ jobs:
           pip install playwright==1.63.0
           python -m playwright install --with-deps chromium
           npm install --no-save axe-core@4.10.2 html-validate@9.7.1
-      - name: pa-core pinned and its unit tests pass (vendored v0.2.0)
+      - name: pa-core pinned and its unit tests pass (vendored v0.3.0)
         run: |
-          python3 -c "import sys; sys.path.insert(0,'vendor/pa-core'); import pa_core; assert pa_core.__version__=='0.2.0', pa_core.__version__"
+          python3 -c "import sys; sys.path.insert(0,'vendor/pa-core'); import pa_core; assert pa_core.__version__=='0.3.0', pa_core.__version__"
           (cd vendor/pa-core && python3 -m unittest discover -s tests)
       - name: Rebuild generated files; fail if anything changed
         run: |

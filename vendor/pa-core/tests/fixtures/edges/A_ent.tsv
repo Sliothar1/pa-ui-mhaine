@@ -1,0 +1,16 @@
+club:C-0001	name	Sample Club GAA
+club:C-0001	visibility|public	1
+club:C-0002	name	Other Club GAA
+club:C-0002	visibility|public	1
+match:M-1959-0001	away	club:C-0002
+match:M-1959-0001	competition	Sample County SHC final
+match:M-1959-0001	date	1959-09-06
+match:M-1959-0001	home	club:C-0001
+match:M-1959-0001	visibility|public	1
+player:P-0001	deceased	true
+player:P-0001	name	Sample Player
+player:P-0001	visibility|public	1
+role:member	label	club member (playing)
+role:member	visibility|public	1
+role:right-corner-forward	label	right corner-forward
+role:right-corner-forward	visibility|public	1

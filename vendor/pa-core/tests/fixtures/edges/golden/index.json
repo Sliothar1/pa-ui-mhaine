@@ -1,0 +1,11 @@
+{
+ "pa_core": "0.3.0",
+ "types": {
+  "claim": 3,
+  "club": 2,
+  "edge": 2,
+  "match": 1,
+  "player": 1,
+  "role": 2
+ }
+}

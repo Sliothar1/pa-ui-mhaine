@@ -1,0 +1,55 @@
+claim:CL-0001	prov|code_sha	fixture
+claim:CL-0001	prov|fetched_at	2026-10-11T00:00:00Z
+claim:CL-0001	prov|sha256	0000000000000000000000000000000000000000000000000000000000000000
+claim:CL-0001	prov|source	Sample club history (1984), p. 41
+claim:CL-0001	prov|status	pinned
+claim:CL-0002	prov|code_sha	fixture
+claim:CL-0002	prov|fetched_at	2026-10-11T00:00:00Z
+claim:CL-0002	prov|sha256	0000000000000000000000000000000000000000000000000000000000000000
+claim:CL-0002	prov|source	Sample newspaper, 12 Sep 1959, p. 14
+claim:CL-0002	prov|status	pinned
+claim:CL-0003	prov|code_sha	fixture
+claim:CL-0003	prov|fetched_at	2026-10-11T00:00:00Z
+claim:CL-0003	prov|sha256	0000000000000000000000000000000000000000000000000000000000000000
+claim:CL-0003	prov|source	Sample newspaper, 5 Sep 1959, p. 9
+claim:CL-0003	prov|status	pinned
+club:C-0001	prov|code_sha	fixture
+club:C-0001	prov|fetched_at	2026-10-11T00:00:00Z
+club:C-0001	prov|sha256	0000000000000000000000000000000000000000000000000000000000000000
+club:C-0001	prov|source	fixture: tests/fixtures/edges (synthetic)
+club:C-0001	prov|status	needs source
+club:C-0002	prov|code_sha	fixture
+club:C-0002	prov|fetched_at	2026-10-11T00:00:00Z
+club:C-0002	prov|sha256	0000000000000000000000000000000000000000000000000000000000000000
+club:C-0002	prov|source	fixture: tests/fixtures/edges (synthetic)
+club:C-0002	prov|status	needs source
+edge:E-0001	prov|code_sha	fixture
+edge:E-0001	prov|fetched_at	2026-10-11T00:00:00Z
+edge:E-0001	prov|sha256	0000000000000000000000000000000000000000000000000000000000000000
+edge:E-0001	prov|source	fixture: tests/fixtures/edges (synthetic)
+edge:E-0001	prov|status	interpretation
+edge:E-0002	prov|code_sha	fixture
+edge:E-0002	prov|fetched_at	2026-10-11T00:00:00Z
+edge:E-0002	prov|sha256	0000000000000000000000000000000000000000000000000000000000000000
+edge:E-0002	prov|source	fixture: tests/fixtures/edges (synthetic)
+edge:E-0002	prov|status	interpretation
+match:M-1959-0001	prov|code_sha	fixture
+match:M-1959-0001	prov|fetched_at	2026-10-11T00:00:00Z
+match:M-1959-0001	prov|sha256	0000000000000000000000000000000000000000000000000000000000000000
+match:M-1959-0001	prov|source	fixture: tests/fixtures/edges (synthetic)
+match:M-1959-0001	prov|status	needs source
+player:P-0001	prov|code_sha	fixture
+player:P-0001	prov|fetched_at	2026-10-11T00:00:00Z
+player:P-0001	prov|sha256	0000000000000000000000000000000000000000000000000000000000000000
+player:P-0001	prov|source	fixture: tests/fixtures/edges (synthetic)
+player:P-0001	prov|status	needs source
+role:member	prov|code_sha	fixture
+role:member	prov|fetched_at	2026-10-11T00:00:00Z
+role:member	prov|sha256	0000000000000000000000000000000000000000000000000000000000000000
+role:member	prov|source	fixture: tests/fixtures/edges (synthetic)
+role:member	prov|status	needs source
+role:right-corner-forward	prov|code_sha	fixture
+role:right-corner-forward	prov|fetched_at	2026-10-11T00:00:00Z
+role:right-corner-forward	prov|sha256	0000000000000000000000000000000000000000000000000000000000000000
+role:right-corner-forward	prov|source	fixture: tests/fixtures/edges (synthetic)
+role:right-corner-forward	prov|status	needs source

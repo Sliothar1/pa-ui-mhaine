@@ -1,0 +1,8 @@
+{"schema_version": 1,
+ "assocs": {
+  "A_ent": {"columns": {"name": "str", "label": "str", "date": "str", "competition": "str", "home": "str", "away": "str", "deceased": "bool?"},
+            "required": {"player": ["name"], "club": ["name"], "match": ["date", "home", "away"], "role": ["label"]}},
+  "A_edge": {"columns": {"from": "str", "to": "str", "role": "str", "start": "str?", "end": "str?"},
+             "required": {"edge": ["from", "to", "role", "start", "end"]}},
+  "A_claim": {"columns": {"text": "str", "cites": "str"}, "required": {"claim": ["text", "cites"]}}
+ }}

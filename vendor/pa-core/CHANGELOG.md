@@ -1,5 +1,28 @@
 # Changelog
 
+## Unreleased
+- (nothing yet)
+
+## v0.3.0 (2026-10-11)
+- docs/CONTRACT.md: the stable interchange contract (types, escaping, keys, provenance, visibility,
+  ordering, schema_version, export permissions) and release gates.
+- docs/EDGES.md + `validate --edges`: edge-row convention (`edge:<id>` from/to/role/start/end,
+  `role:<slug>` and `match:<id>` entity rows) and per-assertion provenance via `claim|<id>`.
+  Golden fixtures in tests/fixtures/edges (sample player, club spell, match).
+- `pa-d4m parity`: byte equality, schema diff (rows/cols/types/visibility), canonical semantic
+  hash, negative control; docs/PARITY-GATE.md.
+- Migration note: schema_version stays 1; no format change, new checks are opt-in. Sites stay
+  pinned at v0.2.0 until they upgrade with a parity record.
+- Core column `meta|schema_version` (int); validation fails if a row carries a value other than
+  the schema version this pa-core reads.
+- Tests: JSON → TSV → JSON round trip, and a mutation suite (id, number, provenance-only field;
+  the provenance-only change must leave the outputs unchanged). 42 tests.
+- Docs: docs/COMPATIBILITY.md (site → pinned version, vendored-file checksums).
+
+## v0.2.1 (2026-10-11)
+- Licence only: relicensed from AGPL-3.0 to Apache-2.0 by the sole copyright holder, Dr Garry Lohan.
+  LICENSE is the unmodified Apache-2.0 text; NOTICE, README and pyproject updated. No code or data-contract change.
+
 ## v0.2.0 (2026-10-11)
 - New `tabular` adapter (CSV/TSV with header; per-id-prefix source templates; optional JSON metadata
   document; byte-exact round-trip check). First consumer: PA Réalt.
