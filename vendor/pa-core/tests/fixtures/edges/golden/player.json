@@ -1,0 +1,10 @@
+{
+ "player:P-0001": {
+  "name": "Sample Player",
+  "prov|code_sha": "fixture",
+  "prov|fetched_at": "2026-10-11T00:00:00Z",
+  "prov|sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "prov|source": "fixture: tests/fixtures/edges (synthetic)",
+  "prov|status": "needs source"
+ }
+}

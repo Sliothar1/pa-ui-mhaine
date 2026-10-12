@@ -381,7 +381,76 @@ class CLI(unittest.TestCase):
             shutil.rmtree(tmp)
 
     def test_version(self):
-        self.assertEqual(__version__, "0.2.0")
+        self.assertEqual(__version__, "0.3.0")
+
+
+class RoundTripAndMutation(unittest.TestCase):
+    """Round trip JSON -> TSV -> JSON, then a small mutation suite: data mutations must show in the
+    outputs; a provenance-only mutation must not change them."""
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp()
+        self.src = os.path.join(self.tmp, "src"); shutil.copytree(CL, self.src)
+        self.out = os.path.join(self.tmp, "d4m")
+        self.schema = Schema.load(os.path.join(CL, "schema.json"))
+        self.cfg = jl(os.path.join(CL, "adapter.json"))
+        json_claims.ingest(self.cfg, self.schema, self.out, root=self.src)
+        self.base = json_claims.reconstruct(self.cfg, self.schema, self.out)
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp)
+
+    def outputs(self):
+        return json.dumps(json_claims.reconstruct(self.cfg, self.schema, self.out), sort_keys=True, ensure_ascii=False)
+
+    def mutate_json(self, fn):
+        p = os.path.join(self.src, "claims.json"); d = jl(p); fn(d)
+        with open(p, "w", encoding="utf-8") as fh:
+            json.dump(d, fh, ensure_ascii=False)
+        json_claims.ingest(self.cfg, self.schema, self.out, root=self.src)
+
+    def test_roundtrip_identity(self):
+        self.assertEqual(json_claims.roundtrip_errors(self.cfg, self.schema, self.out, self.src), [])
+        self.assertEqual(self.base["claims.json"], jl(os.path.join(CL, "claims.json")))
+
+    def test_mutate_id(self):
+        before = self.outputs()
+        self.mutate_json(lambda d: d["claims"][0].__setitem__("id", "FX-C99"))
+        self.assertEqual(validate(self.out, self.schema), [])
+        self.assertNotEqual(self.outputs(), before)
+        self.assertIn("FX-C99", self.outputs())
+
+    def test_mutate_number(self):
+        before = self.outputs()
+        self.mutate_json(lambda d: d["claims"][0].__setitem__("zoom", 10))
+        self.assertNotEqual(self.outputs(), before)
+        self.assertEqual(json_claims.reconstruct(self.cfg, self.schema, self.out)["claims.json"]["claims"][0]["zoom"], 10)
+
+    def test_mutate_provenance_only_leaves_outputs_unchanged(self):
+        before = self.outputs()
+        p = os.path.join(self.out, "A_prov.tsv")
+        with open(p, encoding="utf-8") as fh:
+            lines = fh.read().split("\n")
+        n = 0
+        for i, ln in enumerate(lines):
+            if "\tprov|fetched_at\t" in ln:
+                lines[i] = ln.rsplit("\t", 1)[0] + "\t1999-01-01T00:00:00Z"; n += 1
+        self.assertGreater(n, 0)
+        with open(p, "w", encoding="utf-8") as fh:
+            fh.write("\n".join(lines))
+        self.assertEqual(validate(self.out, self.schema), [])
+        self.assertEqual(self.outputs(), before)
+
+    def test_meta_schema_version_row(self):
+        p = os.path.join(self.out, "A_claim.tsv")
+        with open(p, encoding="utf-8") as fh:
+            txt = fh.read()
+        row = "claim:FX-C01"
+        for v, ok in (("1", True), ("2", False)):
+            lines = sorted([ln for ln in txt.split("\n") if ln] + ["%s\tmeta|schema_version\t%s" % (row, v)])
+            with open(p, "w", encoding="utf-8") as fh:
+                fh.write("\n".join(lines) + "\n")
+            errs = validate(self.out, self.schema)
+            self.assertEqual(errs == [], ok, errs)
 
 
 if __name__ == "__main__":

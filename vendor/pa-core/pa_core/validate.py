@@ -2,6 +2,7 @@
 from .dataset import typed_load, raw_load
 from .schema import (parse_row_key, parse_col_key, SchemaError, PROV_REQUIRED, ISO_Z, SHA256)
 from .tsvio import TSVError
+from . import SCHEMA_VERSION
 
 
 def validate(directory, schema):
@@ -39,6 +40,8 @@ def validate(directory, schema):
             typ = r.split(":", 1)[0]
             data_rows.setdefault(r, []).append(a)
             vis.setdefault(r, []).extend(c for c in cols if c.startswith("visibility|"))
+            if "meta|schema_version" in cols and cols["meta|schema_version"] != SCHEMA_VERSION:
+                errs.append("%s: %s: meta|schema_version %r, this pa-core reads %d" % (a, r, cols["meta|schema_version"], SCHEMA_VERSION))
             for k in req.get(typ, []):
                 if k not in cols:
                     errs.append("%s: %s: missing required column %s" % (a, r, k))

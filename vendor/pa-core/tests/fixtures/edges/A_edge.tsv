@@ -1,0 +1,15 @@
+edge:E-0001	claim|CL-0001	1
+edge:E-0001	end	1962
+edge:E-0001	from	player:P-0001
+edge:E-0001	role	member
+edge:E-0001	start	1950
+edge:E-0001	to	club:C-0001
+edge:E-0001	visibility|public	1
+edge:E-0002	claim|CL-0002	1
+edge:E-0002	claim|CL-0003	1
+edge:E-0002	end	1959-09-06
+edge:E-0002	from	player:P-0001
+edge:E-0002	role	right-corner-forward
+edge:E-0002	start	1959-09-06
+edge:E-0002	to	match:M-1959-0001
+edge:E-0002	visibility|public	1

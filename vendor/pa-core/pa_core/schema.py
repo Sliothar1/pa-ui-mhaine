@@ -30,7 +30,7 @@ PROV_REQUIRED = ("prov|source", "prov|status", "prov|fetched_at", "prov|sha256",
 CORE_COLUMNS = {
     "prov|source": "str", "prov|status": "str", "prov|fetched_at": "str", "prov|sha256": "str",
     "prov|code_sha": "str", "prov|pinned": "str?", "prov|confidence": "str?",
-    "meta|order": "int", "meta|note": "str?",
+    "meta|order": "int", "meta|note": "str?", "meta|schema_version": "int",
     "visibility|public": "flag", "visibility|restricted": "flag",
     "sys|*": "str?", "claim|*": "flag",
 }
