@@ -57,3 +57,9 @@ Recorded below by the check, after it was run.
 - Live mode (PA_LIVE=1): 36/36 byte-identical, 0 different.
 - Changed on purpose, not compared: vendor/pa-core/**, CI pin, build.py comment, data/README.md, data/d4m/A_prov.tsv (`prov|code_sha` now `pa-core-0.2.0+…`).
 - **PARITY HOLDS.** Content changes on this branch come in later, separate commits.
+
+### Run 12 Oct 2026, 10:00 IST: PA Core v0.2.0 → v0.3.0 bump, `python3 tools/parity_check.py main HEAD` on branch cursor/bump-pa-core-v030-d1f8 (2918964) vs main (a884fca)
+- Both passes compared 36 published files, 36 byte-identical, 0 different.
+- `tools/build.py` treats an unset `PA_LIVE` as live, so the check's first pass is a live build. A separate pair of builds with `PA_LIVE=0` also compared 36 published files, 36 byte-identical. Draft pages still carry the CSP meta (no `frame-ancestors`), the draft banner, and the draft footer.
+- Changed on purpose, not compared: vendor/pa-core/**, CI pin, build.py comment, data/README.md, data/d4m/A_prov.tsv (`prov|code_sha` now `pa-core-0.3.0+516eb26dc7d1`).
+- **PARITY HOLDS.**
